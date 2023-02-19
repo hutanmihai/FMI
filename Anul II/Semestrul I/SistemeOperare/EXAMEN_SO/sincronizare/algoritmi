@@ -1,0 +1,44 @@
+hardware:
+
+	do {
+	while (compare and swap(&lock, 0, 1) != 0)
+	; /* do nothing */
+	/* critical section */
+	lock = 0;
+	/* remainder section */
+	} while (true);
+
+	si
+
+	do {
+	while (test and set(&lock))
+	; /* do nothing */
+	/* critical section */
+	lock = false;
+	/* remainder section */
+	} while (true);
+
+	- doar mutex ^^^
+
+	o {
+	waiting[i] = true;
+	key = true;
+	while (waiting[i] && key)
+	key = test and set(&lock);
+	waiting[i] = false;
+	/* critical section */
+	j = (i + 1) % n;
+	while ((j != i) && !waiting[j])
+	j = (j + 1) % n;
+	if (j == i)
+	lock = false;
+	else
+	waiting[j] = false;
+	/* remainder section */
+	} while (true);
+	boolean waiting[n];
+	boolean lock;
+	^^^ mutex, progres, timp finit
+	
+software:
+

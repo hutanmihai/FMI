@@ -1,0 +1,6 @@
+touch loop.asm
+as --32 loop.asm -o loop.o
+gcc -m32 loop.o -o loop
+./loop
+gdb loop 
+adaugam breakpointuri 

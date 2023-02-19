@@ -1,0 +1,129 @@
+rs.initiate(
+  {
+    _id: "rscfg",
+    configsvr: true,
+    members: [
+      { _id : 0, host : "192.168.0.159:50001" },
+      { _id : 1, host : "192.168.0.159:50002" },
+      { _id : 2, host : "192.168.0.159:50003" }
+    ]
+  }
+)
+
+
+rs.status()
+
+
+rs.initiate(
+  {
+    _id: "rssh1",
+    members: [
+      { _id : 0, host : "192.168.0.159:60001" },
+      { _id : 1, host : "192.168.0.159:60002" },
+      { _id : 2, host : "192.168.0.159:60003" }
+    ]
+  }
+)
+
+rs.initiate(
+  {
+    _id: "rssh2",
+    members: [
+      { _id : 0, host : "192.168.0.159:60004" },
+      { _id : 1, host : "192.168.0.159:60005" },
+      { _id : 2, host : "192.168.0.159:60006" }
+    ]
+  }
+)
+
+rs.status()
+
+sh.addShard("rssh1/192.168.0.159:60001,192.168.0.159:60002,192.168.0.159:60003")
+sh.addShard("rssh2/192.168.0.159:60004,192.168.0.159:60005,192.168.0.159:60006")
+
+
+//create database
+use sharddb
+
+//create collection
+db.createCollection("movies")
+
+
+db.movies.getShardDistribution()
+
+sh.enableSharding("sharddb")
+
+sh.shardCollection("sharddb.movies", {"title":"hashed"})
+
+db.movies2.createIndex({"title":"hashed"})
+
+
+
+//------------------------------
+show dbs
+
+show collections
+
+db.test.delete()
+
+db.test.drop()
+
+db.actors.insert({"name":"Pearl White", birth_date:"04-03-1889"})
+
+db.actors.find().pretty()
+
+db.actors.insert({"name":"Rami Malek", birth_date:"11-05-1881", "movies":["Papillon", "Bohemian Rhapsody"]})
+
+db.actors.update({"name":"Rami Malek"}, {$set: {birth_date:"12-05-1981"}})
+
+db.actors.update({"name":"Rami Malek"}, {$set: {education:"BFA"}})
+
+db.actors.update({"name":"Rami Malek"}, {$unset: {education:""}})
+
+db.movies.find({"year":2010}).pretty()
+
+db.movies.find({"year": {$gt: 2010}}).pretty() 
+
+db.movies.find({$or: [{"year": {$gt: 2010}},{"year": {$lt: 2011}}]}).pretty() 
+
+db.movies.find({$or: [{"year": {$gt: 2010}},{"year": {$lt: 2011}}]}, {"_id":0}).pretty() 
+
+db.movies.find({$or: [{"year": {$gt: 2010}},{"year": {$lt: 2011}}]}, {"title":1}).pretty() 
+
+db.createCollection("moviesCapped", {capped:true, size:100000})
+
+db.moviesCapped.count()
+
+
+db.movies.aggregate(
+  [
+    {
+      $group :
+        {
+          _id : "$year",
+          nb: { $count: {} }
+        }
+     },
+     {
+       $match: { "nb": { $gte: 20 } }
+     }
+   ]
+ )
+
+
+
+
+db.movies.aggregate(
+  [
+    {
+      $group :
+        {
+          _id : "$year",
+          nb: { $sum: 1 }
+        }
+     },
+     {
+       $match: { "nb": { $gte: 20 } }
+     }
+   ]
+ )

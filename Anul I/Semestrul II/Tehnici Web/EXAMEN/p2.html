@@ -1,0 +1,47 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="author" content="Hutan Mihai">
+    <title>P2</title>
+</head>
+<body>
+</body>
+<script>
+    window.onload = function () {
+        let culori = ['blue', 'red', 'green', 'yellow', 'orange'];
+        let N = new Date().getSeconds() % 10;
+        N++;
+        for (let i = 0; i < N; ++i) {
+            let newdiv = document.createElement('div');
+            newdiv.style.width = '50px';
+            newdiv.style.height = '50px';
+            newdiv.style.border = 'blue dotted 2px';
+            newdiv.style.backgroundColor = culori[Math.floor(Math.random() * 5)];
+            newdiv.innerText = 'Div ' + i;
+            newdiv.style.cursor = 'pointer';
+            newdiv.addEventListener('click', (e) => {
+                    newdiv.innerText += newdiv.style.backgroundColor;
+                    window.sessionStorage.setItem(i.toString(), 'clicked');
+                    event.stopPropagation();
+                }
+                //,{once:true} --- cerinta neclara, adaugam asta ca sa adauge doar o data culoarea la primul click;
+            )
+            document.body.append(newdiv);
+        }
+        document.body.addEventListener('click', (e) => {
+            let numberOfClickedDivs = 0;
+            for (let i = 0; i < N; ++i) {
+                let clicked = window.sessionStorage.getItem(i.toString());
+                if (clicked != null) numberOfClickedDivs++;
+            }
+            let newNumber = document.createElement('div');
+            newNumber.innerText = numberOfClickedDivs.toString();
+            document.body.append(newNumber);
+        })
+    }
+    window.onunload = function () {
+        sessionStorage.clear();
+    }
+</script>
+</html>

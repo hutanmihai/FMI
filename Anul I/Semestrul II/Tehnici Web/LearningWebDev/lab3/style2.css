@@ -1,0 +1,86 @@
+.divFather1{
+
+    flex-wrap: wrap;
+    margin-top: 30px;
+    margin-left: 20px;
+    margin-right: 20px;
+    display:flex;
+    justify-content: space-around;
+    flex-direction: row;
+
+}
+
+.div1{
+    
+    padding-left: 150px;
+    padding-right: 150px;
+    padding-top: 100px;
+    padding-bottom: 100px;
+    background-color: blueviolet;
+    width:25%;
+}
+
+.div2{
+    padding-left: 150px;
+    padding-right: 150px;
+    padding-top: 100px;
+    padding-bottom: 100px;
+    background-color: rgb(23, 184, 184);
+    width:25%;
+}
+
+.divFather2{
+    margin-bottom: 100px;
+    display:flex;
+    flex-direction:row;
+    justify-content: center;
+    align-items: center;
+
+}
+
+.div3{
+    background-color: rgb(233, 210, 0);
+    padding: 100px;
+    width: 100px;
+    z-index: 2
+
+}
+
+.div4{
+    background-color: rgb(248, 6, 6);
+    padding: 100px;
+    width: 100px;
+    margin-left: -80px;
+    z-index: 1;
+}
+
+.div5{
+    background-color: rgb(33, 180, 14);
+    padding: 100px;
+    width: 100px;
+    margin-left: -80px;
+    z-index:2;
+    
+}
+
+.divFather3{
+    display:flex;
+    flex-direction: row;
+    justify-content: space-evenly;
+
+}
+
+.divx{
+    background-color: rgb(241, 57, 57);
+    padding: 100px;
+    
+    width: 200px;
+}
+
+
+.div2x{
+    background-color: rgb(241, 57, 57);
+    padding: 100px;
+    
+    width: 400px;
+}

@@ -1,0 +1,7 @@
+Aplicatie UNION-FIND - Se condieră n stații între care pot exista legături. 
+Două stații conectate printr-o legatura pot comunica direct. 
+Spunem ca doua statii comunica indirect daca exista statii intermediare prin intermediul carora pot comunica.
+Cele n statii formeaza in prezent k clustere, adica k grupuri disjucte cu proprietatea ca oricare doua statii dintr-un cluster pot comunica direct sau indirect, si oricare doua statii din clustere diferite nu pot comunica. 
+Intre statii se stabilesc noi legaturi de comunicare, date prin perechi (i,j) cu semnificatia statia i comunica direct cu statia j.
+Sa se citeasca aceste perechi si dupa fiecare citire sa se afiseze numarul de clustere existente in prezent 
+(mai mult: si dimensiunea celui mai mare cluster - union by size in loc de union by rank).

@@ -1,0 +1,10 @@
+version: "3.5"
+
+services:
+
+  mongos:
+    container_name: mongos
+    image: mongo
+    command: mongos --configdb rscfg/192.168.0.159:50001,192.168.0.159:50002,192.168.0.159:50003 --bind_ip 0.0.0.0 --port 27017
+    ports:
+      - 40000:27017

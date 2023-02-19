@@ -1,0 +1,7 @@
+1) Serii, Limite inferioare/superioare
+2) Continuitate + derivabilitate/
+   Convergenta simpla si uniforma/
+   Serii de functii
+3) Extreme locale/
+   Continuitate si derivabilitate pe R^2
+4) Integrale duble

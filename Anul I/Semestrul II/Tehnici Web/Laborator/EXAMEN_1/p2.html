@@ -1,0 +1,64 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="author" content="Hutan Mihai">
+    <title>P2</title>
+
+    <style>
+        .c1 {
+            color: blue;
+        }
+
+        .c2 {
+            color: orange;
+        }
+
+        .c3 {
+            color: green;
+        }
+
+        .c4 {
+            color: yellow;
+        }
+
+        .c5 {
+            color: red;
+        }
+    </style>
+
+    <script>
+        window.onload = function () {
+            let N = new Date();
+            N = N.getMinutes();
+            if (N < 10) {
+                N = 10;
+            }
+            let multime = ["c1", "c2", "c3", "c4", "c5"];
+            for (let i = 0; i < N; ++i) {
+                let newP = document.createElement('p');
+                newP.innerText = 'Mihai';
+                newP.className = multime[Math.floor(Math.random() * 5)];
+                newP.style.cursor = 'pointer';
+                document.body.append(newP);
+                newP.addEventListener('click', (e) => {
+                    let el = document.body.getElementsByClassName(newP.className);
+                    for (let i=0;i<el.length;++i){
+                        console.log(el[i]);
+                        console.log(i);
+                        el[i].style.display = 'none';
+                    }
+                    event.stopPropagation();
+                })
+            }
+
+            document.body.addEventListener('click', (e) => {
+                alert("" + e.y);
+            })
+        }
+    </script>
+</head>
+
+<body>
+</body>
+</html>

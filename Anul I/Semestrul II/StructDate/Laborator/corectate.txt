@@ -1,0 +1,15 @@
+lab1ex1 - 100p tabla
+lab1ex2 - 100p tabla * 2
+lab3ex1 - 100p https://codeforces.com/contest/22/problem/D
+lab3ex2 - 100p https://codeforces.com/gym/101755/problem/K
+lab3ex3 - 100p https://codeforces.com/contest/847/problem/B
+lab4ex1 - 100p https://www.infoarena.ro/problema/pariuri
+lab4ex2 - 80p https://www.infoarena.ro/problema/secv5
+lab4ex3 - 100p https://www.infoarena.ro/problema/muzica
+lab4ex4 - 100p https://www.infoarena.ro/problema/progr
+lab5ex1 - 100p https://www.infoarena.ro/problema/heapuri
+lab5ex2 - 100p https://www.infoarena.ro/problema/rmq
+lab5ex3 - 100p https://www.infoarena.ro/cauta-probleme?tag_id%5b%5d=83 (CONCURS)
+lab6ex1 - 100p https://www.infoarena.ro/problema/algsort
+lab6ex2 - 100p https://www.infoarena.ro/problema/algsort
+lab6ex3 - 100p https://www.infoarena.ro/problema/radixsort

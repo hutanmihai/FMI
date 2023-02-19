@@ -1,0 +1,36 @@
+version: "3.5"
+
+services:
+  configserver1:
+    container_name: configserver1
+    image: mongo
+    command: mongod --configsvr --replSet rscfg --port 27017 --dbpath /data/db
+    ports:
+      - 50001:27017
+    volumes:
+      - vcfgsvr1:/data/db
+
+  configserver2:
+    container_name: configserver2
+    image: mongo
+    command: mongod --configsvr --replSet rscfg --port 27017 --dbpath /data/db
+    ports:
+      - 50002:27017
+    volumes:
+      - vcfgsvr2:/data/db
+
+  configserver3:
+    container_name: configserver3
+    image: mongo
+    command: mongod --configsvr --replSet rscfg --port 27017 --dbpath /data/db
+    ports:
+      - 50003:27017
+    volumes:
+      - vcfgsvr3:/data/db
+
+volumes:
+  vcfgsvr1: 
+  vcfgsvr2: 
+  vcfgsvr3: 
+
+

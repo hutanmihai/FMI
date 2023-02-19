@@ -1,0 +1,40 @@
+html{margin: 0;padding: 0; background-color: grey;}
+.Primele{display: flex; justify-content: space-between; margin-left: auto; margin-right: auto; background-color: aqua;width: 650px;}
+    .Primele  .Stanga{display:block;margin-top: 30px; margin-left: 20px;}
+    .Primele .Dreapta{display:block;margin-top: 30px; margin-right: 20px;}
+.Adoua{display: flex;position: relative; justify-content: center;margin-left: auto;margin-right: auto; background-color: aquamarine; width: 900px; margin-top: 20px; margin-bottom: 20px;} 
+    .Adoua .Stanga{display:block; z-index: 2; margin-right: -50px;}
+    .Adoua .Mijloc{display:block; z-index: 1; }
+    .Adoua .Dreapta{display:block ;z-index: 2; margin-left: -50px;}
+.Atreia{display: flex; justify-content: space-evenly; margin-left: auto; margin-right: auto; background-color: aqua;margin-left: 100px;margin-right: 100px;}  
+        
+.box{
+    height: 150px;
+    width: 300px;
+    border: 1px solid black;
+}
+.box1{
+    height: 200px;
+    width: 200px;
+    border: 1px solid black;
+}
+ .box2{
+    height: 200px;
+    width: 30%;
+    border: 1px solid black;
+ }
+ .box3{
+     height: 200px;
+     width: 15%;
+     border: 1px solid black;
+ }
+
+.yellow{
+    background-color: yellow;
+}    
+.red{
+    background-color: red;
+}
+.green{
+    background-color: green;
+}

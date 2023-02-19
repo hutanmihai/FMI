@@ -1,0 +1,21 @@
+# main config file
+# comment 1
+# comment 2
+Sigma:
+  a
+  b
+End
+States:
+  q0, S
+  q1
+  q2, F
+End
+Transitions:
+  q0, a, q0
+  q0, a, q1
+  q0, b, q2
+  q1, a, q0
+  q1, b, q1
+  q2, b, q0
+  q2, b, q1
+End

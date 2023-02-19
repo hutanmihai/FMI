@@ -1,0 +1,33 @@
+# EXEMPLE INPUTURI:
+# CORECTE:
+# 10,1100,00,110010
+# GRESITE:
+# 111, 101, 1011
+#
+# comment lines (skip them)
+#
+Sigma:
+0
+1
+End
+#
+# comment lines (skip them)
+States:
+q0, S
+q1
+q2, F
+q3
+q4
+End
+#
+# comment lines (skip them)
+#
+Transitions:
+q0, 1, q1
+q0, *, q2
+q1, 1, q0
+q2, 1, q4
+q2, 0, q3
+q3, 0, q2
+q4, 0, q2
+End

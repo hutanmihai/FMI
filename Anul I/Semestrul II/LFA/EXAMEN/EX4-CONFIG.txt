@@ -1,0 +1,75 @@
+AUTORI:
+Hutan Mihai-Alexandru - grupa 143
+Totolici Alexandru-Gabriel - grupa 143
+Stanciu Ioan Carol - grupa 143
+
+ACEST CONFIG FILE RECUNOASTE LIMBAJE DE FORMA L = { w#w | w apartine {a,b}}
+
+States:
+q0 start
+q1
+q2
+q3
+q4
+q5
+q6
+q7
+qAccept final
+qReject final
+End
+
+Sigma:
+a
+b
+#
+End
+
+Gamma:
+a
+b
+#
+x
+_
+End
+
+Transitions:
+q0 # q7 # R
+q7 x q7 x R
+q7 _ qAccept _ R
+q0 b q2 x R
+q2 a q2 a R
+q2 b q2 b R
+q2 # q4 # R
+q4 x q4 x R
+q4 b q5 x L
+q0 a q1 x R
+q1 a q1 a R
+q1 b q1 b R
+q1 # q3 # R
+q3 x q3 x R
+q3 a q5 x L
+q5 a q5 a L
+q5 b q5 b L
+q5 x q5 x L
+q5 # q6 # L
+q6 a q6 a L
+q6 b q6 b L
+q6 x q0 x R
+q4 # qReject # R
+q0 _ qReject _ R
+q1 _ qReject _ R
+q2 _ qReject _ R
+q3 _ qReject _ R
+q4 _ qReject _ R
+q5 _ qReject _ R
+q6 _ qReject _ R
+q0 x qReject x R
+q7 # qReject # R
+q7 b qReject b R
+q7 a qReject a R
+q3 b qReject b R
+q3 # qReject # R
+q4 a qReject a R
+q4 # qReject # R
+q6 # qReject # R
+End

@@ -1,0 +1,44 @@
+@media screen and (min-width: 1100px)  {
+    #parinte{
+        height: 1000px;
+        width: 1000px;
+        border: solid 2px red;
+    }
+
+    .copil {
+        width: 100px;
+        height: 100px;
+        background-color: orange;
+    }
+
+    .activ {
+        width: 100px;
+        height: 100px;
+        border: solid 1px yellow;
+    }
+
+    div.copil{
+        width: 30px;
+        height: 30px;
+    }
+
+    div.copil:hover{
+        transform: scale(2);
+        transition-duration: 2s;
+    }
+}
+
+@media screen and (max-width: 1099px) {
+    div.copil{
+        width: 100px;
+        height: 100px;
+        display: none;
+    }
+
+    #parinte{
+        width: 50%;
+        height: 500px;
+        border: none;
+        background-color: grey;
+    }
+}

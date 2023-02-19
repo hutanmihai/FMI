@@ -1,0 +1,35 @@
+Ex. 1:
+	5 procese (fara cel initial)
+
+Ex. 2:
+	7 procese (fara cel initial)
+	
+Ex. 3:
+	True (e posibil deadlock, deoarece lock-urile pentru mutex sunt incrucisate)
+	
+Ex. 4:
+	Exclusivitate mutuala si progres:
+		- exclusivitate: un singur proces se poate afla in zona critica la un moment de timp
+		- progres: daca nu e nimeni in zona critica si vrea cineva sa intre, atunci o sa intre
+		- timp finit: nu avem, daca e prost algoritmul de schedule, o sa stea pe while (test) ala si o sa astepte la infinit
+		  (pentru timp finit ar trebui sa isi ia sleep si wakeup)
+
+Ex. 5:
+	10 page faults (inclusiv cele initiale)
+
+Ex. 6:
+	b., daca vrea cineva sa clarifice de ce...
+
+Ex. 7:
+	3 timp de asteptare mediu
+	0 + 3 + 9 = 12, 12 / 4 = 3
+
+Ex. 8:
+	3 timp de asteptare mediu
+	0 + 2 + 6 + 4 = 12, 12 / 4 = 3	
+
+Ex. 9:
+	procesul copil este zombie, deoarece tatal isi ia exit(0) inainte ca fiul sa isi termine executia (datorita sleep(5))
+
+Ex. 10:
+	c. intre 1 si 2 (la mov te descurci cu o casuta in frame, iar la restul cu 2)

@@ -1,0 +1,5 @@
+lab3ex4 @TODO https://codeforces.com/problemset/problem/1044/A
+lab4ex5 @TODO https://www.infoarena.ro/problema/colectie
+lab6ex4 @TODO https://infoarena.ro/problema/huffman
+lab6ex5 @TODO https://www.infoarena.ro/problema/roata
+lab6ex6 @TODO https://www.varena.ro/problema/bitone

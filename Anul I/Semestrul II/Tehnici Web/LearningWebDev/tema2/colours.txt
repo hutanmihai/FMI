@@ -1,0 +1,8 @@
+black: #120c0e
+brown: #40363a
+light-brown: #74696d
+blue: #2489d2
+bej: #a8a2a3
+white: #dedce5
+light-blue: #4c596f
+orange: #ac866c

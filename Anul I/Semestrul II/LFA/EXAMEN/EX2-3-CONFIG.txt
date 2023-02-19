@@ -1,0 +1,44 @@
+AUTORI:
+Hutan Mihai-Alexandru - grupa 143
+Totolici Alexandru-Gabriel - grupa 143
+Stanciu Ioan Carol - grupa 143
+
+ACEST CONFIG FILE RECUNOASTE LIMBAJE DE FORMA L = { a^(2^n) | n >= 0 }
+
+States:
+q0 start
+q1
+q2
+q3
+q4
+qAccept final
+qReject final
+End
+
+Sigma:
+a
+End
+
+Gamma:
+a
+x
+_
+End
+
+Transitions:
+q0 _ qReject _ R
+q0 x qReject x R
+q0 a q1 _ R
+q1 _ qAccept _ R
+q1 x q1 x R
+q1 a q2 x R
+q2 x q2 x R
+q2 _ q4 _ L
+q2 a q3 a R
+q4 a q4 a L
+q4 x q4 x L
+q4 _ q1 _ R
+q3 a q2 x R
+q3 x q3 x R
+q3 _ qReject _ R
+End

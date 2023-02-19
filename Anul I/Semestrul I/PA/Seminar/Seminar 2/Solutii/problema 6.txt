@@ -1,0 +1,13 @@
+s = input("s= ")
+
+if s == s[::-1]:
+    print(f"{s} este palindrom")
+else:
+    print(f"{s} nu este palidrom")
+
+if len(s)%2 == 0 :
+    print (s[:len(s)//2], s[len(s)//2:])
+    if s[:len(s)//2] == s[len(s)//2:]:
+        print(f"{s} este semipalindrom")
+    else:
+        print(f"{s} nu este semipalidrom")

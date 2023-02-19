@@ -1,0 +1,4 @@
+s=input("s=")
+k=int(input("k="))
+s=s[:k]+s[k+1:]
+print(s)

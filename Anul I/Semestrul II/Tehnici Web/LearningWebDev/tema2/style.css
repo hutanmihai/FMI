@@ -1,0 +1,41 @@
+@font-face {
+    font-family: 'League Gothic';
+    font-style: normal;
+    font-weight: 400;
+    font-stretch: 100%;
+    font-display: swap;
+    src: url(./font/gothic.woff2) format('woff2');
+    unicode-range: U+0000-00FF, U+0131, U+0152-0153, U+02BB-02BC, U+02C6, U+02DA, U+02DC, U+2000-206F, U+2074, U+20AC, U+2122, U+2191, U+2193, U+2212, U+2215, U+FEFF, U+FFFD;
+  }
+
+  html{font-family: 'League Gothic',Arial, Helvetica, sans-serif;font-size: 16px;line-height: 1.5em;background:#dedce5 url(./resources/background.jpg) left top repeat;}
+
+  body{display: block;min-height: 100vh;margin: 0;text-rendering: optimizeSpeed;}
+
+  img,picture{max-width: 100%; display: block;}
+
+  input,button{font: inherit;}
+
+  a{color: #ac866c;}
+  a:hover{color:#2489d2}
+
+  .Container{}
+    .Header{display: flex; justify-content: space-between; align-items: center; background: #4c596f; color: #dedce5;}
+        .Logo{display: block; padding: 0.5em;}
+            .LogoPicture{display: block;}
+                .LogoPicture img{display: block;}
+        .MainMenu{display: flex; width: 100%; max-height: none; position: sticky; top: auto; background: transparent; border: none; overflow-y: auto;}
+            .MainMenuList{display: flex; flex-direction: row;}
+                .MainMenuItem{display: block;padding: 0 1rem 0 1rem;}
+                    .MainMenuLink{display: block; padding: 1rem; font-weight: bold; text-decoration: none; font-size: xx-large;}
+            .NavImages{display: flex; justify-content: space-between;padding: 0 0 0 1rem;}
+                .NavImage{display:block;width: 60px;height: 60px; padding: 0 1rem 0 1rem; padding-top: 0.9rem;}        
+    .Banner{display: flex; justify-content: space-evenly; align-items: center;padding: 5%;}
+        .BannerImg{display: block; background: transparent;}    
+    .Info{display: block; padding-left: 3rem; padding-right: 3rem; font-size: x-large;}
+        .Text{color: #dedce5;padding: 1rem;}          
+    .Premii{}
+    .Images{display: flex; justify-content: space-around; align-items: center; padding-top: 2rem; padding-bottom: 2rem;}
+        .Image{border-radius: 50%;}
+
+  footer{display: flex; justify-content: center; align-items: center; color: #dedce5; padding-top: 1rem;}

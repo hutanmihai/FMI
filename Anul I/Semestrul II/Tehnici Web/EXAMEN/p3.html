@@ -1,0 +1,64 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="author" content="Hutan Mihai">
+    <title>P3</title>
+    <style>
+        .a {
+            background-color: red;
+        }
+
+        .b {
+            color: blue;
+        }
+
+        .c {
+            font-size: 20px;
+        }
+
+        .d {
+            border: 1px green solid;
+        }
+
+        .e {
+            font-family: sans-serif;
+        }
+    </style>
+</head>
+<body>
+<input type="radio" class="a" name="radio">
+<input type="radio" class="b" name="radio">
+<input type="radio" class="c" name="radio">
+<input type="radio" class="d" name="radio">
+<input type="radio" class="e" name="radio">
+</body>
+<script>
+    window.onload = function () {
+        if (window.localStorage.getItem('nrbuton') != null) {
+            let butoane = document.getElementsByTagName('input');
+            butoane[Number(window.localStorage.getItem('nrbuton'))].click();
+        }
+        let phar = document.createElement('p');
+        phar.innerText = 'Hutan Mihai-Alexandru ' + new Date().getHours();
+        if (window.localStorage.getItem('clasa') != null) phar.className = window.localStorage.getItem('clasa');
+        document.body.append(phar);
+    }
+    let myInterval = setInterval(function () {
+        let butoane = document.getElementsByTagName('input');
+        let maxim = butoane.length;
+        let nrRandom = Math.floor(Math.random() * maxim);
+        butoane[nrRandom].click();
+        let p = document.getElementsByTagName('p')[0];
+        p.className = butoane[nrRandom].className;
+        window.localStorage.setItem('nrbuton', nrRandom.toString());
+        window.localStorage.setItem('clasa', p.className);
+    }, 1000)
+    document.body.addEventListener('keydown', (e) => {
+        if (e.key == '0' || e.key == '1' || e.key == '2' || e.key == '3' || e.key == '4' || e.key == '5' ||
+            e.key == '6' || e.key == '7' || e.key == '8' || e.key == '9')
+            clearInterval(myInterval);
+    })
+</script>
+
+</html>

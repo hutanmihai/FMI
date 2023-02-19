@@ -1,0 +1,82 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="author" content="Hutan Mihai">
+    <title>P3</title>
+
+    <style>
+
+    </style>
+
+</head>
+
+<body>
+    <input type="text" id="culoare">
+    <button>0</button>
+    <button>1</button>
+    <button>2</button>
+    <button>3</button>
+    <button>4</button>
+    <button>5</button>
+    <button>6</button>
+    <button>7</button>
+    <button>8</button>
+    <button>9</button>
+</body>
+
+<script>
+    if (window.localStorage.getItem('culoare') != null){
+        document.body.style.backgroundColor = window.localStorage.getItem('culoare');
+    }
+
+    let apasat = 0;
+
+    let culoare = document.getElementById('culoare').value;
+    document.body.addEventListener('keydown', (e) => {
+        if (apasat === 0){
+            apasat++;
+            if (e.key == '0' || e.key  == '2' || e.key  == '4' || e.key  == '6' || e.key  == '8'){
+                setInterval(function(){
+                    let ultim = window.localStorage.getItem('last');
+                    if (ultim == null){
+                        ultim = 0;
+                    }
+                    let butoane = document.getElementsByTagName('button');
+                    butoane[ultim].style.color = culoare;
+                    ultim += 1;
+                    ultim = ultim%10;
+                    window.localStorage.setItem('culoare', culoare);
+                    window.localStorage.setItem('last', ultim);
+                },3000);
+            }
+            else if (e.key == '1' || e.key  == '3' || e.key  == '5' || e.key  == '7' || e.key  == '9'){
+                setInterval(function(){
+                    let ultim = window.localStorage.getItem('last');
+                    if (ultim == null){
+                        ultim = 1;
+                    }
+                    let butoane = document.getElementsByTagName('button');
+                    butoane[ultim].style.color = culoare;
+                    ultim += 2;
+                    ultim = ultim%10;
+                    window.localStorage.setItem('culoare', culoare);
+                    window.localStorage.setItem('last', ultim);
+                },3000);
+            } else apasat--;
+        }
+        else {
+            if (e.key == '0' || e.key == '1' || e.key == '2' || e.key == '3' || e.key == '4' || e.key == '5' || e.key == '6'
+            || e.key == '7' || e.key == '8' || e.key == '9'){
+                let butoane =  document.getElementsByTagName('button');
+                for (let i = 0; i < butoane.length; i++) {
+                    if (butoane[i].style.color != window.localStorage.getItem('culoare')){
+                        butoane[i].style.display = 'none';
+                    }
+                }
+            }
+        }
+    })
+</script>
+
+</html>

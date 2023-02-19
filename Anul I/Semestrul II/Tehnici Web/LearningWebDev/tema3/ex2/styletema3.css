@@ -1,0 +1,87 @@
+@font-face {
+    font-family: 'League Gothic';
+    font-style: normal;
+    font-weight: 400;
+    font-stretch: 100%;
+    font-display: swap;
+    src: url(./font/gothic.woff2) format('woff2');
+    unicode-range: U+0000-00FF, U+0131, U+0152-0153, U+02BB-02BC, U+02C6, U+02DA, U+02DC, U+2000-206F, U+2074, U+20AC, U+2122, U+2191, U+2193, U+2212, U+2215, U+FEFF, U+FFFD;
+  }
+
+  html{font-family: 'League Gothic',Arial, Helvetica, sans-serif;font-size: 16px;line-height: 1.5em;background:black url(./resources/background.jpg) left top repeat; color: #dedce5; scroll-padding-top: 75px; }
+
+  body{display: block;min-height: 100vh;margin: 0;text-rendering: optimizeSpeed; color: #dedce5;}
+
+  img,picture{max-width: 100%; display: block;}
+
+  input,button{font: inherit;}
+
+  h2{display: none;}
+
+  a{color: #ac866c;}
+  a:hover{color:#2489d2}
+
+  .Header{display: flex; justify-content: space-between; align-items: center; background: #4c596f; color: #dedce5; position: sticky; top: 0; height: 70px;}
+        .Logo{display: block;padding:0.5em;}
+            .LogoPicture{display: block;}
+                .LogoPicture img{display: block;}
+        .MainMenu{display: flex; width: 100%; max-height: none; background: transparent; border: none;}
+            .MainMenuList{display: flex;}
+                .MainMenuItem{display: block;padding: 0 1rem 0 1rem;}
+                    .MainMenuLink{display: block; padding: 1rem; font-weight: bold; text-decoration: none; font-size: xx-large;}
+                .DropDown{position: relative; display: block;}   
+                  .DropDownButton{display: block; border: none; outline: none; background-color: inherit; margin: 0;cursor: pointer;color:#2489d2;}
+                  .DropDownContent{display: none;position: absolute;box-shadow: 0px 8px 16px 0px rgba(0,0,0,0.2); width: 100%; background-color: #4c596f; margin-top: 5px;}
+                  .DropDownContent a{display: block;position: relative; text-align: center; padding: 12px 16px; text-decoration: none;}
+                  .DropDownContent a:hover{color: #1b1f24;}
+                  .DropDown:hover .DropDownContent{display: block;}
+  .h1{display: flex; justify-content: center; align-items: center;padding-top: 55px ;}
+  .h1 h1{padding: 10px;border: dotted 4px #ac866c; font-size: xx-large;}                  
+  .Banner{display: flex; justify-content: space-evenly; align-items: center;}
+    .BannerImg{display: block; background: transparent;}
+  .Info{display: block; padding-left: 3rem; padding-right: 3rem; font-size: x-large;}
+    .Text{color: #dedce5;padding-left: 1rem;padding-right: 1rem;} 
+  .Images{display: flex; justify-content: space-around; align-items: center; padding-top: 4rem;}
+    .Image{border-radius: 50%;} 
+  footer{display: flex; justify-content: center; align-items: center; color: #dedce5; padding-top: 15px;}
+
+  .Forms{color: #dedce5; font-size: x-large; display: flex; justify-content: space-around; align-items: center;padding-bottom: 20px;}        
+
+table{
+    margin-top: 4rem;
+    width: 70%;
+    height: auto;
+    margin-left: auto;
+    margin-right: auto;
+}
+
+table,th,td{
+    border: 0.01rem solid #1b1f24 ;
+    background-color: #788AA3;
+    color: black;
+}
+
+table tr:nth-child(2n) td{
+  background-color: #4c596f;
+  color: #ac866c;
+}
+
+table tr:hover td{
+   background-color: #2489d2;
+   color: yellow;
+  
+}
+
+*::-webkit-scrollbar {
+	width: 8px;
+}
+
+*::-webkit-scrollbar-thumb {
+	background-color: gray;
+}
+
+.selector {
+		scrollbar-width: none;
+	}
+ 
+

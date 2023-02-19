@@ -1,0 +1,237 @@
+ASC 143 
+01.11.2021
+Laboratorul 3 
+
+
+Operatiile aritmetice
+add op1, op2 	op2 := op2 + op1 
+sub op1, op2 	op1 := op2 - op1 
+mul op 		(%edx, %eax) := %eax * op 
+		dest. impl.     s.impl
+In general, mul op <=> %eax = %eax * op 
+op trebuia sa fie Reg, dar puteam folosi 
+mull op, iar op poate fi variabila din memorie
+
+mull x 
+- sufixez operatia cu dimensiunea tipului de date
+long -> mull 	32 biti == 4 octeti (Bytes)
+word -> mulw 	16 biti == 2 octeti (Bytes)
+byte -> mulb 	8 biti  == 1 octet (Byte)
+quad -> mulq 	64 biti == 8 octeti (Bytes) <- nu va fi utilizat in cadrul acestui laborator
+
+div op		(%edx, %eax) := (%edx, %eax) / op 
+In general, %edx va fi egal cu 0 inainte de a face orice impartire, astfel ca
+
+div op		(%edx, %eax) := %eax / op 
+		%edx <- restul impartirii
+		%eax <- catul impartirii 
+
+Ca la mul, putem sufixa operatia cu dim tipului de date, si avem
+long -> divl 
+word -> divw 
+byte -> divb 
+
+divl x, unde x este o variabila declarata in memorie
+
+Altfel, daca nu sufixez 
+
+mov x, %ebx 
+div %ebx 		<==>  divl x 
+
+movl $0, %edx 		<- pentru a evita exceptii aritmetice
+divl ... 
+div ... 
+
+Salturi neconditionate si conditionate 
+
+Saltul neconditionat era instructiunea
+	jmp label 
+se sare la eticheta label in momentul in care este intalnita aceasta instructiune.
+
+Salturile conditionate sunt cele care depind de o relatie de ordine.
+
+cmp op1, op2 		<- comparatia se face intre op2 si op1 
+j<conditie>
+
+<=	jle label
+<	jl  label
+>=	jge label
+>	jg  label
+==	je  label
+!=	jne label
+
+cmp x, %eax
+jg label 
+<instr>
+
+daca %eax > x atunci sari la eticheta label
+altfel continua cu urmatoarea linie de executat, <instr>
+
+Simularea structurilor repetitive in limbaj de asamblare
+
+int n;
+for (int i = 0; i < n; i++)
+{
+	// instr;
+}
+
+foloseam registrul %ecx pe post de "i":
+
+.data
+	n: .long 10
+.text
+
+.global main
+
+main:
+	movl $0, %ecx
+et_for:
+	cmp n, %ecx
+	je et_exit
+	
+	// <instr>
+
+	incl %ecx 		 # addl $1, %ecx
+	jmp et_for 
+et_exit:
+	movl $1, %eax
+	movl $0, %ebx
+	int $0x80
+
+Instructiunea loop
+
+- este utilizata tot pentru simularea structurilor repetitive, dar se bazeaza pe un mecanism intern al x86. 
+
+%eax, %edx <- reg. cu utilizare aritmetica (mai ales in ceea ce priveste mul si div)
+%ecx	   <- reg. counter, utilizat in simularea structurilor repetitive 
+
+
+
+Instructiunea loop are forma 
+	loop label 
+si are urmatorul comportament:
+
+- se decrementeaza valoarea din reg. %ecx;
+- se compara %ecx cu $0:
+	- daca este egal cu $0, continua cu urmatoarea instr. de executat <instr1> (iese din str. repetitiva);
+	- altfel, daca NU este egal cu $0, sare la eticheta label.
+
+et_loop:
+	<instr>
+	loop et_loop
+<instr1>
+===
+do 
+{
+	<instr>
+} while(--ecx != 0)
+
+Probleme uzuale: %ecx functioneaza prin decrementare, ceea ce poate fi deranjant cand lucram, de exemplu, cu indecsii unui array. 
+
+
+Pentru stiva exista doua operatii: 
+-> push		== adauga un element in stiva
+-> pop 		== elimina un element din stiva 
+
+
+%esp <- stack pointer 
+
+push op		<- incarca op in varful stivei
+pop op		<- descarca in op valoarea din varful stivei
+
+pushl %eax	<- incarc valoarea lui %eax in vf. stivei
+popl %ebx	<- descarc valoarea din varful stivei in %ebx
+
+%ebx <- %eax 
+
+n = 5
+%ecx pleaca de la n 
+indexul curent din array este (n - %ecx)
+5	n - %ecx 	=> 0
+4	n - %ecx	=> 1
+3
+2
+1			=> 4
+
+Tablouri unidimensionale de date
+
+Array-uri de intregi (de tipul .long)
+
+Declarare: 
+
+In sectiunea .data, pot declara un array v astfel:
+
+.data
+	v: .long 10, 20, 30, 40, 50
+	n: .long 5 			# vom declara mereu si un n pentru dimensiune
+					# daca nu exista alta cerinta
+sau 
+daca stiu care este dimensiunea maxima a array-ului (cate elemente trebuie stocate maxim), pot declara cu .space nr_elemente * dim_tipului_de_date
+
+long v[100]: 100 * 4B = 400B
+.data
+	v: .space 400
+	n: .space 4 
+
+Intr-un array, elementele sunt succesiv aliniate in memorie. 
+
+v: .long 10, 20, 30, 40, 50
+v este un nume simbolic pentru adresa de memorie care referentiaza inceputul array-ului
+
+v	10	20	30	40	50
+v este adresa de memorie care retine inceputul array-ului 
+
+Toate elementele din array pot fi identificate in raport cu v (cu numele simbolic).
+
+v este un array cu elemente de tip long:
+
+v	10	20	30	40	50
+	4B	4B	4B	4B	4B
+
+10	10 este la 0B distanta de adresa de inceput a lui v 	4B * 0 <- indecsii elem.
+20	20 este la 4B distanta de adresa de inceput a lui v	4B * 1
+30	30 este la 8B distanta de adresa de inceput a lui v	4B * 2
+40	40 este la 12B						4B * 3
+50	50 este la 16B						4B * 4
+
+Am in %edi adresa lui v, si in %ecx un counter (index)
+10 	%edi + %ecx * 4, $v + 0 * 4 = $v 
+20	%edi + %ecx * 4, $v + 1 * 4 = $v + 4 .
+...
+50	%edi + %ecx * 4, $v + 4 * 4 = $v + 16
+
+et_exit:
+	movl $1, %eax
+
+In AT&T avem urmatoarea scriere
+	a(b, c, d)
+care inseamna b + c * d + a 
+inseamna accesarea memoriei de la adresa b + c*d + a
+
+Pentru acest laborator, vom folosi doar (b, c, d)
+notatia cu a fiind specifica prelucrarii stivei. 
+
+(b, c, d) === b + c * d 
+are rolul de a accesa locatia de memorie de la adresa (b + c * d)
+
+
+movl $v, %edi		<- adresele tablourilor se salveaza in reg. %edi sau %esi 
+unde %ecx parcurge multimea {0, 1, 2, ...}
+(%edi, %ecx, 4): un element de la locatia de memorie %edi + %ecx * 4 
+
+
+Daca %edi retine adresa de inceput a lui $v
+Iar %ecx este indexul curent (un counter de la 0 la dim array-ului)
+
+(%edi, %ecx, 4) este chiar v[i]   v[ecx]
+
+
+(%edi, 			%ecx, 			4			)
+adresa de inceput	indexul curent		dim. tipului de date
+a array-ului		in array
+
+(%edi, %ecx, 1)
+
+- avand in prealabil incarcat in %edi adresa lui $v, si %ecx pe post de "i" intr-o structura repetitiva, atunci 
+	(%edi, %ecx, 4)
+  este elementul curent v[i]. (respectiv, %edi[%ecx])

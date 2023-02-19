@@ -1,0 +1,116 @@
+.divfather{
+    width: 100%;
+    flex-direction: column;
+    display: flex;
+}
+
+.divsus{
+    width:100%;
+    display: flex;
+    justify-content: space-between;
+    flex-direction: row;
+    height: 300px;
+}
+
+.div12{
+    display: flex;
+    flex-direction: column;
+    justify-content: space-between;
+    flex-grow:2;
+    order:1;
+}
+
+.div1{
+    background-color: aqua;
+    width: full;
+    flex-grow: 1;
+    margin-bottom: 10px;
+    margin-right: 20px;
+}
+
+.div2{
+    background-color: rgb(248, 57, 255);
+    width: full;
+    flex-grow: 1;
+    margin-right: 20px;
+}
+
+.div9{
+    background-color: brown;
+    flex-grow: 3;
+    margin-right: 20px;
+}
+
+.div8{
+    background-color: blue;
+    flex-grow: 1;
+    margin-right: 20px;
+}
+
+.div98{
+    display: flex;
+    flex-direction: row;
+    justify-content: space-between;
+    flex-grow: 3;
+    order: 2;
+}
+
+.div765{
+    display:flex;
+    flex-direction: column;
+    justify-content: space-between;
+    flex-grow: 1;
+    order:3;
+}
+
+.div7{
+    background-color: rgb(93, 245, 56);
+    flex-grow: 1;
+    margin-right: 20px;
+    margin-bottom: 10px;
+}
+
+.div6{
+    background-color: rgb(245, 90, 19);
+    flex-grow: 1;
+    margin-right: 20px;
+    margin-bottom: 10px;
+}
+
+.div5{
+    background-color: rgb(146, 28, 28);
+    flex-grow: 1;
+    margin-right: 20px;
+}
+
+.div34{
+    display: flex;
+    flex-direction: column;
+    justify-content: space-between;
+    order:4;
+    flex-grow: 1;
+}
+
+.div3{
+    background-color: rgb(231, 255, 17);
+    flex-grow: 1;
+    margin-bottom: 10px;
+}
+
+.div4{
+    background-color: rgb(238, 147, 63);
+    flex-grow: 1;
+}
+
+.div10{
+    background-color: rgb(118, 110, 228);
+    width: 100%;
+    margin-top: 25px;
+    height: 300px;
+}
+
+@media screen and (min-width:200px) {
+    body{
+        background-color: rgb(226, 90, 90);
+    }
+}

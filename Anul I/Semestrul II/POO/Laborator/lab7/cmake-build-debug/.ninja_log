@@ -1,0 +1,11 @@
+# ninja log v5
+4	314	6714046407872397	CMakeFiles/main.dir/main2.cpp.obj	9e2ee8a213bdd313
+20	388	6714045266539214	CMakeFiles/main.dir/util/functions.cpp.obj	3bcd57eaf4ea07a0
+314	397	6714046408703952	main.exe	775aa00c0180c0e2
+15	362	6714045266226590	CMakeFiles/main.dir/util/IoBase.cpp.obj	744464abce1afffd
+1	189	6714047683435197	build.ninja	d2082d524dc399bf
+379	518	6714035291543936	lab7.exe	12379f9d6233337b
+15	382	6714048073999317	CMakeFiles/main.dir/util/IoBase.cpp.obj	184ef19f10735b89
+21	396	6714048074155586	CMakeFiles/main.dir/util/functions.cpp.obj	17adac13c15dc1b9
+2	414	6714048074342033	CMakeFiles/main.dir/main2.cpp.obj	fcc871ab4e8b099e
+414	543	6714048075570010	main.exe	e012a195fe91f5e7

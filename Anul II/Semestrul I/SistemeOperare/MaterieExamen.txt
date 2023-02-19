@@ -1,0 +1,9 @@
+Controlul proceselor: Ch3 + Ch4 
+
+Sincronizarea proceselor: Ch6 + Ch7 + Ch8
+
+Planificarea proceselor: Ch5
+
+Gestiunea memoriei: Ch9 + Ch10
+
+Sisteme de fisiere: Ch13-Ch15

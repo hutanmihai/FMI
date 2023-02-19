@@ -1,0 +1,18 @@
+body{background-color: bisque; color: black; font-size: 16px; font-weight: bold;}
+
+.divmare{display: flex; flex-direction: column;justify-content: space-between; width: 100%;}
+    .divsus{display: flex; justify-content: space-evenly;align-items: center; height: 400px;  width: 100%;}
+        .div12{display: flex; flex-direction: column; order: 1; justify-content: space-between;flex-grow: 2;}
+            .div1{display:flex;justify-content: center; align-items: center; flex-grow: 1;width: full;margin-bottom: 10px; margin-right: 10px; background-color: red; height: 185px;}
+            .div2{display:flex;justify-content: center; align-items: center; flex-grow: 1;width: full;margin-right: 10px; background-color: royalblue; height: 185px;}
+        .div34{display: flex; flex-direction: column; order: 4; justify-content: space-between;flex-grow: 1;}
+            .div3{display:flex;justify-content: center;align-items: center; flex-grow: 1; margin-bottom: 10px; background-color: aquamarine; height: 185px;}
+            .div4{display:flex;justify-content: center;align-items: center; flex-grow: 1; background-color: blueviolet; height: 185px;}
+        .div567{display: flex; flex-direction: column-reverse; order: 3; justify-content: space-between; flex-grow: 1;} 
+            .div5{display:flex;justify-content: center;align-items: center; flex-grow: 1; margin-right: 10px; background-color: rosybrown; height: 120px}
+            .div6{display:flex;justify-content: center;align-items: center; flex-grow: 1; margin-right: 10px; margin-bottom: 10px; background-color: orange; height: 120px; }
+            .div7{display:flex;justify-content: center;align-items: center; flex-grow: 1; margin-right: 10px; margin-bottom: 10px; background-color: orangered; height: 120px;}
+        .div89{display: flex; flex-direction: row-reverse; order: 2; justify-content: space-between;align-items: center; flex-grow: 3;}
+            .div8{display:flex;justify-content: center;align-items: center; flex-grow: 1;margin-right: 10px; background-color: palegreen; height: 380px;}
+            .div9{display:flex;justify-content: center;align-items: center;flex-grow: 2;margin-right: 10px; background-color: palevioletred;height: 380px;}
+    .div10{display:flex;justify-content: center; align-items: center;height: 300px; background-color: aqua;}    

@@ -1,0 +1,97 @@
+<!DOCTYPE html>
+<html lang="en">
+    <head>
+        <meta charset="utf-8">
+        <meta name="viewport" content="width=device-width, initial-scale=1.0">
+        <meta name="author" content="Hutan Mihai">
+        <link rel="stylesheet" type="text/css" href="styletema2.css">
+        <title>Star Wars</title>
+    </head>
+    <body>
+        <div class="Container">
+            <header class="Header">
+                <a class="Logo" href=index.html title="Back to homepage">
+                    <picture class="LogoPicture">
+                        <img src="resources/starwarslogo.png" alt="Star Wars Logo"/>
+                    </picture>
+                </a>
+                <nav class="MainMenu">
+                    <ul class="MainMenuList">
+                        <li class="MainMenuItem">
+                            <a href="index.html" class="MainMenuLink">Home</a>
+                        </li>
+                        <li class="MainMenuItem">
+                            <a href="original.html" class="MainMenuLink">Original</a>
+                        </li>
+                        <li class="MainMenuItem">
+                            <a href="prequel.html" class="MainMenuLink">Prequel</a>
+                        </li>
+                        <li class="MainMenuItem">
+                            <a href="sequels.html" class="MainMenuLink">Sequel</a>
+                        </li>
+                        <li class="MainMenuItem">
+                            <a href="tema1.html" class="MainMenuLink">Tema1</a>
+                        </li>
+                        <li class="MainMenuItem">
+                            <a href="tema2.html" class="MainMenuLink">Tema2</a>
+                        </li>
+                    </ul>
+                    <div class="NavImages">
+                        <img class="NavImage" src="./resources/vaderlogo.png" alt="Darth Vader Logo">
+                        <img class="NavImage" src="./resources/rebellogo.png" alt="Rebel Alliance Logo">
+                        <img class="NavImage" src="./resources/empirelogo.png" alt="Empire logo">
+                    </div>
+                </nav>
+            </header>
+            <main>
+                <section class="Forms">
+                    <div>
+                        <p class="Text">Type in your full name:</p>
+                        <form class="Input">
+                            <label for="fname">First name:</label><br>
+                            <input type="text" id="fname" name="fname"><br>
+                            <label for="lname">Last name:</label><br>
+                            <input type="text" id="lname" name="lname">
+                        </form>
+                    </div>      
+                    <div>
+                      <p class="Text">Choose your favorite character:</p>
+                      <form class="RadioButtons">
+                        <input type="radio" id="Luke" name="fav_character" value="Luke">
+                        <label for="Luke">Luke Skywalker</label><br>
+                        <input type="radio" id="Anakin" name="fav_character" value="Anakin">
+                        <label for="Anakin">Anakin Skywalker</label><br>
+                        <input type="radio" id="Vader" name="fav_character" value="Vader">
+                        <label for="Vader">Darth Vader</label>
+                      </form>
+                    </div>
+                    <div>        
+                      <p class="Text">Which trilogy did you like?</p>
+                      <form class="Checkboxes">
+                        <input type="checkbox" id="trilogy1" name="trilogy1" value="Original">
+                        <label for="trilogy1">Original Trilogy</label><br>
+                        <input type="checkbox" id="trilogy2" name="trilogy2" value="Prequel">
+                        <label for="trilogy2">Prequel Trilogy</label><br>
+                        <input type="checkbox" id="trilogy3" name="trilogy3" value="Sequel">
+                        <label for="trilogy3">Sequel Trilogy</label>
+                      </form>
+                    </div>     
+                    <div>
+                      <p class="Text">Do you know the name of your favourite actor playing in the Star Wars Universe? Submit it here:</p>
+                      <form class="SubmitButton" action="#">
+                        <label for="fnamechr">First name:</label><br>
+                        <input type="text" id="fnamechr" name="fnamechr" value=""><br>
+                        <label for="lnamechr">Last name:</label><br>
+                        <input type="text" id="lnamechr" name="lnamechr" value=""><br><br>
+                        <input type="submit" value="Submit">
+                      </form> 
+                    </div>       
+                </section>
+                <img src="./resources/Banner.jpg" alt="Star Wars Universe">
+            </main>
+            <footer>
+                <p>Copyright <span>&#169;</span> Hutan Mihai 2022</p>
+            </footer>   
+        </div>
+    </body>
+</html>

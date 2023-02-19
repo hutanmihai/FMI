@@ -1,0 +1,15 @@
+drop table ANTRENOR
+drop table CAMPION
+drop table CAMPION_POOL
+drop table ECHIPA
+drop table GRUPA
+drop table JUCATOR
+drop table MECI
+drop table MECI_HEADER
+drop table MECI_MAP
+drop table MOD_JOC
+drop table PREZENTATOR
+drop table REGIUNE
+drop table SCENA
+drop table TURNEU
+drop table GRUPA_MAP

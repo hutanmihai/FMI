@@ -1,0 +1,153 @@
+html{
+    overflow-x: hidden;
+}
+
+body{
+    background-image: url('https://wallpapercave.com/wp/wp3284832.gif');
+    background-size: cover;
+    color: #788AA3
+}
+
+ul{
+    list-style-type: none;
+}
+
+.Container{
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    margin-top: 60px;
+}
+h1{
+    font-size: 50px;
+    border: 4px dotted #ac866c;
+}
+
+h1 a{
+    text-decoration: none;
+    color: #788AA3;
+}
+
+h2{
+    margin-left: 60px;
+}
+
+h2:hover{
+    color: #788AA3;
+}
+
+.navbar{
+    width: 100%;
+    overflow: auto;
+}
+
+.navbar li{
+    float: left;
+    padding: 5.8%;
+    padding-top: 14px;
+    padding-bottom: 14px;
+    font-size: 30px;
+    text-align: center;
+    text-decoration: none;
+    color: #788AA3
+}
+.navbar li a{
+    width: 20%;
+    text-decoration: none;
+    color: #788AA3;
+}
+
+.navbar li a:hover{
+    color: #BCF8EC;
+}
+
+a:hover{
+    color: #BCF8EC;
+}
+
+table{
+    width: 80%;
+    height: auto;
+}
+
+table,th,td{
+    border: 0.01rem solid #1b1f24 ;
+    background-color: #788AA3;
+    color: black;
+}
+
+table{
+    margin-left: auto;
+    margin-right: auto;
+}
+
+table tr:nth-child(2n) td{
+    background-color: #2489d2;
+    color: yellow;
+}
+
+table tr:hover td{
+    background-color: #4c596f;
+    color: #ac866c;
+}
+
+a{
+    display: block;
+    padding: 8px;
+}
+
+footer{
+    text-align: center;
+    display: flex;
+    justify-content: center;
+}
+
+.ximagini{
+    display: flex;
+    margin-left: 80px;
+}
+
+.imagini{
+    flex: 33.33%;
+}
+
+img{
+    border-radius: 50%;
+}
+
+#youtube{
+    width: 800px;
+    height: 400px;
+}
+
+#video{
+    display: flex;
+    justify-content: center;
+}
+
+p{
+    margin-left: 30px;
+    margin-right: 30px;
+    font-size: 18px;
+}
+
+li{
+    font-size: 18px;
+}
+
+iframe{width: 560px; height:315px; border: none;}
+
+.Header{display: flex; justify-content: space-between; align-items: center; background: #4c596f; color: #dedce5;}
+        .Logo{display: block; padding: 0.5em;}
+            .LogoPicture{display: block;}
+                .LogoPicture img{display: block;}
+        .MainMenu{display: flex; width: 100%; max-height: none; position: sticky; top: auto; background: transparent; border: none; overflow-y: auto;}
+            .MainMenuList{display: flex; flex-direction: row;}
+                .MainMenuItem{display: block;padding: 0 1rem 0 1rem;}
+                    .MainMenuLink{display: block; padding: 1rem; font-weight: bold; text-decoration: none; font-size: xx-large;}
+            .NavImages{display: flex; justify-content: space-between;padding: 0 0 0 1rem;}
+                .NavImage{display:block;width: 60px;height: 60px; padding: 0 1rem 0 1rem; padding-top: 0.9rem;} 
+                 
+.Header a{color: #ac866c;}                  
+
+.Header a:hover{color:#2489d2}

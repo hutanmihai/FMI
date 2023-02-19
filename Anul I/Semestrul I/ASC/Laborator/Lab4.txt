@@ -1,0 +1,234 @@
+ASC Laboratorul 4 
+Grupa 143
+15.11.2021
+
+Implementarea procedurilor si constructia unui cadrul de apel 
+
+
+- ce stim deja din apelul procedurilor:
+	- incarcam argumentele in ordine inversa pe stiva;
+	- apelam procedura prin instructiunea call;
+	- pentru fiecare push facut, facem un pop corespunzator.
+
+Daca vreau sa apelez printf("Numarul %d\n", x);
+
+pushl x 
+pushl $formatPrintf
+call printf 
+popl %ebx
+popl %ebx
+
+printf:
+	$formatPrintf
+	x 
+
+printf - returneaza in %eax cate caractere au fost scrise cu succes la stdout.
+
+1. Toate argumentele se incarca pe stiva, in ordine inversa.
+2. Return-ul este dat in registrul %eax. 
+
+Instructiunile call si ret 
+- instructiunea call este utilizata pentru a apela o procedura;
+- instructiunea ret este utilizata pentru a reveni dintr-o procedura. 
+
+proc:
+	... 
+	ret 
+
+
+main:						 	
+	pushl argn
+	pushl arg(n-1)			
+	...
+	pushl arg1
+	pushl arg0 
+
+	call proc 
+
+	popl %ebx	<-- pt arg 0
+	popl %ebx	<-- pt arg 1
+	...
+	popl %ebx	<-- pt arg n-1
+	popl %ebx	<-- pt arg n 
+
+ 
+Registrul %eip -> registrul instruction pointer 
+%eip pointeaza mereu adresa urmatoarei instructiuni de executat 
+
+jmp label 
+atunci %eip este modificat incat sa sara la respectivul label 
+
+Cand scriu instructiunea 
+	call label
+
+se face un pushl cu valoarea curenta din %eip 
+se face un jmp label
+
+proc (x, y)
+main:
+	pushl y 
+	pushl x
+	call proc 
+	popl %ebx		<-- pun %eip pe stiva astfel incat sa stiu sa ma intorc aici 
+	popl %ebx 
+
+<valoarea curenta din %eip == adresa de intoarcere> 
+x
+y
+
+Cand scriu instructiunea 
+	ret 
+
+se face un jmp la adresa din varful stivei
+si apoi un pop 
+
+<valoarea curenta din %eip == adresa de intoarcere> 	<- ret citeste aceasta adresa de memorie
+							<- (adresa pusa de call)
+							<- si stie sa se lege inapoi de programul principal
+							<- (de locul din care a fost apelata)
+x
+y
+
+proc:
+	...
+	ret			<- citeste adresa de intoarcere si face jmp la respectiva adresa 
+
+main:
+
+	...
+	call proc		<- pune adresa de intoarcere
+	...
+
+
+
+Conventii pentru implementarea procedurilor in x86 
+
+1. toate argumentele se incarca in ordine inversa pe stiva.
+2. return-ul este in registrul %eax.
+3. pentru apelarea procedurii si revenirea din procedura se utilizeaza instructiunile call proc si ret.
+
+4. registrii %ebx, %esi, %edi, %ebp si %esp trebuie sa fie restaurati in urma apelului de procedura. 
+	-> valoarea pe care o au %ebx, %esi, %edi, %ebp si %esp inainte de call proc 
+	   trebuie sa fie egala cu valoarea pe care acesti registri o au si dupa revenirea din proc 
+
+	-> nu este valabila restaurarea pentru registrii %eax, %ecx, %edx 
+
+proc:
+	...
+	ret 
+
+main:
+	# %ebx = 9, %edi, %esi, %ebp, %esp 
+	# %eax = 15 
+	...
+	call proc 
+	...
+	# %ebx = 9, %edi, %esi, %ebp, %esp 
+	
+
+5. pe langa %esp, in cadrul de apel se va utiliza, obligatoriu, %ebp. 
+
+// vreau sa apelez o procedura proc(x, y, z)
+
+proc:
+	...
+	ret
+
+main:
+	pushl z 
+	pushl y
+	pushl x 
+	call proc 
+	popl %ebx
+	popl %ebx 
+	popl %ebx
+
+<adr de intoarcere>	<-- %esp: 0(%esp)
+x			<-- 	  4(%esp)
+y 			<-- 	  8(%esp)
+z 			<-- 	 12(%esp)
+
+a(b, c, d)
+(b, c, d) <- b + c * d 	o scriere utila pentru accesarea elementelor dintr-un array 
+a(b)  	  <- b + a 	o scriere utila pentru accesarea elementelor din stiva 
+
+Intotdeauna, 0(%esp) va fi valoarea din varful stivei. 
+
+Stiva este controlata de registrul %esp <- stack pointer. 
+%esp pointeaza mereu varful stivei. 
+
+Pentru fiecare push facut, %esp scade cu 4. 
+	stiva creste catre adrese mai mici ale lui %esp
+Pentru fiecare pop facut, %esp creste cu 4. 
+	stiva scade catre adrese mai mari ale lui %esp 
+
+
+O alta conventie este utilizarea %ebp-ului. 
+Este obligatoriu ca, in cadrul procedurii, sa utilizam registrul %ebp astfel:
+1. valoarea lui %ebp este pregatita pentru restaurare.
+2. %ebp-ul trebuie facut si el pointer in cadrul de apel, precum %esp-ul. 
+
+proc:
+	pushl %ebp 			# pun vechea lui valoare pe stiva
+					# astfel incat sa am garantia ca o pot descarca de aici 
+	movl %esp, %ebp			# ebp = esp, deci este pointer in cadrul de apel 
+					
+					# presupunem ca, in aceasta procedura, am nevoie de %ebx 
+	pushl %ebx 			# il restaurez => ii pun vechea valoare pe stiva
+					# pentru a avea garantia ca am de unde sa o descarc 
+	pushl %edi 
+	... 
+	popl %edi			# %edi isi primeste acum vechea lui valoare
+					# (valoarea pe care o avea la intrarea in proc)
+	popl %ebx			# %ebx isi primeste acum vechea lui valoare
+	popl %ebp			# %ebp redevine valoarea de dinainte de proc
+					# <=> nu mai este pointer in cadrul de apel 
+	ret
+
+main:
+	pushl z 
+	pushl y
+	pushl x 
+	call proc 
+	popl %ebx
+	popl %ebx 
+	popl %ebx
+
+%edi v 			<-- %esp: 0(%esp)      -8(%ebp) 
+%ebx v 			<-- 	  4(%esp)      -4(%ebp)
+%ebp v 			<-- 	  8(%esp) :%ebp 0(%ebp)
+<adr de intoarcere>	<-- 	 12(%esp)	4(%ebp)
+x			<-- 	 16(%esp)	8(%ebp)
+y 			<-- 	 20(%esp)      12(%ebp)
+z 			<-- 	 24(%esp)      16(%ebp)
+
+%ebx v 			<-- %esp: 0(%esp)      -4(%ebp)
+%ebp v 			<-- 	  4(%esp) :%ebp 0(%ebp)
+<adr de intoarcere>	<-- 	  8(%esp)	4(%ebp)
+x			<-- 	 12(%esp)	8(%ebp)
+y 			<-- 	 16(%esp)      12(%ebp)
+z 			<-- 	 20(%esp)      16(%ebp)
+
+<adr de intoarcere>	<-- 	  0(%esp)
+x			<-- 	  4(%esp)
+y 			<-- 	  8(%esp)
+z 			<-- 	 12(%esp)
+
+ret 
+
+x			<-- 	  0(%esp)
+y 			<-- 	  4(%esp)
+z 			<-- 	  8(%esp)
+
+
+
+
+
+
+
+
+
+
+
+
+

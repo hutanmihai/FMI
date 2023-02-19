@@ -1,0 +1,28 @@
+.div1{
+    height:200px;
+    width:200px;
+    background-color: blue;
+    position: relative;
+    animation-name: example;
+    animation-duration: 4s;
+    animation-fill-mode: forwards;
+}
+
+@keyframes example{
+    0%{
+        background-color: aqua;
+        left:0px;
+        top:0px;
+    }
+    50%{
+        background-color: rgb(25, 88, 139);
+        left:60px;
+        top:60px;
+    }
+    100%{
+        background-color: rgb(51, 16, 97);
+        left:120px;
+        top:120px;
+    }
+}
+

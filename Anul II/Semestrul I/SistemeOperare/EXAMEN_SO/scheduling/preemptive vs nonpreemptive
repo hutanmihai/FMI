@@ -1,0 +1,6 @@
+preemptive = poate fi intrerupt
+nonpreemptive  = odata pus tre sa ruleze tot
+
+sjf preemptiv = srtf
+sjf nonpreemptiv = spn
+

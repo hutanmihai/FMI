@@ -1,0 +1,36 @@
+version: "3.5"
+
+services:
+  shard11:
+    container_name: shard11
+    image: mongo
+    command: mongod --shardsvr --replSet rssh1 --port 27017 --dbpath /data/db
+    ports:
+      - 60001:27017
+    volumes:
+      - vshard11:/data/db
+
+  shard12:
+    container_name: shard12
+    image: mongo
+    command: mongod --shardsvr --replSet rssh1 --port 27017 --dbpath /data/db
+    ports:
+      - 60002:27017
+    volumes:
+      - vshard12:/data/db
+
+  shard13:
+    container_name: shard13
+    image: mongo
+    command: mongod --shardsvr --replSet rssh1 --port 27017 --dbpath /data/db
+    ports:
+      - 60003:27017
+    volumes:
+      - vshard13:/data/db
+
+volumes:
+  vshard11: 
+  vshard12: 
+  vshard13: 
+
+

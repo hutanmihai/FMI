@@ -1,0 +1,59 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="author" content="Hutan Mihai">
+    <title>P3</title>
+
+    <style>
+
+    </style>
+
+</head>
+
+<body>
+<input id="data" type="text">
+<select>
+    <option>red</option>
+    <option>green</option>
+    <option>blue</option>
+</select>
+</body>
+
+<script>
+    document.getElementById('data').value = new Date
+    let optiuni = document.getElementsByTagName('option')
+    let select = document.getElementsByTagName('select')[0]
+    if (window.localStorage.getItem('valoare') != null) {
+        select.value = window.localStorage.getItem('valoare')
+        document.getElementById('data').style.color = select.value + ''
+    }
+    let i
+    if (window.localStorage.getItem('indice') != null) {
+
+        i = window.localStorage.getItem('indice') % 3
+    } else {
+        i = 0
+    }
+
+    let interval = setInterval(() => {
+        select.value = optiuni[i % 3].value
+
+        document.getElementById('data').style.color = optiuni[i % 3].value + ''
+
+        i += 1
+    }, 3000)
+
+    document.addEventListener('keydown', stop)
+
+    function stop(e) {
+        if (e.key == 's') {
+            clearInterval(interval)
+
+            window.localStorage.setItem('valoare', select.value)
+            window.localStorage.setItem('indice', i)
+        }
+    }
+</script>
+
+</html>

@@ -1,0 +1,80 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="author" content="Hutan Mihai">
+    <title>P1</title>
+    <style>
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+        }
+
+        #container {
+            height: 25vh;
+            width: 250px;
+            border: blue 2px dotted;
+            display: grid;
+            grid-template-rows: 1fr 1fr 1fr;
+            grid-template-columns: 1fr 1fr 1fr;
+        }
+
+        #container > div {
+            border: black double 6px;
+            font-size: 10px;
+        }
+
+        #container > div:nth-child(1) {
+            grid-row: 3;
+            grid-column: 3;
+        }
+
+        #container > div:nth-child(2) {
+            grid-row: 1;
+            grid-column: 3;
+        }
+
+        #container > div:nth-child(3) {
+            grid-row: 1;
+            grid-column: 1;
+        }
+
+        #container > div:nth-child(4) {
+            grid-row: 2;
+            grid-column: 2;
+        }
+
+        #container > div:nth-child(5) {
+            grid-row: 3;
+            grid-column: 1;
+        }
+
+        @media screen and (max-width: 600px) and (max-height: 500px) {
+            #container {
+                display: flex;
+                flex-direction: column-reverse;
+            }
+
+            #container > div {
+                width: 100%;
+            }
+
+            #container > div:hover {
+                font-size: 20px;
+                transition-duration: 3s;
+                border-color: red;
+            }
+        }
+    </style>
+</head>
+<body>
+<div id="container">
+    <div>DIV1</div>
+    <div>DIV2</div>
+    <div>DIV3</div>
+    <div>DIV4</div>
+    <div>DIV5</div>
+</div>
+</body>
+</html>

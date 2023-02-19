@@ -1,0 +1,11 @@
+# ninja log v5
+0	245	6671911225593474	CMakeFiles/lab1.dir/ex1_b.cpp.obj	3d7ac27cbcadd711
+64	248	6671911225644105	CMakeFiles/lab1.dir/ex3_a.cpp.obj	a0413ffd706b82c
+88	278	6671911226022255	CMakeFiles/lab1.dir/ex6_2.cpp.obj	2c594272d81aaac1
+22	247	6671911225593474	CMakeFiles/lab1.dir/ex2_a.cpp.obj	1cb86628ffd67603
+36	255	6671911225734931	CMakeFiles/lab1.dir/ex2_b.cpp.obj	e9cf7b4c8d7f0667
+44	255	6671911225734931	CMakeFiles/lab1.dir/ex5.cpp.obj	6d5b90bd6fe04634
+51	262	6671911225855653	CMakeFiles/lab1.dir/ex4_a.cpp.obj	a7b59fdc7d3e634f
+105	263	6671911225855653	CMakeFiles/lab1.dir/ex6_1.cpp.obj	329999116329bcde
+29	655	6671911229753544	CMakeFiles/lab1.dir/ex1_a.cpp.obj	b54e224c56d6562f
+657	834	6671911231511863	lab1.exe	d6a81d1d51c143c3
