@@ -1,0 +1,3 @@
+[submodule "calorie-tracker-backend"]
+	path = calorie-tracker-backend
+	url = https://github.com/hutanmihai/calorie-tracker-backend

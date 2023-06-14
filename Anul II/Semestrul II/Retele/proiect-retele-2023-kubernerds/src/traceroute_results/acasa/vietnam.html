@@ -1,0 +1,105 @@
+<!DOCTYPE html>
+<html>
+<head>
+
+    <meta http-equiv="content-type" content="text/html; charset=UTF-8" />
+
+        <script>
+            L_NO_TOUCH = false;
+            L_DISABLE_3D = false;
+        </script>
+
+    <style>html, body {width: 100%;height: 100%;margin: 0;padding: 0;}</style>
+    <style>#map {position:absolute;top:0;bottom:0;right:0;left:0;}</style>
+    <script src="https://cdn.jsdelivr.net/npm/leaflet@1.9.3/dist/leaflet.js"></script>
+    <script src="https://code.jquery.com/jquery-1.12.4.min.js"></script>
+    <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.2.2/dist/js/bootstrap.bundle.min.js"></script>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/Leaflet.awesome-markers/2.0.2/leaflet.awesome-markers.js"></script>
+    <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/leaflet@1.9.3/dist/leaflet.css"/>
+    <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bootstrap@5.2.2/dist/css/bootstrap.min.css"/>
+    <link rel="stylesheet" href="https://netdna.bootstrapcdn.com/bootstrap/3.0.0/css/bootstrap.min.css"/>
+    <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/@fortawesome/fontawesome-free@6.2.0/css/all.min.css"/>
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/Leaflet.awesome-markers/2.0.2/leaflet.awesome-markers.css"/>
+    <link rel="stylesheet" href="https://cdn.jsdelivr.net/gh/python-visualization/folium/folium/templates/leaflet.awesome.rotate.min.css"/>
+
+            <meta name="viewport" content="width=device-width,
+                initial-scale=1.0, maximum-scale=1.0, user-scalable=no" />
+            <style>
+                #map_1d7cd89f9aa551363b300ec0b8b821a7 {
+                    position: relative;
+                    width: 100.0%;
+                    height: 100.0%;
+                    left: 0.0%;
+                    top: 0.0%;
+                }
+                .leaflet-container { font-size: 1rem; }
+            </style>
+
+</head>
+<body>
+
+
+            <div class="folium-map" id="map_1d7cd89f9aa551363b300ec0b8b821a7" ></div>
+
+</body>
+<script>
+
+
+            var map_1d7cd89f9aa551363b300ec0b8b821a7 = L.map(
+                "map_1d7cd89f9aa551363b300ec0b8b821a7",
+                {
+                    center: [52.3730796, 4.8924534],
+                    crs: L.CRS.EPSG3857,
+                    zoom: 3,
+                    zoomControl: true,
+                    preferCanvas: false,
+                }
+            );
+
+
+
+
+
+            var tile_layer_c3f632a336980505927214da269b974a = L.tileLayer(
+                "https://{s}.tile.openstreetmap.org/{z}/{x}/{y}.png",
+                {"attribution": "Data by \u0026copy; \u003ca target=\"_blank\" href=\"http://openstreetmap.org\"\u003eOpenStreetMap\u003c/a\u003e, under \u003ca target=\"_blank\" href=\"http://www.openstreetmap.org/copyright\"\u003eODbL\u003c/a\u003e.", "detectRetina": false, "maxNativeZoom": 18, "maxZoom": 18, "minZoom": 0, "noWrap": false, "opacity": 1, "subdomains": "abc", "tms": false}
+            ).addTo(map_1d7cd89f9aa551363b300ec0b8b821a7);
+
+
+            var marker_05f80c98a111f8259273735ef8008ee6 = L.marker(
+                [52.3730796, 4.8924534],
+                {}
+            ).addTo(map_1d7cd89f9aa551363b300ec0b8b821a7);
+
+
+            marker_05f80c98a111f8259273735ef8008ee6.bindTooltip(
+                `<div>
+                     Amsterdam, North Holland, NL
+
+                 </div>`,
+                {"sticky": true}
+            );
+
+
+            var marker_c661c42ab682b437a11c5f6192f23acc = L.marker(
+                [10.77104195, 106.65775480575704],
+                {}
+            ).addTo(map_1d7cd89f9aa551363b300ec0b8b821a7);
+
+
+            marker_c661c42ab682b437a11c5f6192f23acc.bindTooltip(
+                `<div>
+                     Ho Chi Minh City, Ho Chi Minh, VN
+
+                 </div>`,
+                {"sticky": true}
+            );
+
+
+            var poly_line_863364b2beb739ca174609ec7286eb9b = L.polyline(
+                [[52.3730796, 4.8924534], [10.77104195, 106.65775480575704]],
+                {"bubblingMouseEvents": true, "color": "blue", "dashArray": [1, 2, 3, 4, 5, 6, 7, 8, 9, 10, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0], "dashOffset": null, "fill": false, "fillColor": "blue", "fillOpacity": 0.2, "fillRule": "evenodd", "lineCap": "round", "lineJoin": "round", "noClip": false, "opacity": 1.0, "smoothFactor": 1.0, "stroke": true, "weight": 3}
+            ).addTo(map_1d7cd89f9aa551363b300ec0b8b821a7);
+
+</script>
+</html>

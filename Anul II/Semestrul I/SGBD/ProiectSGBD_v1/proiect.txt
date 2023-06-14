@@ -1,0 +1,1890 @@
+------------------------------- DROP TABLES -------------------------------
+
+-- DROP TABLE meci_header;
+-- DROP TABLE scena;
+-- DROP TABLE prezentator;
+-- DROP TABLE mod_joc;
+--
+-- DROP TABLE meci_map;
+-- DROP TABLE meci;
+--
+-- DROP TABLE campion_pool;
+-- DROP TABLE campion;
+-- DROP TABLE jucator;
+--
+-- DROP TABLE grupa_map;
+-- DROP TABLE grupa;
+-- DROP TABLE turneu;
+--
+-- DROP TABLE echipa;
+-- DROP TABLE regiune;
+--
+-- DROP PROCEDURE admin.EX6;
+-- DROP PROCEDURE admin.EX7;
+-- DROP FUNCTION admin.EX8;
+-- DROP PROCEDURE admin.EX9;
+--
+-- DROP TRIGGER admin.ex10;
+-- DROP TRIGGER admin.ex11;
+-- DROP TRIGGER admin.ex12;
+-- DROP TABLE istoric;
+--
+-- DROP PACKAGE proiect_sgbd_hutan_mihai;
+
+
+----------------------------------- SCENA -----------------------------------
+CREATE TABLE scena
+(
+    id   NUMBER(5) GENERATED ALWAYS AS IDENTITY
+        CONSTRAINT pkey_scena PRIMARY KEY,
+    nume VARCHAR2(50)
+        CONSTRAINT nume_scena NOT NULL
+)
+
+INSERT INTO scena(nume)
+VALUES ('Main Stage')
+
+INSERT INTO scena(nume)
+VALUES ('Second Stage')
+
+INSERT INTO scena(nume)
+VALUES ('Third Stage')
+
+INSERT INTO scena(nume)
+VALUES ('Horn Stage')
+
+INSERT INTO scena(nume)
+VALUES ('Panther Stage')
+
+COMMIT;
+
+----------------------------------- PREZENTATOR -----------------------------------
+CREATE TABLE prezentator
+(
+    id   NUMBER(5) GENERATED ALWAYS AS IDENTITY
+        CONSTRAINT pkey_prezentator PRIMARY KEY,
+    nume VARCHAR2(50)
+        CONSTRAINT nume_prezentator NOT NULL
+)
+
+INSERT INTO prezentator(nume)
+VALUES ('James Patterson')
+
+INSERT INTO prezentator(nume)
+VALUES ('David Turley')
+
+INSERT INTO prezentator(nume)
+VALUES ('Sam Hartman')
+
+INSERT INTO prezentator(nume)
+VALUES ('Mark Zimmerman')
+
+INSERT INTO prezentator(nume)
+VALUES ('Emily Rand')
+
+INSERT INTO prezentator(nume)
+VALUES ('Barento Mohammed')
+
+INSERT INTO prezentator(nume)
+VALUES ('Julian Carr')
+
+INSERT INTO prezentator(nume)
+VALUES ('Isaac Bentley')
+
+INSERT INTO prezentator(nume)
+VALUES ('Max Anderson')
+
+INSERT INTO prezentator(nume)
+VALUES ('Jordan Corby')
+
+COMMIT;
+
+----------------------------------- MOD_JOC -----------------------------------
+CREATE TABLE mod_joc
+(
+    id         NUMBER(5) GENERATED ALWAYS AS IDENTITY
+        CONSTRAINT pkey_mod_joc PRIMARY KEY,
+    nume       VARCHAR2(50)
+        CONSTRAINT nume_mod_joc NOT NULL,
+    harta      VARCHAR2(50)
+        CONSTRAINT harta_mod_joc NOT NULL,
+    dimensiune NUMBER(5)
+        CONSTRAINT dimensiune_mod_joc NOT NULL
+)
+
+INSERT INTO mod_joc(nume, harta, dimensiune)
+VALUES ('Normal', 'Summoners Rift', '5')
+
+INSERT INTO mod_joc(nume, harta, dimensiune)
+VALUES ('Ranked', 'Summoners Rift', '5')
+
+INSERT INTO mod_joc(nume, harta, dimensiune)
+VALUES ('Flex', 'Summoners Rift', '5')
+
+INSERT INTO mod_joc(nume, harta, dimensiune)
+VALUES ('Normal', 'Summoners Rift', '5')
+
+INSERT INTO mod_joc(nume, harta, dimensiune)
+VALUES ('Normal', 'Twisted Treelines', '3')
+
+INSERT INTO mod_joc(nume, harta, dimensiune)
+VALUES ('Ranked', 'Twisted Treelines', '3')
+
+INSERT INTO mod_joc(nume, harta, dimensiune)
+VALUES ('Flex', 'Twisted Treelines', '3')
+
+INSERT INTO mod_joc(nume, harta, dimensiune)
+VALUES ('Normal', 'ARAM', '5')
+
+INSERT INTO mod_joc(nume, harta, dimensiune)
+VALUES ('Ranked', 'ARAM', '5')
+
+INSERT INTO mod_joc(nume, harta, dimensiune)
+VALUES ('Flex', 'ARAM', '5')
+
+INSERT INTO mod_joc(nume, harta, dimensiune)
+VALUES ('Ranked', 'ARAM', '1')
+
+COMMIT;
+
+----------------------------------- MECI -----------------------------------
+CREATE TABLE meci
+(
+    id    NUMBER(5) GENERATED ALWAYS AS IDENTITY
+        CONSTRAINT pkey_meci PRIMARY KEY,
+    titlu VARCHAR2(50)
+        CONSTRAINT titlu_meci NOT NULL,
+    data  DATE
+        CONSTRAINT data_meci NOT NULL
+)
+
+INSERT INTO meci(titlu, data)
+VALUES ('Revenge', TO_DATE('2022-05-10', 'YYYY-MM-DD'))
+
+INSERT INTO meci(titlu, data)
+VALUES ('Revenge', TO_DATE('2022-05-11', 'YYYY-MM-DD'))
+
+INSERT INTO meci(titlu, data)
+VALUES ('Warriors', TO_DATE('2022-05-13', 'YYYY-MM-DD'))
+
+INSERT INTO meci(titlu, data)
+VALUES ('Destroyers', TO_DATE('2022-05-14', 'YYYY-MM-DD'))
+
+INSERT INTO meci(titlu, data)
+VALUES ('Debut', TO_DATE('2021-10-01', 'YYYY-MM-DD'))
+
+INSERT INTO meci(titlu, data)
+VALUES ('Academy', TO_DATE('2021-10-02', 'YYYY-MM-DD'))
+
+INSERT INTO meci(titlu, data)
+VALUES ('Academy', TO_DATE('2021-05-03', 'YYYY-MM-DD'))
+
+INSERT INTO meci(titlu, data)
+VALUES ('RunnerUps', TO_DATE('2022-01-12', 'YYYY-MM-DD'))
+
+INSERT INTO meci(titlu, data)
+VALUES ('RunnerUps', TO_DATE('2022-01-12', 'YYYY-MM-DD'))
+
+INSERT INTO meci(titlu, data)
+VALUES ('Academy', TO_DATE('2021-01-13', 'YYYY-MM-DD'))
+
+COMMIT;
+
+----------------------------------- CAMPION -----------------------------------
+CREATE TABLE campion
+(
+    id      NUMBER(5) GENERATED ALWAYS AS IDENTITY
+        CONSTRAINT pkey_campion PRIMARY KEY,
+    nume    VARCHAR2(50)
+        CONSTRAINT nume_campion NOT NULL,
+    titlu   VARCHAR2(50)
+        CONSTRAINT titlu_campion NOT NULL,
+    resursa VARCHAR2(50)
+        CONSTRAINT resursa_campion NOT NULL
+)
+
+INSERT INTO campion(nume, titlu, resursa)
+VALUES ('Aatrox', 'the Darkin Blade', 'Blood Well')
+
+INSERT INTO campion(nume, titlu, resursa)
+VALUES ('Ahri', 'the Nine-Tailed Fox', 'Mana')
+
+INSERT INTO campion(nume, titlu, resursa)
+VALUES ('Akali', 'the Rogue Assassin', 'Energy')
+
+INSERT INTO campion(nume, titlu, resursa)
+VALUES ('Alistar', 'the Minotaur', 'Mana')
+
+INSERT INTO campion(nume, titlu, resursa)
+VALUES ('Amumu', 'the Sad Mummy', 'Mana')
+
+INSERT INTO campion(nume, titlu, resursa)
+VALUES ('Anivia', 'the Cryophoenix', 'Mana')
+
+INSERT INTO campion(nume, titlu, resursa)
+VALUES ('Annie', 'the Dark Child', 'Mana')
+
+INSERT INTO campion(nume, titlu, resursa)
+VALUES ('Ashe', 'the Frost Archer', 'Mana')
+
+INSERT INTO campion(nume, titlu, resursa)
+VALUES ('Fiddlesticks', 'the Ancient Fear', 'Mana')
+
+INSERT INTO campion(nume, titlu, resursa)
+VALUES ('Fizz', 'the Tidal Trickster', 'Mana')
+
+INSERT INTO campion(nume, titlu, resursa)
+VALUES ('Gangplank', 'the Saltwater Scourge', 'Mana')
+
+INSERT INTO campion(nume, titlu, resursa)
+VALUES ('Hecarim', 'the Shadow of War', 'Mana')
+
+INSERT INTO campion(nume, titlu, resursa)
+VALUES ('Jax', 'Grandmaster at Arms', 'Mana')
+
+INSERT INTO campion(nume, titlu, resursa)
+VALUES ('Jayce', 'the Defender of Tomorrow', 'Mana')
+
+INSERT INTO campion(nume, titlu, resursa)
+VALUES ('Jhin', 'the Virtuoso', 'Mana')
+
+INSERT INTO campion(nume, titlu, resursa)
+VALUES ('Jinx', 'the Loose Cannon', 'Mana')
+
+INSERT INTO campion(nume, titlu, resursa)
+VALUES ('KhaZix', 'the Voidreaver', 'Mana')
+
+INSERT INTO campion(nume, titlu, resursa)
+VALUES ('Lee Sin', 'the Blind Monk', 'Energy')
+
+INSERT INTO campion(nume, titlu, resursa)
+VALUES ('Zed', 'the Master of Shadows', 'Energy')
+
+INSERT INTO campion(nume, titlu, resursa)
+VALUES ('Lux', 'the Lady of Luminosity', 'Mana')
+
+COMMIT;
+
+----------------------------------- TURNEU -----------------------------------
+CREATE TABLE turneu
+(
+    id   NUMBER(5) GENERATED ALWAYS AS IDENTITY
+        CONSTRAINT pkey_turneu PRIMARY KEY,
+    nume VARCHAR2(50)
+        CONSTRAINT nume_turneu NOT NULL,
+    oras VARCHAR2(50)
+        CONSTRAINT oras_turneu NOT NULL,
+    data DATE
+        CONSTRAINT data_turneu NOT NULL
+)
+
+INSERT INTO turneu(nume, oras, data)
+VALUES ('MSI', 'Roma', TO_DATE('2022-05-10', 'YYYY-MM-DD'))
+
+INSERT INTO turneu(nume, oras, data)
+VALUES ('ALLSTARS', 'New York', TO_DATE('2022-01-12', 'YYYY-MM-DD'))
+
+INSERT INTO turneu(nume, oras, data)
+VALUES ('WORLDS', 'Beijing', TO_DATE('2021-10-01', 'YYYY-MM-DD'))
+
+INSERT INTO turneu(nume, oras, data)
+VALUES ('LCK-SUMMER', 'Seul', TO_DATE('2021-06-05', 'YYYY-MM-DD'))
+
+INSERT INTO turneu(nume, oras, data)
+VALUES ('NA-SPRING', 'Boston', TO_DATE('2021-03-13', 'YYYY-MM-DD'))
+
+INSERT INTO turneu(nume, oras, data)
+VALUES ('EUW-SUMMER', 'Paris', TO_DATE('2022-06-05', 'YYYY-MM-DD'))
+
+INSERT INTO turneu(nume, oras, data)
+VALUES ('NA-SUMMER', 'Los Angeles', TO_DATE('2022-07-03', 'YYYY-MM-DD'))
+
+INSERT INTO turneu(nume, oras, data)
+VALUES ('EUW-SPRING', 'London', TO_DATE('2022-04-01', 'YYYY-MM-DD'))
+
+INSERT INTO turneu(nume, oras, data)
+VALUES ('LCK-SPRING', 'Seul', TO_DATE('2021-03-05', 'YYYY-MM-DD'))
+
+INSERT INTO turneu(nume, oras, data)
+VALUES ('OCE-SUMMER', 'Sydney', TO_DATE('2022-07-01', 'YYYY-MM-DD'))
+
+COMMIT;
+
+----------------------------------- REGIUNE -----------------------------------
+CREATE TABLE regiune
+(
+    id   NUMBER(5) GENERATED ALWAYS AS IDENTITY
+        CONSTRAINT pkey_regiune PRIMARY KEY,
+    nume VARCHAR2(50)
+        CONSTRAINT nume_regiune NOT NULL
+)
+
+INSERT INTO regiune(nume)
+VALUES ('KOR')
+
+INSERT INTO regiune(nume)
+VALUES ('EUNE')
+
+INSERT INTO regiune(nume)
+VALUES ('EUW')
+
+INSERT INTO regiune(nume)
+VALUES ('NA')
+
+INSERT INTO regiune(nume)
+VALUES ('OCE')
+
+INSERT INTO regiune(nume)
+VALUES ('SA')
+
+INSERT INTO regiune(nume)
+VALUES ('TUR')
+
+INSERT INTO regiune(nume)
+VALUES ('RUS')
+
+COMMIT;
+
+----------------------------------- GRUPA -----------------------------------
+CREATE TABLE grupa
+(
+    id        NUMBER(5) GENERATED ALWAYS AS IDENTITY
+        CONSTRAINT pkey_grupa PRIMARY KEY,
+    nume      VARCHAR2(50)
+        CONSTRAINT nume_grupa NOT NULL,
+    id_turneu NUMBER(5) NOT NULL,
+    CONSTRAINT fk_turneu_grupa FOREIGN KEY (id_turneu) REFERENCES turneu (id)
+)
+
+-- ('A',1),('B',1),('C',1),('D',1),
+-- ('A',2),('B',2),('C',2),('D',2),('A',3),('B',3),('C',3),
+-- ('D',3),('A',4),('B',4),('C',4),('D',4),
+-- ('A',5),('B',5),('C',5),('D',5),('A',6),
+-- ('B',6),('C',6),('D',6)
+
+INSERT INTO grupa(nume, id_turneu)
+VALUES ('A', 1)
+
+INSERT INTO grupa(nume, id_turneu)
+VALUES ('B', 1)
+
+INSERT INTO grupa(nume, id_turneu)
+VALUES ('C', 1)
+
+INSERT INTO grupa(nume, id_turneu)
+VALUES ('D', 1)
+
+INSERT INTO grupa(nume, id_turneu)
+VALUES ('A', 2)
+
+INSERT INTO grupa(nume, id_turneu)
+VALUES ('B', 2)
+
+INSERT INTO grupa(nume, id_turneu)
+VALUES ('C', 2)
+
+INSERT INTO grupa(nume, id_turneu)
+VALUES ('D', 2)
+
+INSERT INTO grupa(nume, id_turneu)
+VALUES ('A', 3)
+
+INSERT INTO grupa(nume, id_turneu)
+VALUES ('B', 3)
+
+INSERT INTO grupa(nume, id_turneu)
+VALUES ('C', 3)
+
+INSERT INTO grupa(nume, id_turneu)
+VALUES ('D', 3)
+
+INSERT INTO grupa(nume, id_turneu)
+VALUES ('A', 4)
+
+INSERT INTO grupa(nume, id_turneu)
+VALUES ('B', 4)
+
+INSERT INTO grupa(nume, id_turneu)
+VALUES ('C', 4)
+
+INSERT INTO grupa(nume, id_turneu)
+VALUES ('D', 4)
+
+INSERT INTO grupa(nume, id_turneu)
+VALUES ('A', 5)
+
+INSERT INTO grupa(nume, id_turneu)
+VALUES ('B', 5)
+
+INSERT INTO grupa(nume, id_turneu)
+VALUES ('C', 5)
+
+INSERT INTO grupa(nume, id_turneu)
+VALUES ('D', 5)
+
+INSERT INTO grupa(nume, id_turneu)
+VALUES ('A', 6)
+
+INSERT INTO grupa(nume, id_turneu)
+VALUES ('B', 6)
+
+INSERT INTO grupa(nume, id_turneu)
+VALUES ('C', 6)
+
+INSERT INTO grupa(nume, id_turneu)
+VALUES ('D', 6)
+
+COMMIT;
+
+----------------------------------- ECHIPA -----------------------------------
+CREATE TABLE echipa
+(
+    id         NUMBER(5) GENERATED ALWAYS AS IDENTITY
+        CONSTRAINT pkey_echipa PRIMARY KEY,
+    nume       VARCHAR2(50)
+        CONSTRAINT nume_echipa NOT NULL,
+    tag        VARCHAR2(50)
+        CONSTRAINT tag_echipa NOT NULL,
+    id_regiune NUMBER(5) NOT NULL,
+    CONSTRAINT fk_regiune_echipa FOREIGN KEY (id_regiune) REFERENCES regiune (id)
+)
+
+INSERT INTO echipa(id_regiune, nume, tag)
+VALUES (1, 'SKT-T1', 'SKT')
+
+INSERT INTO echipa(id_regiune, nume, tag)
+VALUES (1, 'Royal Never Give Up', 'RNG')
+
+INSERT INTO echipa(id_regiune, nume, tag)
+VALUES (3, 'G2 Esports', 'G2')
+
+INSERT INTO echipa(id_regiune, nume, tag)
+VALUES (4, 'Evil Geniuses ', 'EG')
+
+INSERT INTO echipa(id_regiune, nume, tag)
+VALUES (6, 'PSG Talon Esports', 'PSG')
+
+INSERT INTO echipa(id_regiune, nume, tag)
+VALUES (6, 'Canids Kalunga', 'RED')
+
+INSERT INTO echipa(id_regiune, nume, tag)
+VALUES (1, 'Team Aze', 'AZE')
+
+INSERT INTO echipa(id_regiune, nume, tag)
+VALUES (5, 'Order', 'ORD')
+
+INSERT INTO echipa(id_regiune, nume, tag)
+VALUES (7, 'fastpayWildcats', 'IW')
+
+INSERT INTO echipa(id_regiune, nume, tag)
+VALUES (8, 'SaigonBuffaloEsports', 'SGB')
+
+COMMIT;
+
+----------------------------------- GRUPA_MAP -----------------------------------
+CREATE TABLE grupa_map
+(
+    id_grupa  NUMBER(5)
+        CONSTRAINT pk_grupa_map_grupa REFERENCES grupa (id),
+    id_echipa NUMBER(5)
+        CONSTRAINT pk_grupa_map_echipa REFERENCES echipa (id),
+    CONSTRAINT pk_grupa_map PRIMARY KEY (id_grupa, id_echipa)
+)
+
+INSERT INTO grupa_map(id_grupa, id_echipa)
+VALUES (1, 1)
+
+INSERT INTO grupa_map(id_grupa, id_echipa)
+VALUES (1, 2)
+
+INSERT INTO grupa_map(id_grupa, id_echipa)
+VALUES (1, 3)
+
+INSERT INTO grupa_map(id_grupa, id_echipa)
+VALUES (1, 4)
+
+INSERT INTO grupa_map(id_grupa, id_echipa)
+VALUES (2, 5)
+
+INSERT INTO grupa_map(id_grupa, id_echipa)
+VALUES (2, 6)
+
+INSERT INTO grupa_map(id_grupa, id_echipa)
+VALUES (2, 7)
+
+INSERT INTO grupa_map(id_grupa, id_echipa)
+VALUES (2, 8)
+
+INSERT INTO grupa_map(id_grupa, id_echipa)
+VALUES (3, 9)
+
+INSERT INTO grupa_map(id_grupa, id_echipa)
+VALUES (3, 10)
+
+COMMIT;
+
+----------------------------------- JUCATOR -----------------------------------
+CREATE TABLE jucator
+(
+    id         NUMBER(5) GENERATED ALWAYS AS IDENTITY
+        CONSTRAINT pkey_jucator PRIMARY KEY,
+    nume       VARCHAR2(50)
+        CONSTRAINT nume_jucator NOT NULL,
+    lane       VARCHAR2(50)
+        CONSTRAINT lane_jucator NOT NULL,
+    id_echipa  NUMBER(5) NOT NULL,
+    CONSTRAINT fk_echipa_jucator FOREIGN KEY (id_echipa) REFERENCES echipa (id),
+    id_regiune NUMBER(5) NOT NULL,
+    CONSTRAINT fk_regiune_jucator FOREIGN KEY (id_regiune) REFERENCES regiune (id)
+)
+
+INSERT INTO jucator(id_echipa, id_regiune, nume, lane)
+VALUES (1, 1, 'Zeus', 'TOP')
+
+INSERT INTO jucator(id_echipa, id_regiune, nume, lane)
+VALUES (1, 1, 'Oner', 'JUNGLE')
+
+INSERT INTO jucator(id_echipa, id_regiune, nume, lane)
+VALUES (1, 1, 'Faker', 'MID')
+
+INSERT INTO jucator(id_echipa, id_regiune, nume, lane)
+VALUES (1, 1, 'Gumayusi', 'BOT')
+
+INSERT INTO jucator(id_echipa, id_regiune, nume, lane)
+VALUES (1, 1, 'Keria', 'BOT')
+
+INSERT INTO jucator(id_echipa, id_regiune, nume, lane)
+VALUES (2, 1, 'Bin', 'TOP')
+
+INSERT INTO jucator(id_echipa, id_regiune, nume, lane)
+VALUES (2, 1, 'Wei', 'JUNGLE')
+
+INSERT INTO jucator(id_echipa, id_regiune, nume, lane)
+VALUES (2, 1, 'Xiaohu', 'MID')
+
+INSERT INTO jucator(id_echipa, id_regiune, nume, lane)
+VALUES (2, 1, 'Gala', 'BOT')
+
+INSERT INTO jucator(id_echipa, id_regiune, nume, lane)
+VALUES (2, 1, 'Ming', 'BOT')
+
+INSERT INTO jucator(id_echipa, id_regiune, nume, lane)
+VALUES (3, 3, 'BrokenBlade', 'TOP')
+
+INSERT INTO jucator(id_echipa, id_regiune, nume, lane)
+VALUES (3, 2, 'Jankos', 'JUNGLE')
+
+INSERT INTO jucator(id_echipa, id_regiune, nume, lane)
+VALUES (3, 3, 'Caps', 'MID')
+
+INSERT INTO jucator(id_echipa, id_regiune, nume, lane)
+VALUES (3, 3, 'Flakked', 'BOT')
+
+INSERT INTO jucator(id_echipa, id_regiune, nume, lane)
+VALUES (3, 3, 'Targamas', 'BOT')
+
+INSERT INTO jucator(id_echipa, id_regiune, nume, lane)
+VALUES (4, 1, 'Impact', 'TOP')
+
+INSERT INTO jucator(id_echipa, id_regiune, nume, lane)
+VALUES (4, 2, 'Inspired', 'JUNGLE')
+
+INSERT INTO jucator(id_echipa, id_regiune, nume, lane)
+VALUES (4, 4, 'Jojopyun', 'MID')
+
+INSERT INTO jucator(id_echipa, id_regiune, nume, lane)
+VALUES (4, 4, 'Danny', 'BOT')
+
+INSERT INTO jucator(id_echipa, id_regiune, nume, lane)
+VALUES (4, 4, 'Vulcan', 'BOT')
+
+INSERT INTO jucator(id_echipa, id_regiune, nume, lane)
+VALUES (5, 5, 'Hanabi', 'TOP')
+
+INSERT INTO jucator(id_echipa, id_regiune, nume, lane)
+VALUES (5, 1, 'Juhan', 'JUNGLE')
+
+INSERT INTO jucator(id_echipa, id_regiune, nume, lane)
+VALUES (5, 1, 'Bay', 'MID')
+
+INSERT INTO jucator(id_echipa, id_regiune, nume, lane)
+VALUES (5, 5, 'Unified', 'BOT')
+
+INSERT INTO jucator(id_echipa, id_regiune, nume, lane)
+VALUES (5, 5, 'Kaiwing', 'BOT')
+
+INSERT INTO jucator(id_echipa, id_regiune, nume, lane)
+VALUES (6, 6, 'Guigo', 'TOP')
+
+INSERT INTO jucator(id_echipa, id_regiune, nume, lane)
+VALUES (6, 6, 'Aegis', 'JUNGLE')
+
+INSERT INTO jucator(id_echipa, id_regiune, nume, lane)
+VALUES (6, 6, 'Avenger', 'MID')
+
+INSERT INTO jucator(id_echipa, id_regiune, nume, lane)
+VALUES (6, 6, 'TitaN', 'BOT')
+
+INSERT INTO jucator(id_echipa, id_regiune, nume, lane)
+VALUES (6, 6, 'Jojo', 'BOT')
+
+INSERT INTO jucator(id_echipa, id_regiune, nume, lane)
+VALUES (7, 1, 'Lonely', 'TOP')
+
+INSERT INTO jucator(id_echipa, id_regiune, nume, lane)
+VALUES (7, 6, 'Dimitry', 'JUNGLE')
+
+INSERT INTO jucator(id_echipa, id_regiune, nume, lane)
+VALUES (7, 6, 'Aloned', 'MID')
+
+INSERT INTO jucator(id_echipa, id_regiune, nume, lane)
+VALUES (7, 1, '5Kid', 'BOT')
+
+INSERT INTO jucator(id_echipa, id_regiune, nume, lane)
+VALUES (7, 6, 'Straight', 'BOT')
+
+INSERT INTO jucator(id_echipa, id_regiune, nume, lane)
+VALUES (8, 5, 'BioPanther', 'TOP')
+
+INSERT INTO jucator(id_echipa, id_regiune, nume, lane)
+VALUES (8, 5, 'Maximize', 'JUNGLE')
+
+INSERT INTO jucator(id_echipa, id_regiune, nume, lane)
+VALUES (8, 5, 'Kisee', 'MID')
+
+INSERT INTO jucator(id_echipa, id_regiune, nume, lane)
+VALUES (8, 5, 'Puma', 'BOT')
+
+INSERT INTO jucator(id_echipa, id_regiune, nume, lane)
+VALUES (8, 5, 'Corporal', 'BOT')
+
+INSERT INTO jucator(id_echipa, id_regiune, nume, lane)
+VALUES (9, 7, 'StarScreen', 'TOP')
+
+INSERT INTO jucator(id_echipa, id_regiune, nume, lane)
+VALUES (9, 7, 'Ferret', 'JUNGLE')
+
+INSERT INTO jucator(id_echipa, id_regiune, nume, lane)
+VALUES (9, 7, 'Serin', 'MID')
+
+INSERT INTO jucator(id_echipa, id_regiune, nume, lane)
+VALUES (9, 7, 'HolyPhoenix', 'BOT')
+
+INSERT INTO jucator(id_echipa, id_regiune, nume, lane)
+VALUES (9, 7, 'Farfetch', 'BOT')
+
+INSERT INTO jucator(id_echipa, id_regiune, nume, lane)
+VALUES (10, 8, 'Hasmed', 'TOP')
+
+INSERT INTO jucator(id_echipa, id_regiune, nume, lane)
+VALUES (10, 8, 'Bean J', 'JUNGLE')
+
+INSERT INTO jucator(id_echipa, id_regiune, nume, lane)
+VALUES (10, 8, 'Froggy', 'MID')
+
+INSERT INTO jucator(id_echipa, id_regiune, nume, lane)
+VALUES (10, 8, 'Shogun', 'BOT')
+
+INSERT INTO jucator(id_echipa, id_regiune, nume, lane)
+VALUES (10, 8, 'Taki', 'BOT')
+
+COMMIT;
+
+----------------------------------- CAMPION_POOL -----------------------------------
+CREATE TABLE campion_pool
+(
+    id_campion NUMBER(5)
+        CONSTRAINT pk_campion_pool_campion REFERENCES campion (id),
+    id_jucator NUMBER(5)
+        CONSTRAINT pk_campion_pool_jucator REFERENCES jucator (id),
+    CONSTRAINT pk_campion_pool PRIMARY KEY (id_campion, id_jucator)
+)
+
+-- (1,1),(1,3),(1,5),(2,2),(2,4),(2,6),(3,2),(3,3),(3,6),(5,18),(4,20),(4,11),(5,5),(6,10),(7,11),(8,13),(8,14),(8,15),
+-- (9,19),(9,20),(10,18),(13,9),(12,10),(11,11),(12,12),(13,13),(14,14),(15,15),(16,16),(15,17),(16,18),(17,19),(17,20),
+-- (18,2),(18,3),(17,18),(18,4),(19,5),(19,6),(20,7),(20,8),(19,7),(21,20),(21,18),(21,13),(23,9),(22,8),(22,10),(23,10),
+-- (24,15),(24,16),(25,19),(25,18),(25,17),(26,12),(26,13),(27,13),(28,15),(28,14),(27,14),(29,16),(29,17),(29,3),(30,6),
+-- (30,5),(31,5),(32,1),(32,2),(31,1),(32,9),(33,4),(33,3),(35,1),(34,2),(33,9),(35,3),(36,8),(36,7),(37,10),(37,11),
+-- (37,12),(38,20),(38,19),(38,10),(39,20),(39,2),(39,3),(40,1),(41,2),(41,3),(42,4),(42,1),(42,2),(43,5),(44,6),(43,7),
+-- (45,8),(45,9),(44,10),(45,13),(46,12),(46,11),(47,14),(47,15),(47,16),(48,19),(48,18),(49,17),(49,20),(49,2),(48,3),
+-- (50,8),(50,7),(50,4)
+
+INSERT INTO campion_pool(id_jucator, id_campion)
+VALUES (1, 1)
+
+INSERT INTO campion_pool(id_jucator, id_campion)
+VALUES (1, 3)
+
+INSERT INTO campion_pool(id_jucator, id_campion)
+VALUES (1, 5)
+
+INSERT INTO campion_pool(id_jucator, id_campion)
+VALUES (2, 2)
+
+INSERT INTO campion_pool(id_jucator, id_campion)
+VALUES (2, 4)
+
+INSERT INTO campion_pool(id_jucator, id_campion)
+VALUES (2, 6)
+
+INSERT INTO campion_pool(id_jucator, id_campion)
+VALUES (3, 2)
+
+INSERT INTO campion_pool(id_jucator, id_campion)
+VALUES (3, 3)
+
+INSERT INTO campion_pool(id_jucator, id_campion)
+VALUES (3, 6)
+
+INSERT INTO campion_pool(id_jucator, id_campion)
+VALUES (5, 18)
+
+INSERT INTO campion_pool(id_jucator, id_campion)
+VALUES (4, 20)
+
+INSERT INTO campion_pool(id_jucator, id_campion)
+VALUES (4, 11)
+
+INSERT INTO campion_pool(id_jucator, id_campion)
+VALUES (5, 5)
+
+INSERT INTO campion_pool(id_jucator, id_campion)
+VALUES (6, 10)
+
+INSERT INTO campion_pool(id_jucator, id_campion)
+VALUES (7, 11)
+
+INSERT INTO campion_pool(id_jucator, id_campion)
+VALUES (8, 13)
+
+INSERT INTO campion_pool(id_jucator, id_campion)
+VALUES (8, 14)
+
+INSERT INTO campion_pool(id_jucator, id_campion)
+VALUES (8, 15)
+
+INSERT INTO campion_pool(id_jucator, id_campion)
+VALUES (9, 19)
+
+INSERT INTO campion_pool(id_jucator, id_campion)
+VALUES (9, 20)
+
+INSERT INTO campion_pool(id_jucator, id_campion)
+VALUES (10, 18)
+
+INSERT INTO campion_pool(id_jucator, id_campion)
+VALUES (13, 9)
+
+INSERT INTO campion_pool(id_jucator, id_campion)
+VALUES (12, 10)
+
+INSERT INTO campion_pool(id_jucator, id_campion)
+VALUES (11, 11)
+
+INSERT INTO campion_pool(id_jucator, id_campion)
+VALUES (12, 12)
+
+INSERT INTO campion_pool(id_jucator, id_campion)
+VALUES (13, 13)
+
+INSERT INTO campion_pool(id_jucator, id_campion)
+VALUES (14, 14)
+
+INSERT INTO campion_pool(id_jucator, id_campion)
+VALUES (15, 15)
+
+INSERT INTO campion_pool(id_jucator, id_campion)
+VALUES (16, 16)
+
+INSERT INTO campion_pool(id_jucator, id_campion)
+VALUES (15, 17)
+
+INSERT INTO campion_pool(id_jucator, id_campion)
+VALUES (16, 18)
+
+INSERT INTO campion_pool(id_jucator, id_campion)
+VALUES (17, 19)
+
+INSERT INTO campion_pool(id_jucator, id_campion)
+VALUES (17, 20)
+
+INSERT INTO campion_pool(id_jucator, id_campion)
+VALUES (18, 2)
+
+INSERT INTO campion_pool(id_jucator, id_campion)
+VALUES (18, 3)
+
+INSERT INTO campion_pool(id_jucator, id_campion)
+VALUES (17, 18)
+
+INSERT INTO campion_pool(id_jucator, id_campion)
+VALUES (18, 4)
+
+INSERT INTO campion_pool(id_jucator, id_campion)
+VALUES (19, 5)
+
+INSERT INTO campion_pool(id_jucator, id_campion)
+VALUES (20, 6)
+
+INSERT INTO campion_pool(id_jucator, id_campion)
+VALUES (19, 7)
+
+INSERT INTO campion_pool(id_jucator, id_campion)
+VALUES (21, 8)
+
+INSERT INTO campion_pool(id_jucator, id_campion)
+VALUES (21, 9)
+
+INSERT INTO campion_pool(id_jucator, id_campion)
+VALUES (20, 10)
+
+INSERT INTO campion_pool(id_jucator, id_campion)
+VALUES (21, 13)
+
+INSERT INTO campion_pool(id_jucator, id_campion)
+VALUES (22, 12)
+
+INSERT INTO campion_pool(id_jucator, id_campion)
+VALUES (22, 11)
+
+INSERT INTO campion_pool(id_jucator, id_campion)
+VALUES (23, 14)
+
+INSERT INTO campion_pool(id_jucator, id_campion)
+VALUES (23, 15)
+
+INSERT INTO campion_pool(id_jucator, id_campion)
+VALUES (23, 16)
+
+INSERT INTO campion_pool(id_jucator, id_campion)
+VALUES (24, 19)
+
+INSERT INTO campion_pool(id_jucator, id_campion)
+VALUES (24, 20)
+
+INSERT INTO campion_pool(id_jucator, id_campion)
+VALUES (25, 18)
+
+INSERT INTO campion_pool(id_jucator, id_campion)
+VALUES (26, 17)
+
+INSERT INTO campion_pool(id_jucator, id_campion)
+VALUES (27, 16)
+
+INSERT INTO campion_pool(id_jucator, id_campion)
+VALUES (28, 15)
+
+INSERT INTO campion_pool(id_jucator, id_campion)
+VALUES (29, 14)
+
+INSERT INTO campion_pool(id_jucator, id_campion)
+VALUES (30, 13)
+
+INSERT INTO campion_pool(id_jucator, id_campion)
+VALUES (31, 12)
+
+INSERT INTO campion_pool(id_jucator, id_campion)
+VALUES (32, 11)
+
+INSERT INTO campion_pool(id_jucator, id_campion)
+VALUES (33, 10)
+
+INSERT INTO campion_pool(id_jucator, id_campion)
+VALUES (34, 9)
+
+INSERT INTO campion_pool(id_jucator, id_campion)
+VALUES (35, 8)
+
+INSERT INTO campion_pool(id_jucator, id_campion)
+VALUES (36, 7)
+
+INSERT INTO campion_pool(id_jucator, id_campion)
+VALUES (37, 6)
+
+INSERT INTO campion_pool(id_jucator, id_campion)
+VALUES (38, 5)
+
+INSERT INTO campion_pool(id_jucator, id_campion)
+VALUES (39, 4)
+
+INSERT INTO campion_pool(id_jucator, id_campion)
+VALUES (40, 3)
+
+INSERT INTO campion_pool(id_jucator, id_campion)
+VALUES (41, 2)
+
+INSERT INTO campion_pool(id_jucator, id_campion)
+VALUES (42, 1)
+
+INSERT INTO campion_pool(id_jucator, id_campion)
+VALUES (43, 20)
+
+INSERT INTO campion_pool(id_jucator, id_campion)
+VALUES (44, 19)
+
+INSERT INTO campion_pool(id_jucator, id_campion)
+VALUES (45, 18)
+
+INSERT INTO campion_pool(id_jucator, id_campion)
+VALUES (46, 17)
+
+INSERT INTO campion_pool(id_jucator, id_campion)
+VALUES (47, 16)
+
+INSERT INTO campion_pool(id_jucator, id_campion)
+VALUES (48, 15)
+
+INSERT INTO campion_pool(id_jucator, id_campion)
+VALUES (49, 14)
+
+INSERT INTO campion_pool(id_jucator, id_campion)
+VALUES (50, 13)
+
+INSERT INTO campion_pool(id_jucator, id_campion)
+VALUES (50, 12)
+
+COMMIT;
+
+----------------------------------- MECI_MAP -----------------------------------
+CREATE TABLE meci_map
+(
+    id_echipa NUMBER(5)
+        CONSTRAINT pk_meci_map_echipa REFERENCES echipa (id),
+    id_meci   NUMBER(5)
+        CONSTRAINT pk_meci_map_meci REFERENCES meci (id),
+    CONSTRAINT pk_meci_map PRIMARY KEY (id_echipa, id_meci)
+)
+
+INSERT INTO meci_map(id_echipa, id_meci)
+VALUES (1, 1)
+
+INSERT INTO meci_map(id_echipa, id_meci)
+VALUES (2, 1)
+
+INSERT INTO meci_map(id_echipa, id_meci)
+VALUES (3, 2)
+
+INSERT INTO meci_map(id_echipa, id_meci)
+VALUES (4, 2)
+
+INSERT INTO meci_map(id_echipa, id_meci)
+VALUES (1, 3)
+
+INSERT INTO meci_map(id_echipa, id_meci)
+VALUES (3, 3)
+
+INSERT INTO meci_map(id_echipa, id_meci)
+VALUES (1, 4)
+
+INSERT INTO meci_map(id_echipa, id_meci)
+VALUES (4, 4)
+
+INSERT INTO meci_map(id_echipa, id_meci)
+VALUES (2, 5)
+
+INSERT INTO meci_map(id_echipa, id_meci)
+VALUES (3, 5)
+
+INSERT INTO meci_map(id_echipa, id_meci)
+VALUES (5, 6)
+
+INSERT INTO meci_map(id_echipa, id_meci)
+VALUES (6, 6)
+
+INSERT INTO meci_map(id_echipa, id_meci)
+VALUES (5, 7)
+
+INSERT INTO meci_map(id_echipa, id_meci)
+VALUES (7, 7)
+
+INSERT INTO meci_map(id_echipa, id_meci)
+VALUES (6, 8)
+
+INSERT INTO meci_map(id_echipa, id_meci)
+VALUES (7, 8)
+
+INSERT INTO meci_map(id_echipa, id_meci)
+VALUES (8, 9)
+
+INSERT INTO meci_map(id_echipa, id_meci)
+VALUES (5, 9)
+
+INSERT INTO meci_map(id_echipa, id_meci)
+VALUES (5, 10)
+
+INSERT INTO meci_map(id_echipa, id_meci)
+VALUES (6, 10)
+
+COMMIT;
+
+----------------------------------- MECI_HEADER -----------------------------------
+CREATE TABLE meci_header
+(
+    id_meci        NUMBER(5)
+        CONSTRAINT pk_meci_header_meci REFERENCES meci (id),
+    id_prezentator NUMBER(5)
+        CONSTRAINT pk_meci_header_prezentator REFERENCES prezentator (id),
+    id_scena       NUMBER(5)
+        CONSTRAINT pk_meci_header_scena REFERENCES scena (id),
+    id_mod         NUMBER(5)
+        CONSTRAINT pk_meci_header_mod REFERENCES mod_joc (id),
+    CONSTRAINT pk_meci_header PRIMARY KEY (id_meci, id_prezentator, id_scena, id_mod)
+)
+
+INSERT INTO meci_header(id_meci, id_prezentator, id_scena, id_mod)
+VALUES (1, 1, 3, 1)
+
+INSERT INTO meci_header(id_meci, id_prezentator, id_scena, id_mod)
+VALUES (2, 2, 1, 3)
+
+INSERT INTO meci_header(id_meci, id_prezentator, id_scena, id_mod)
+VALUES (3, 4, 2, 7)
+
+INSERT INTO meci_header(id_meci, id_prezentator, id_scena, id_mod)
+VALUES (4, 7, 3, 7)
+
+INSERT INTO meci_header(id_meci, id_prezentator, id_scena, id_mod)
+VALUES (5, 9, 2, 10)
+
+INSERT INTO meci_header(id_meci, id_prezentator, id_scena, id_mod)
+VALUES (6, 10, 3, 5)
+
+INSERT INTO meci_header(id_meci, id_prezentator, id_scena, id_mod)
+VALUES (7, 3, 1, 4)
+
+INSERT INTO meci_header(id_meci, id_prezentator, id_scena, id_mod)
+VALUES (8, 6, 1, 8)
+
+INSERT INTO meci_header(id_meci, id_prezentator, id_scena, id_mod)
+VALUES (9, 8, 3, 9)
+
+INSERT INTO meci_header(id_meci, id_prezentator, id_scena, id_mod)
+VALUES (10, 10, 4, 10)
+
+COMMIT;
+
+------------------------------------------------------------------------------------
+------------------------------------------------------------------------------------
+------------------------------------------------------------------------------------
+
+/* Observații:
+    • Proiectul trebuie realizat individual.
+    • Cerințele 1-12 sunt obligatorii pentru a putea obține punctajul necesar și a intra în prima etapă de
+    examinare.
+    • Baza de date trebuie să fie în a treia formă normală (FN3).
+    • Pentru a fi luat în considerare proiectul trebuie să conțină:
+         -> un fișier text care să conțină codul SQL, respectiv în PL/SQL pentru toate cerințele (4-12/14);
+         -> un fișier docx/pdf care să integreze toate cerințele cu rezolvările lor în SQL, respectiv în PL/SQL
+         (sub formă de text, nu ca imagine), incluzând print-screen-uri prin care să se
+         demonstreze că tot codul inclus în proiect a fost rulat în Oracle.
+    • Informațiile pentru modul de încărcare a proiectelor le veți găsi pe Teams.
+    • Deadline încărcare proiecte vineri, 13 ianuarie 2023, ora 23:59. */
+
+------------------------------------------------------------------------------------------------------------------------
+
+-- EX6
+-- Formulați în limbaj natural o problemă pe care să o rezolvați folosind un subprogram stocat
+-- independent care să utilizeze două tipuri diferite de colecții studiate. Apelați subprogramul.
+
+-- Cerința 6:
+-- Pentru un turneu al carui nume este dat, pentru fiecare regiune, afisati toate echipele si jucatorii ce apartin
+-- acelei regiuni sau mesajul 'Nu exista!'.
+
+CREATE OR REPLACE PROCEDURE ex6(nume_turneu turneu.nume%TYPE)
+AS
+    TYPE tabl_idx IS TABLE OF regiune%ROWTYPE INDEX BY PLS_INTEGER;
+    v_regiuni tabl_idx;
+    TYPE tip_lista_nested IS TABLE OF echipa%ROWTYPE;
+    v_echipe  tip_lista_nested := tip_lista_nested();
+    TYPE tabl_index IS TABLE OF VARCHAR2(200) INDEX BY PLS_INTEGER;
+    v_nume    tabl_index;
+    v_numar   NUMBER(5);
+BEGIN
+    SELECT * BULK COLLECT INTO v_regiuni FROM regiune;
+
+    SELECT COUNT(*)
+    INTO v_numar
+    FROM echipa e,
+         turneu t,
+         grupa_map gm,
+         grupa g
+    WHERE e.id = gm.id_echipa
+      AND t.id = gm.id_grupa
+      AND g.id = gm.id_grupa
+      AND t.id = g.id_turneu
+      AND UPPER(t.nume) LIKE UPPER(nume_turneu);
+
+    v_echipe.extend(v_numar + 1);
+
+    SELECT e.id, e.nume, e.tag, e.id_regiune BULK COLLECT
+    INTO v_echipe
+    FROM echipa e,
+         turneu t,
+         grupa_map gm,
+         grupa g
+    WHERE e.id = gm.id_echipa
+      AND t.id = gm.id_grupa
+      AND g.id = gm.id_grupa
+      AND t.id = g.id_turneu
+      AND UPPER(t.nume) LIKE UPPER(nume_turneu);
+
+    FOR i IN v_regiuni.first..v_regiuni.last
+        LOOP
+            dbms_output.put_line('REGIUNEA: ' || v_regiuni(i).nume);
+            dbms_output.put_line('---------------------------------');
+            FOR j IN v_echipe.first..v_echipe.last
+                LOOP
+                    dbms_output.put_line('ECHIPA: ' || v_echipe(j).nume);
+                    dbms_output.put_line('---------------------------------');
+                    SELECT j.nume BULK COLLECT
+                    INTO v_nume
+                    FROM jucator j,
+                         echipa e,
+                         regiune r
+                    WHERE j.id_echipa = e.id
+                      AND j.id_regiune = r.id
+                      AND e.nume = v_echipe(j).nume
+                      AND r.nume = v_regiuni(i).nume;
+                    IF v_nume.count > 0 THEN
+                        FOR k IN v_nume.first..v_nume.last
+                            LOOP
+                                dbms_output.put_line(v_nume(k));
+                            END LOOP;
+                    ELSE
+                        dbms_output.put_line('Nu exista!');
+                    END IF;
+                    dbms_output.put_line('---------------------------------');
+                    dbms_output.put_line('---------------------------------');
+                END LOOP;
+        END LOOP;
+END;
+/
+
+BEGIN
+    ex6('MSI');
+END;
+/
+
+------------------------------------------------------------------------------------------------------------------------
+
+-- EX7
+-- Formulați în limbaj natural o problemă pe care să o rezolvați folosind un subprogram stocat independent care
+-- să utilizeze 2 tipuri diferite de cursoare studiate, unul dintre acestea fiind cursorparametrizat.
+
+-- Cerința 7:
+-- Pentru jucatorii care apartin regiunii KOR, afisati campionii pe care ii joaca si folosesc ca resursa mana.
+
+CREATE OR REPLACE PROCEDURE ex7(atr_regiune_nume regiune.nume%TYPE, atr_resursa campion.resursa%TYPE)
+AS
+    CURSOR
+        regiuni(regiune_nume regiune.nume%TYPE) IS
+        SELECT r.id
+        FROM regiune r
+        WHERE UPPER(r.nume) LIKE UPPER(atr_regiune_nume);
+    CURSOR
+        jucatori IS
+        SELECT j.nume, j.id, j.id_regiune
+        FROM jucator j;
+    CURSOR
+        campioni(jucator_id jucator.id%TYPE) IS
+        SELECT c.nume || ' ' || '->' || ' ' || c.resursa AS result
+        FROM campion c,
+             campion_pool cp
+        WHERE c.id = cp.id_campion
+          AND cp.id_jucator = jucator_id
+          AND UPPER(c.resursa) LIKE UPPER(atr_resursa);
+    v_nume_jucator jucator.nume%TYPE;
+    v_id_jucator   jucator.id%TYPE;
+    v_id_regiune   regiune.id%TYPE;
+
+BEGIN
+    FOR regiune IN regiuni(atr_regiune_nume)
+        LOOP
+            dbms_output.put_line('Jucatorii din regiunea ' || atr_regiune_nume || ' sunt: ');
+            dbms_output.put_line('------------------------------------------------');
+            OPEN jucatori;
+            LOOP
+                FETCH jucatori INTO v_nume_jucator, v_id_jucator, v_id_regiune;
+                EXIT WHEN jucatori%NOTFOUND;
+                IF v_id_regiune = regiune.id THEN
+                    dbms_output.put_line('Jucatorul: ' || v_nume_jucator);
+                    FOR campion IN campioni(v_id_jucator)
+                        LOOP
+                            dbms_output.put_line(campion.result);
+                        END LOOP;
+                    dbms_output.put_line('------------------------------------------------');
+                END IF;
+            END LOOP;
+        END LOOP;
+END;
+/
+
+BEGIN
+    ex7('KOR', 'mana');
+END;
+/
+
+------------------------------------------------------------------------------------------------------------------------
+
+-- EX8
+-- Formulați în limbaj natural o problemă pe care să o rezolvați folosind un subprogram stocat
+-- independent de tip funcție care să utilizeze într-o singură comandă SQL 3 dintre tabelele definite.
+-- Definiți minim 2 excepții. Apelați subprogramul astfel încât să evidențiați toate cazurile tratate.
+
+-- Cerința 8:
+-- Pentru un jucator dat afisati numarul de campioni pe care acesta ii joaca,
+-- daca acesta nu joaca pe lane-ul mid.
+
+CREATE OR REPLACE FUNCTION ex8(atr_jucator_id jucator.id%TYPE)
+    RETURN number
+    IS
+    v_numar_campioni NUMBER(10);
+    TYPE tip_tabel IS TABLE OF campion_pool%ROWTYPE INDEX BY PLS_INTEGER;
+    v_tabel          tip_tabel;
+    TYPE tip_tabel2 IS TABLE OF jucator%ROWTYPE INDEX BY PLS_INTEGER;
+    v_tabel2         tip_tabel2;
+    v_nume_jucator   jucator.nume%TYPE;
+
+    negative_id EXCEPTION;
+    no_data_found_1 EXCEPTION;
+    no_data_found_2 EXCEPTION;
+    no_player_found EXCEPTION;
+
+BEGIN
+    IF atr_jucator_id < 0 THEN
+        RAISE negative_id;
+    END IF;
+
+    SELECT * BULK COLLECT
+    INTO v_tabel2
+    FROM jucator
+    WHERE id = atr_jucator_id;
+
+    IF SQL%NOTFOUND THEN
+        RAISE no_player_found;
+    END IF;
+
+    SELECT * BULK COLLECT
+    INTO v_tabel
+    FROM campion_pool cp
+    WHERE cp.id_jucator = atr_jucator_id;
+
+    IF SQL%NOTFOUND THEN
+        RAISE no_data_found_1;
+    END IF;
+
+    SELECT j.nume INTO v_nume_jucator FROM jucator j WHERE j.id = atr_jucator_id;
+
+    SELECT COUNT(c.id)
+    INTO v_numar_campioni
+    FROM campion c
+             JOIN campion_pool cp ON c.id = cp.id_campion
+             JOIN jucator j ON j.id = cp.id_jucator
+    WHERE cp.id_jucator = atr_jucator_id
+      AND j.lane NOT LIKE 'MID';
+
+    IF v_numar_campioni = 0 THEN
+        RAISE no_data_found_2;
+    ELSE
+        RETURN v_numar_campioni;
+    END IF;
+
+EXCEPTION
+    WHEN negative_id THEN
+        dbms_output.put_line('ID-ul nu poate fi negativ!');
+        RETURN -1;
+    WHEN no_data_found_1 THEN
+        dbms_output.put_line('Nu exista date pentru acest jucator!');
+        RETURN -1;
+    WHEN no_data_found_2 THEN
+        dbms_output.put_line('Jucatorul ' || v_nume_jucator || ' joaca pe lane-ul MID!');
+        RETURN -1;
+    WHEN no_player_found THEN
+        dbms_output.put_line('Nu exista jucator cu acest ID!');
+        RETURN -1;
+    WHEN OTHERS THEN
+        dbms_output.put_line('Cod eroare' || SQLCODE);
+        dbms_output.put_line('Mesaj eroare' || SQLERRM);
+        RETURN -1;
+END;
+/
+
+DECLARE
+    v_numar      NUMBER;
+    v_id_jucator jucator.id%TYPE := &id_jucator;
+BEGIN
+    v_numar := ex8(v_id_jucator);
+    IF v_numar > -1 THEN
+        dbms_output.put_line('Jucatorul cu id-ul ' || v_id_jucator || ' joaca ' || v_numar || ' campioni');
+    END IF;
+END;
+/
+
+-- Apelare cu id-ul 1 -> 3 campioni
+-- Apelare cu id-ul 4 -> 2 campioni
+-- Apelare cu id-ul -1 -> ID-ul nu poate fi negativ!
+-- Apelare cu id-ul 3 -> Jucatorul Faker joaca pe lane-ul MID!
+-- Apelare cu id-ul 60 -> Nu exista jucator cu acest ID!
+
+DELETE
+FROM campion_pool
+WHERE id_jucator = 6;
+-- Apelare cu id-ul 6 -> Nu exista date pentru acest jucator!
+
+------------------------------------------------------------------------------------------------------------------------
+
+-- EX9
+-- Formulați în limbaj natural o problemă pe care să o rezolvați folosind un subprogram stocat independent
+-- de tip procedură care să utilizeze într-o singură comandă SQL 5 dintre tabelele definite.
+-- Tratați toate excepțiile care pot apărea, incluzând excepțiile NO_DATA_FOUND și TOO_MANY_ROWS.
+-- Apelați subprogramul astfel încât să evidențiați toate cazurile tratate.
+
+-- Cerința 9:
+-- Pentru o echipa al carei nume este dat, afisati echipele adverse din meciurile ce au loc pe scena "Horn Stage",
+-- prezentate de "Jordan Corby".
+
+CREATE OR REPLACE PROCEDURE ex9(nume_echipa echipa.nume%TYPE)
+AS
+    TYPE tabel_index_echipa IS TABLE OF echipa%ROWTYPE INDEX BY PLS_INTEGER;
+    v_echipa         tabel_index_echipa;
+    TYPE tabel_index_echipa_adversa IS TABLE OF echipa.nume%TYPE INDEX BY PLS_INTEGER;
+    v_echipa_adversa tabel_index_echipa_adversa;
+    v_id_echipa      echipa.id%TYPE;
+
+    no_data_found_1 EXCEPTION;
+    no_data_found_2 EXCEPTION;
+    too_many_rows EXCEPTION;
+
+BEGIN
+    SELECT * BULK COLLECT
+    INTO v_echipa
+    FROM echipa e
+    WHERE e.nume = nume_echipa;
+
+    IF SQL%NOTFOUND THEN
+        RAISE no_data_found_1;
+    END IF;
+
+    IF v_echipa.count > 1 THEN
+        RAISE too_many_rows;
+    END IF;
+
+    SELECT e.id INTO v_id_echipa FROM echipa e WHERE e.nume = nume_echipa;
+
+    SELECT e.nume BULK COLLECT
+    INTO v_echipa_adversa
+    FROM echipa e
+             JOIN meci_map mm ON e.id = mm.id_echipa
+             JOIN meci m ON m.id = mm.id_meci
+             JOIN meci_header mh ON mh.id_meci = m.id
+             JOIN scena s ON s.id = mh.id_scena
+             JOIN prezentator p ON p.id = mh.id_prezentator
+    WHERE e.nume != nume_echipa
+      AND s.nume = 'Horn Stage'
+      AND p.nume = 'Jordan Corby'
+      AND v_id_echipa IN (SELECT mm.id_echipa FROM meci_map mm WHERE mm.id_meci = m.id);
+
+    IF v_echipa_adversa.count = 0 THEN
+        RAISE no_data_found_2;
+    END IF;
+
+    dbms_output.put_line('Echipele adversare ale celor din ' || nume_echipa || ' sunt: ');
+    FOR i IN 1 .. v_echipa_adversa.count
+        LOOP
+            dbms_output.put_line(v_echipa_adversa(i));
+        END LOOP;
+
+EXCEPTION
+    WHEN no_data_found_1 THEN
+        dbms_output.put_line('Nu exista date pentru aceasta echipa!');
+    WHEN no_data_found_2 THEN
+        dbms_output.put_line('Nu exista echipe adversare care sa indeplineasca conditiile!');
+    WHEN too_many_rows THEN
+        dbms_output.put_line('Exista mai multe echipe cu acest nume!');
+    WHEN OTHERS THEN
+        dbms_output.put_line('Cod eroare' || SQLCODE);
+        dbms_output.put_line('Mesaj eroare' || SQLERRM);
+END;
+/
+
+DECLARE
+    nume echipa.nume%TYPE := 'SKT-T1';
+BEGIN
+    ex9(nume);
+END;
+/
+
+-- Pentru nume = 'Canids Kalunga' -> PSG Talon Esports
+-- Pentru nume = 'PSG Talon Esports' -> Canids Kalunga
+-- Pentru nume = 'Fnatic' -> "Nu exista date pentru aceasta echipa!"
+-- Pentru nume = 'Order' -> "Nu exista echipe adversare care sa indeplineasca conditiile!"
+
+INSERT INTO echipa(id_regiune, nume, tag)
+VALUES (2, 'SKT-T1', 'SKT_V2')
+-- Pentru nume = 'SKT-T1' -> "Exista mai multe echipe cu acest nume!"
+
+------------------------------------------------------------------------------------------------------------------------
+
+-- EX10
+-- Definiți un trigger de tip LMD la nivel de comandă. Declanșați trigger-ul.
+
+-- Cerința 10:
+-- Voi realiza un trigger care se va declansa atunci cand vreau sa modific tabela TURNEU cu conditiile:
+-- 1. Nu pot modifica tabela TURNEU intre orele 08:00-10:00
+-- 2. Nu pot modifica tabela in ziua de Craciun si Ziua de Anul Nou
+
+CREATE OR
+    REPLACE TRIGGER ex10
+    BEFORE
+        INSERT OR UPDATE OR
+        DELETE
+    ON turneu
+DECLARE
+
+BEGIN
+    IF ((TO_CHAR(SYSDATE, 'HH24') BETWEEN 8 AND 10) OR
+        (TO_CHAR(SYSDATE, 'MMDD') = '1225' OR TO_CHAR(SYSDATE, 'MMDD') = '0101')) THEN
+        RAISE_APPLICATION_ERROR(-20001, 'Nu poti modifica tabela in acest interval de timp sau in aceasta zi!');
+    END IF;
+END;
+/
+
+INSERT INTO turneu (nume, oras, data)
+VALUES ('TurneuName', 'Stockholm', TO_DATE('2022-05-10', 'YYYY-MM-DD'));
+
+------------------------------------------------------------------------------------------------------------------------
+
+-- EX11
+-- Definiți un trigger de tip LMD la nivel de linie. Declanșați trigger-ul.
+
+-- Cerința 11:
+-- Voi realiza un trigger care se va declansa atunci cand vreau sa modific tabela meci cu conditiile:
+-- 1. Data meciului nu poate fi mai veche de 1 Aprilie 2011
+-- (data in care a avut loc primul joc de League of Legends oficial).
+-- 2. Data meciului nu poate fi in ziua de Craciun si Ziua de Anul Nou.
+
+CREATE
+    OR
+    REPLACE TRIGGER ex11
+    BEFORE
+        INSERT OR UPDATE OR
+        DELETE
+    ON meci
+    FOR EACH ROW
+DECLARE
+BEGIN
+    IF (TO_DATE(:new.data, 'YYYY-MM-DD') <= TO_DATE('2011-04-01', 'YYYY-MM-DD') OR
+        (TO_CHAR(:new.data, 'MMDD') = '1225' OR TO_CHAR(:new.data, 'MMDD') = '0101')) THEN
+        RAISE_APPLICATION_ERROR(-20001,
+                                'Probleme cu data introdusa,' ||
+                                ' data nu poate fi mai veche de 1 Aprilie 2011' ||
+                                ' sau in ziua de Craciun sau in Ziua de Anul Nou!');
+    END IF;
+END;
+
+INSERT INTO meci (titlu, data)
+VALUES ('MeciName', TO_DATE('2022-01-01', 'YYYY-MM-DD'));
+
+INSERT INTO meci (titlu, data)
+VALUES ('MeciName', TO_DATE('2010-10-10', 'YYYY-MM-DD'));
+
+------------------------------------------------------------------------------------------------------------------------
+
+-- EX12
+-- Definiți un trigger de tip LDD. Declanșați trigger-ul.
+
+-- Cerința 12:
+-- Voi realiza un trigger care se va declansa atunci cand se executa operatii LDD.
+-- Acesta va stoca intr-o noua table numita istoric utilizatorul,
+-- operatia executata si baza de date in care are loc operatia.
+
+CREATE
+    TABLE
+    istoric
+(
+    id           NUMBER(10) GENERATED ALWAYS AS IDENTITY
+        CONSTRAINT istoric_pk PRIMARY KEY,
+    utilizator   VARCHAR2(50)
+        CONSTRAINT utilizator_istoric NOT NULL,
+    operatie     VARCHAR2(50)
+        CONSTRAINT operatie_istoric NOT NULL,
+    baza_de_date VARCHAR2(50)
+        CONSTRAINT baza_de_date_istoric NOT NULL
+);
+
+SELECT *
+FROM istoric;
+
+CREATE
+    OR
+    REPLACE TRIGGER ex12
+    AFTER CREATE OR ALTER OR DROP
+    ON SCHEMA
+BEGIN
+    INSERT INTO istoric (utilizator, operatie, baza_de_date)
+    VALUES (sys.login_user, sys.sysevent, sys.database_name);
+END;
+/
+
+CREATE
+    TABLE
+    test
+(
+    id   NUMBER(10),
+    nume VARCHAR2(50)
+);
+
+ALTER
+    TABLE
+    test
+    ADD
+        (prenume VARCHAR2(50));
+
+ALTER TABLE
+    test
+    DROP COLUMN prenume;
+
+DROP
+    TABLE
+    test;
+
+SELECT *
+FROM istoric;
+
+------------------------------------------------------------------------------------------------------------------------
+------------------------------------------------------------------------------------------------------------------------
+------------------------------------------------------------------------------------------------------------------------
+---------------------------------------------------- OPTIONAL ----------------------------------------------------------
+
+-- EX13
+-- Definiți un pachet care să conțină toate obiectele definite în cadrul proiectului.
+
+CREATE OR REPLACE PACKAGE proiect_sgbd_hutan_mihai AS
+    PROCEDURE ex6(nume_turneu turneu.nume%TYPE);
+    PROCEDURE ex7(atr_regiune_nume regiune.nume%TYPE, atr_resursa campion.resursa%TYPE);
+    FUNCTION ex8(atr_jucator_id jucator.id%TYPE) RETURN NUMBER;
+    PROCEDURE ex9(nume_echipa echipa.nume%TYPE);
+END proiect_sgbd_hutan_mihai;
+/
+
+CREATE OR REPLACE PACKAGE BODY proiect_sgbd_hutan_mihai
+AS
+    -- Cerința 6:
+    -- Pentru un turneu al carui nume este dat, pentru fiecare regiune, afisati toate echipele si jucatorii ce apartin
+    -- acelei regiuni sau mesajul 'Nu exista!'.
+
+    PROCEDURE ex6(nume_turneu turneu.nume%TYPE)
+    AS
+        TYPE tabl_idx IS TABLE OF regiune%ROWTYPE INDEX BY PLS_INTEGER;
+        v_regiuni tabl_idx;
+        TYPE tip_lista_nested IS TABLE OF echipa%ROWTYPE;
+        v_echipe  tip_lista_nested := tip_lista_nested();
+        TYPE tabl_index IS TABLE OF VARCHAR2(200) INDEX BY PLS_INTEGER;
+        v_nume    tabl_index;
+        v_numar   NUMBER(5);
+    BEGIN
+        SELECT * BULK COLLECT INTO v_regiuni FROM regiune;
+
+        SELECT COUNT(*)
+        INTO v_numar
+        FROM echipa e,
+             turneu t,
+             grupa_map gm,
+             grupa g
+        WHERE e.id = gm.id_echipa
+          AND t.id = gm.id_grupa
+          AND g.id = gm.id_grupa
+          AND t.id = g.id_turneu
+          AND UPPER(t.nume) LIKE UPPER(nume_turneu);
+
+        v_echipe.extend(v_numar + 1);
+
+        SELECT e.id, e.nume, e.tag, e.id_regiune BULK COLLECT
+        INTO v_echipe
+        FROM echipa e,
+             turneu t,
+             grupa_map gm,
+             grupa g
+        WHERE e.id = gm.id_echipa
+          AND t.id = gm.id_grupa
+          AND g.id = gm.id_grupa
+          AND t.id = g.id_turneu
+          AND UPPER(t.nume) LIKE UPPER(nume_turneu);
+
+        FOR i IN v_regiuni.first..v_regiuni.last
+            LOOP
+                dbms_output.put_line('REGIUNEA: ' || v_regiuni(i).nume);
+                dbms_output.put_line('---------------------------------');
+                FOR j IN v_echipe.first..v_echipe.last
+                    LOOP
+                        dbms_output.put_line('ECHIPA: ' || v_echipe(j).nume);
+                        dbms_output.put_line('---------------------------------');
+                        SELECT j.nume BULK COLLECT
+                        INTO v_nume
+                        FROM jucator j,
+                             echipa e,
+                             regiune r
+                        WHERE j.id_echipa = e.id
+                          AND j.id_regiune = r.id
+                          AND e.nume = v_echipe(j).nume
+                          AND r.nume = v_regiuni(i).nume;
+                        IF v_nume.count > 0 THEN
+                            FOR k IN v_nume.first..v_nume.last
+                                LOOP
+                                    dbms_output.put_line(v_nume(k));
+                                END LOOP;
+                        ELSE
+                            dbms_output.put_line('Nu exista!');
+                        END IF;
+                        dbms_output.put_line('---------------------------------');
+                        dbms_output.put_line('---------------------------------');
+                    END LOOP;
+            END LOOP;
+    END ex6;
+
+    -- Cerința 7:
+    -- Pentru jucatorii care apartin regiunii KOR, afisati campionii pe care ii joaca si folosesc ca resursa mana.
+
+    PROCEDURE ex7(atr_regiune_nume regiune.nume%TYPE, atr_resursa campion.resursa%TYPE)
+    AS
+        CURSOR
+            regiuni(regiune_nume regiune.nume%TYPE) IS
+            SELECT r.id
+            FROM regiune r
+            WHERE UPPER(r.nume) LIKE UPPER(atr_regiune_nume);
+        CURSOR
+            jucatori IS
+            SELECT j.nume, j.id, j.id_regiune
+            FROM jucator j;
+        CURSOR
+            campioni(jucator_id jucator.id%TYPE) IS
+            SELECT c.nume || ' ' || '->' || ' ' || c.resursa AS result
+            FROM campion c,
+                 campion_pool cp
+            WHERE c.id = cp.id_campion
+              AND cp.id_jucator = jucator_id
+              AND UPPER(c.resursa) LIKE UPPER(atr_resursa);
+        v_nume_jucator jucator.nume%TYPE;
+        v_id_jucator   jucator.id%TYPE;
+        v_id_regiune   regiune.id%TYPE;
+
+    BEGIN
+        FOR regiune IN regiuni(atr_regiune_nume)
+            LOOP
+                dbms_output.put_line('Jucatorii din regiunea ' || atr_regiune_nume || ' sunt: ');
+                dbms_output.put_line('------------------------------------------------');
+                OPEN jucatori;
+                LOOP
+                    FETCH jucatori INTO v_nume_jucator, v_id_jucator, v_id_regiune;
+                    EXIT WHEN jucatori%NOTFOUND;
+                    IF v_id_regiune = regiune.id THEN
+                        dbms_output.put_line('Jucatorul: ' || v_nume_jucator);
+                        FOR campion IN campioni(v_id_jucator)
+                            LOOP
+                                dbms_output.put_line(campion.result);
+                            END LOOP;
+                        dbms_output.put_line('------------------------------------------------');
+                    END IF;
+                END LOOP;
+            END LOOP;
+    END ex7;
+
+    -- Cerința 8:
+    -- Pentru un jucator dat afisati numarul de campioni pe care acesta ii joaca,
+    -- daca acesta nu joaca pe lane-ul mid.
+
+    FUNCTION ex8(atr_jucator_id jucator.id%TYPE)
+        RETURN number
+        IS
+        v_numar_campioni NUMBER(10);
+        TYPE tip_tabel IS TABLE OF campion_pool%ROWTYPE INDEX BY PLS_INTEGER;
+        v_tabel          tip_tabel;
+        TYPE tip_tabel2 IS TABLE OF jucator%ROWTYPE INDEX BY PLS_INTEGER;
+        v_tabel2         tip_tabel2;
+        v_nume_jucator   jucator.nume%TYPE;
+
+        negative_id EXCEPTION;
+        no_data_found_1 EXCEPTION;
+        no_data_found_2 EXCEPTION;
+        no_player_found EXCEPTION;
+
+    BEGIN
+        IF atr_jucator_id < 0 THEN
+            RAISE negative_id;
+        END IF;
+
+        SELECT * BULK COLLECT
+        INTO v_tabel2
+        FROM jucator
+        WHERE id = atr_jucator_id;
+
+        IF SQL%NOTFOUND THEN
+            RAISE no_player_found;
+        END IF;
+
+        SELECT * BULK COLLECT
+        INTO v_tabel
+        FROM campion_pool cp
+        WHERE cp.id_jucator = atr_jucator_id;
+
+        IF SQL%NOTFOUND THEN
+            RAISE no_data_found_1;
+        END IF;
+
+        SELECT j.nume INTO v_nume_jucator FROM jucator j WHERE j.id = atr_jucator_id;
+
+        SELECT COUNT(c.id)
+        INTO v_numar_campioni
+        FROM campion c
+                 JOIN campion_pool cp ON c.id = cp.id_campion
+                 JOIN jucator j ON j.id = cp.id_jucator
+        WHERE cp.id_jucator = atr_jucator_id
+          AND j.lane NOT LIKE 'MID';
+
+        IF v_numar_campioni = 0 THEN
+            RAISE no_data_found_2;
+        ELSE
+            RETURN v_numar_campioni;
+        END IF;
+
+    EXCEPTION
+        WHEN negative_id THEN
+            dbms_output.put_line('ID-ul nu poate fi negativ!');
+            RETURN -1;
+        WHEN no_data_found_1 THEN
+            dbms_output.put_line('Nu exista date pentru acest jucator!');
+            RETURN -1;
+        WHEN no_data_found_2 THEN
+            dbms_output.put_line('Jucatorul ' || v_nume_jucator || ' joaca pe lane-ul MID!');
+            RETURN -1;
+        WHEN no_player_found THEN
+            dbms_output.put_line('Nu exista jucator cu acest ID!');
+            RETURN -1;
+        WHEN OTHERS THEN
+            dbms_output.put_line('Cod eroare' || SQLCODE);
+            dbms_output.put_line('Mesaj eroare' || SQLERRM);
+            RETURN -1;
+    END ex8;
+
+    -- Cerința 9:
+    -- Pentru o echipa al carei nume este dat, afisati echipele adverse din meciurile ce au loc pe scena "Horn Stage",
+    -- prezentate de "Jordan Corby".
+
+    PROCEDURE ex9(nume_echipa echipa.nume%TYPE)
+    AS
+        TYPE tabel_index_echipa IS TABLE OF echipa%ROWTYPE INDEX BY PLS_INTEGER;
+        v_echipa         tabel_index_echipa;
+        TYPE tabel_index_echipa_adversa IS TABLE OF echipa.nume%TYPE INDEX BY PLS_INTEGER;
+        v_echipa_adversa tabel_index_echipa_adversa;
+        v_id_echipa      echipa.id%TYPE;
+
+        no_data_found_1 EXCEPTION;
+        no_data_found_2 EXCEPTION;
+        too_many_rows EXCEPTION;
+
+    BEGIN
+        SELECT * BULK COLLECT
+        INTO v_echipa
+        FROM echipa e
+        WHERE e.nume = nume_echipa;
+
+        IF SQL%NOTFOUND THEN
+            RAISE no_data_found_1;
+        END IF;
+
+        IF v_echipa.count > 1 THEN
+            RAISE too_many_rows;
+        END IF;
+
+        SELECT e.id INTO v_id_echipa FROM echipa e WHERE e.nume = nume_echipa;
+
+        SELECT e.nume BULK COLLECT
+        INTO v_echipa_adversa
+        FROM echipa e
+                 JOIN meci_map mm ON e.id = mm.id_echipa
+                 JOIN meci m ON m.id = mm.id_meci
+                 JOIN meci_header mh ON mh.id_meci = m.id
+                 JOIN scena s ON s.id = mh.id_scena
+                 JOIN prezentator p ON p.id = mh.id_prezentator
+        WHERE e.nume != nume_echipa
+          AND s.nume = 'Horn Stage'
+          AND p.nume = 'Jordan Corby'
+          AND v_id_echipa IN (SELECT mm.id_echipa FROM meci_map mm WHERE mm.id_meci = m.id);
+
+        IF v_echipa_adversa.count = 0 THEN
+            RAISE no_data_found_2;
+        END IF;
+
+        dbms_output.put_line('Echipele adversare ale celor din ' || nume_echipa || ' sunt: ');
+        FOR i IN 1 .. v_echipa_adversa.count
+            LOOP
+                dbms_output.put_line(v_echipa_adversa(i));
+            END LOOP;
+
+    EXCEPTION
+        WHEN no_data_found_1 THEN
+            dbms_output.put_line('Nu exista date pentru aceasta echipa!');
+        WHEN no_data_found_2 THEN
+            dbms_output.put_line('Nu exista echipe adversare care sa indeplineasca conditiile!');
+        WHEN too_many_rows THEN
+            dbms_output.put_line('Exista mai multe echipe cu acest nume!');
+        WHEN OTHERS THEN
+            dbms_output.put_line('Cod eroare' || SQLCODE);
+            dbms_output.put_line('Mesaj eroare' || SQLERRM);
+    END ex9;
+END proiect_sgbd_hutan_mihai;
+/
+
+-- TESTARE PACKAGE
+BEGIN
+    proiect_sgbd_hutan_mihai.ex6('MSI');
+    proiect_sgbd_hutan_mihai.ex7('KOR', 'mana');
+
+    -- Apelare cu id-ul 1 -> 3 campioni
+    dbms_output.put_line('Rezultat ex8: ' || proiect_sgbd_hutan_mihai.ex8(1));
+
+    -- Apelare cu id-ul 4 -> 2 campioni
+    dbms_output.put_line('Rezultat ex8: ' || proiect_sgbd_hutan_mihai.ex8(4));
+
+    -- Apelare cu id-ul -1 -> ID-ul nu poate fi negativ!
+    dbms_output.put_line('Rezultat ex8: ' || proiect_sgbd_hutan_mihai.ex8(-1));
+
+    -- Apelare cu id-ul 3 -> Jucatorul Faker joaca pe lane-ul MID!
+    dbms_output.put_line('Rezultat ex8: ' || proiect_sgbd_hutan_mihai.ex8(3));
+
+    -- Apelare cu id-ul 60 -> Nu exista jucator cu acest ID!
+    dbms_output.put_line('Rezultat ex8: ' || proiect_sgbd_hutan_mihai.ex8(60));
+END;
+/
+
+DELETE
+FROM campion_pool
+WHERE id_jucator = 6;
+
+BEGIN
+    -- Apelare cu id-ul 6 -> Nu exista date pentru acest jucator!
+    dbms_output.put_line('Rezultat ex8: ' || proiect_sgbd_hutan_mihai.ex8(6));
+END;
+/
+
+BEGIN
+    -- Pentru nume = 'Canids Kalunga' -> PSG Talon Esports
+    proiect_sgbd_hutan_mihai.ex9('Canids Kalunga');
+    -- Pentru nume = 'PSG Talon Esports' -> Canids Kalunga
+    proiect_sgbd_hutan_mihai.ex9('PSG Talon Esports');
+    -- Pentru nume = 'Fnatic' -> "Nu exista date pentru aceasta echipa!"
+    proiect_sgbd_hutan_mihai.ex9('Fnatic');
+    -- Pentru nume = 'Order' -> "Nu exista echipe adversare care sa indeplineasca conditiile!"
+    proiect_sgbd_hutan_mihai.ex9('Order');
+END;
+/
+
+INSERT INTO echipa(id_regiune, nume, tag)
+VALUES (2, 'SKT-T1', 'SKT_V2');
+BEGIN
+    -- Pentru nume = 'SKT-T1' -> "Exista mai multe echipe cu acest nume!"
+    proiect_sgbd_hutan_mihai.ex9('SKT-T1');
+END;
+/
+
+------------------------------------------------------------------------------------------------------------------------

@@ -1,0 +1,231 @@
+<!DOCTYPE html>
+<html>
+<head>
+
+    <meta http-equiv="content-type" content="text/html; charset=UTF-8" />
+
+        <script>
+            L_NO_TOUCH = false;
+            L_DISABLE_3D = false;
+        </script>
+
+    <style>html, body {width: 100%;height: 100%;margin: 0;padding: 0;}</style>
+    <style>#map {position:absolute;top:0;bottom:0;right:0;left:0;}</style>
+    <script src="https://cdn.jsdelivr.net/npm/leaflet@1.9.3/dist/leaflet.js"></script>
+    <script src="https://code.jquery.com/jquery-1.12.4.min.js"></script>
+    <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.2.2/dist/js/bootstrap.bundle.min.js"></script>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/Leaflet.awesome-markers/2.0.2/leaflet.awesome-markers.js"></script>
+    <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/leaflet@1.9.3/dist/leaflet.css"/>
+    <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bootstrap@5.2.2/dist/css/bootstrap.min.css"/>
+    <link rel="stylesheet" href="https://netdna.bootstrapcdn.com/bootstrap/3.0.0/css/bootstrap.min.css"/>
+    <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/@fortawesome/fontawesome-free@6.2.0/css/all.min.css"/>
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/Leaflet.awesome-markers/2.0.2/leaflet.awesome-markers.css"/>
+    <link rel="stylesheet" href="https://cdn.jsdelivr.net/gh/python-visualization/folium/folium/templates/leaflet.awesome.rotate.min.css"/>
+
+            <meta name="viewport" content="width=device-width,
+                initial-scale=1.0, maximum-scale=1.0, user-scalable=no" />
+            <style>
+                #map_b8fd595eaefaea97e5768069b050b1bf {
+                    position: relative;
+                    width: 100.0%;
+                    height: 100.0%;
+                    left: 0.0%;
+                    top: 0.0%;
+                }
+                .leaflet-container { font-size: 1rem; }
+            </style>
+
+</head>
+<body>
+
+
+            <div class="folium-map" id="map_b8fd595eaefaea97e5768069b050b1bf" ></div>
+
+</body>
+<script>
+
+
+            var map_b8fd595eaefaea97e5768069b050b1bf = L.map(
+                "map_b8fd595eaefaea97e5768069b050b1bf",
+                {
+                    center: [50.1106444, 8.6820917],
+                    crs: L.CRS.EPSG3857,
+                    zoom: 3,
+                    zoomControl: true,
+                    preferCanvas: false,
+                }
+            );
+
+
+
+
+
+            var tile_layer_93b446910dfdf79868a197983d49d297 = L.tileLayer(
+                "https://{s}.tile.openstreetmap.org/{z}/{x}/{y}.png",
+                {"attribution": "Data by \u0026copy; \u003ca target=\"_blank\" href=\"http://openstreetmap.org\"\u003eOpenStreetMap\u003c/a\u003e, under \u003ca target=\"_blank\" href=\"http://www.openstreetmap.org/copyright\"\u003eODbL\u003c/a\u003e.", "detectRetina": false, "maxNativeZoom": 18, "maxZoom": 18, "minZoom": 0, "noWrap": false, "opacity": 1, "subdomains": "abc", "tms": false}
+            ).addTo(map_b8fd595eaefaea97e5768069b050b1bf);
+
+
+            var marker_45dcfa399d04a87fe46c47717384674e = L.marker(
+                [50.1106444, 8.6820917],
+                {}
+            ).addTo(map_b8fd595eaefaea97e5768069b050b1bf);
+
+
+            marker_45dcfa399d04a87fe46c47717384674e.bindTooltip(
+                `<div>
+                     Frankfurt am Main, Hesse, DE
+
+                 </div>`,
+                {"sticky": true}
+            );
+
+
+            var marker_057aa3a1aafd94cda5ca0511a4560ace = L.marker(
+                [52.3730796, 4.8924534],
+                {}
+            ).addTo(map_b8fd595eaefaea97e5768069b050b1bf);
+
+
+            marker_057aa3a1aafd94cda5ca0511a4560ace.bindTooltip(
+                `<div>
+                     Amsterdam, North Holland, NL
+
+                 </div>`,
+                {"sticky": true}
+            );
+
+
+            var marker_4be49bba21a0fb882f8e945c9b63bf8c = L.marker(
+                [51.5073359, -0.12765],
+                {}
+            ).addTo(map_b8fd595eaefaea97e5768069b050b1bf);
+
+
+            marker_4be49bba21a0fb882f8e945c9b63bf8c.bindTooltip(
+                `<div>
+                     London, England, GB
+
+                 </div>`,
+                {"sticky": true}
+            );
+
+
+            var marker_88348046372d97b901913fe78ba16a99 = L.marker(
+                [34.0536909, -118.242766],
+                {}
+            ).addTo(map_b8fd595eaefaea97e5768069b050b1bf);
+
+
+            marker_88348046372d97b901913fe78ba16a99.bindTooltip(
+                `<div>
+                     Los Angeles, California, US
+
+                 </div>`,
+                {"sticky": true}
+            );
+
+
+            var marker_0c89b2e64bfdd2f7566daa01720de0ea = L.marker(
+                [35.6821116, 139.7656744],
+                {}
+            ).addTo(map_b8fd595eaefaea97e5768069b050b1bf);
+
+
+            marker_0c89b2e64bfdd2f7566daa01720de0ea.bindTooltip(
+                `<div>
+                     Tokyo, Tokyo, JP
+
+                 </div>`,
+                {"sticky": true}
+            );
+
+
+            var marker_a31ccfcf899bd1861193b3c40a058c99 = L.marker(
+                [35.6380392, 139.8871255],
+                {}
+            ).addTo(map_b8fd595eaefaea97e5768069b050b1bf);
+
+
+            marker_a31ccfcf899bd1861193b3c40a058c99.bindTooltip(
+                `<div>
+                     Urayasu, Tokyo, JP
+
+                 </div>`,
+                {"sticky": true}
+            );
+
+
+            var marker_57973ce5fb6be8b95d55e202af9d68bd = L.marker(
+                [35.6718115, 139.6858165],
+                {}
+            ).addTo(map_b8fd595eaefaea97e5768069b050b1bf);
+
+
+            marker_57973ce5fb6be8b95d55e202af9d68bd.bindTooltip(
+                `<div>
+                     Motoyoyogichō, Tokyo, JP
+
+                 </div>`,
+                {"sticky": true}
+            );
+
+
+            var marker_59ad5a41e9d0c1a33c1994f21938e42e = L.marker(
+                [35.6815487, 139.6867391],
+                {}
+            ).addTo(map_b8fd595eaefaea97e5768069b050b1bf);
+
+
+            marker_59ad5a41e9d0c1a33c1994f21938e42e.bindTooltip(
+                `<div>
+                     Hatsudai, Tokyo, JP
+
+                 </div>`,
+                {"sticky": true}
+            );
+
+
+            var poly_line_85b224fb9c5deadd8f8f71d1cfbf7357 = L.polyline(
+                [[50.1106444, 8.6820917], [52.3730796, 4.8924534]],
+                {"bubblingMouseEvents": true, "color": "blue", "dashArray": [1, 2, 3, 4, 5, 6, 7, 8, 9, 10, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0], "dashOffset": null, "fill": false, "fillColor": "blue", "fillOpacity": 0.2, "fillRule": "evenodd", "lineCap": "round", "lineJoin": "round", "noClip": false, "opacity": 1.0, "smoothFactor": 1.0, "stroke": true, "weight": 3}
+            ).addTo(map_b8fd595eaefaea97e5768069b050b1bf);
+
+
+            var poly_line_9d37d0699fb70b9ac2745514bca3bccd = L.polyline(
+                [[52.3730796, 4.8924534], [51.5073359, -0.12765]],
+                {"bubblingMouseEvents": true, "color": "blue", "dashArray": [1, 2, 3, 4, 5, 6, 7, 8, 9, 10, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0], "dashOffset": null, "fill": false, "fillColor": "blue", "fillOpacity": 0.2, "fillRule": "evenodd", "lineCap": "round", "lineJoin": "round", "noClip": false, "opacity": 1.0, "smoothFactor": 1.0, "stroke": true, "weight": 3}
+            ).addTo(map_b8fd595eaefaea97e5768069b050b1bf);
+
+
+            var poly_line_28d1f73831ffe16beffde399b4769f71 = L.polyline(
+                [[51.5073359, -0.12765], [34.0536909, -118.242766]],
+                {"bubblingMouseEvents": true, "color": "blue", "dashArray": [1, 2, 3, 4, 5, 6, 7, 8, 9, 10, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0], "dashOffset": null, "fill": false, "fillColor": "blue", "fillOpacity": 0.2, "fillRule": "evenodd", "lineCap": "round", "lineJoin": "round", "noClip": false, "opacity": 1.0, "smoothFactor": 1.0, "stroke": true, "weight": 3}
+            ).addTo(map_b8fd595eaefaea97e5768069b050b1bf);
+
+
+            var poly_line_eb9f971ac86ee543d47432047579317e = L.polyline(
+                [[34.0536909, -118.242766], [35.6821116, 139.7656744]],
+                {"bubblingMouseEvents": true, "color": "blue", "dashArray": [1, 2, 3, 4, 5, 6, 7, 8, 9, 10, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0], "dashOffset": null, "fill": false, "fillColor": "blue", "fillOpacity": 0.2, "fillRule": "evenodd", "lineCap": "round", "lineJoin": "round", "noClip": false, "opacity": 1.0, "smoothFactor": 1.0, "stroke": true, "weight": 3}
+            ).addTo(map_b8fd595eaefaea97e5768069b050b1bf);
+
+
+            var poly_line_be448e192449726bea1784e7768a05c7 = L.polyline(
+                [[35.6821116, 139.7656744], [35.6380392, 139.8871255]],
+                {"bubblingMouseEvents": true, "color": "blue", "dashArray": [1, 2, 3, 4, 5, 6, 7, 8, 9, 10, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0], "dashOffset": null, "fill": false, "fillColor": "blue", "fillOpacity": 0.2, "fillRule": "evenodd", "lineCap": "round", "lineJoin": "round", "noClip": false, "opacity": 1.0, "smoothFactor": 1.0, "stroke": true, "weight": 3}
+            ).addTo(map_b8fd595eaefaea97e5768069b050b1bf);
+
+
+            var poly_line_01a909af4140b18046edb71687e95752 = L.polyline(
+                [[35.6380392, 139.8871255], [35.6718115, 139.6858165]],
+                {"bubblingMouseEvents": true, "color": "blue", "dashArray": [1, 2, 3, 4, 5, 6, 7, 8, 9, 10, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0], "dashOffset": null, "fill": false, "fillColor": "blue", "fillOpacity": 0.2, "fillRule": "evenodd", "lineCap": "round", "lineJoin": "round", "noClip": false, "opacity": 1.0, "smoothFactor": 1.0, "stroke": true, "weight": 3}
+            ).addTo(map_b8fd595eaefaea97e5768069b050b1bf);
+
+
+            var poly_line_7ae6ae0abfa4630896ef45f824312777 = L.polyline(
+                [[35.6718115, 139.6858165], [35.6815487, 139.6867391]],
+                {"bubblingMouseEvents": true, "color": "blue", "dashArray": [1, 2, 3, 4, 5, 6, 7, 8, 9, 10, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0], "dashOffset": null, "fill": false, "fillColor": "blue", "fillOpacity": 0.2, "fillRule": "evenodd", "lineCap": "round", "lineJoin": "round", "noClip": false, "opacity": 1.0, "smoothFactor": 1.0, "stroke": true, "weight": 3}
+            ).addTo(map_b8fd595eaefaea97e5768069b050b1bf);
+
+</script>
+</html>

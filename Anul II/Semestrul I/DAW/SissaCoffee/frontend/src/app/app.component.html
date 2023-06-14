@@ -1,0 +1,34 @@
+<mat-toolbar>
+  <button mat-icon-button (click)="toggleSidenav()">
+    <mat-icon>menu</mat-icon>
+  </button>
+  <a routerLink="/products/list" id="logo">SissaCoffee</a>
+</mat-toolbar>
+
+<mat-sidenav-container>
+  <mat-sidenav #sidenav mode="side" opened>
+    <ul>
+      <ng-container *ngIf="isAdmin">
+        <li><a routerLink="/admin" mat-raised-button color="accent">Admin</a></li>
+      </ng-container>
+      <ng-container *ngIf="isLoggedIn else notLoggedIn">
+        <li><a routerLink="/products/list" mat-raised-button color="accent">Menu</a></li>
+        <li>
+          <button mat-raised-button (click)="logOut()">Log Out</button>
+        </li>
+        <li>
+            <p>{{user | fullName}}</p>
+        </li>
+      </ng-container>
+      <ng-template #notLoggedIn>
+        <li><a routerLink="/auth/login" mat-raised-button color="accent">Log In</a></li>
+        <li><a routerLink="/auth/signup" mat-raised-button color="accent">Sign Up</a></li>
+      </ng-template>
+    </ul>
+  </mat-sidenav>
+  <mat-sidenav-content>
+    <main>
+      <router-outlet></router-outlet>
+    </main>
+  </mat-sidenav-content>
+</mat-sidenav-container>

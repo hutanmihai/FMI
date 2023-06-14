@@ -1,0 +1,18 @@
+<div class="container">
+  <h1>Log In</h1>
+
+  <form [formGroup]="formGroup">
+    <mat-form-field appearance="fill" color="accent">
+      <mat-label>Email</mat-label>
+      <input matInput type="email" formControlName="email">
+    </mat-form-field>
+    <mat-form-field appearance="fill" color="accent">
+      <mat-label>Password</mat-label>
+      <input matInput type="password" formControlName="password">
+    </mat-form-field>
+
+    <p *ngIf="invalidCredentials" appError>Invalid credentials.</p>
+
+    <button mat-raised-button color="accent" [disabled]="formGroup.invalid" (click)="login()">Log In</button>
+  </form>
+</div>

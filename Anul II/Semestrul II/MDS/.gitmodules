@@ -1,0 +1,6 @@
+[submodule "ProiectMDS/calorie-tracker-mobile"]
+	path = ProiectMDS/calorie-tracker-mobile
+	url = https://github.com/RaduBesliu/calorie-tracker-mobile
+[submodule "ProiectMDS/calorie-tracker-backend"]
+	path = ProiectMDS/calorie-tracker-backend
+	url = https://github.com/hutanmihai/calorie-tracker-backend

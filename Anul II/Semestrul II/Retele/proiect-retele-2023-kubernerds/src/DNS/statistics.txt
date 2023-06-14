@@ -1,0 +1,4 @@
+facebook: 16
+google: 54
+amazon: 2
+yahoo: 6

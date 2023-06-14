@@ -1,0 +1,28 @@
+import java.util.*;
+import java.util.stream.Collectors;
+
+public class Sub3_2019 {
+    static List<DiplomăLicență> listă = new ArrayList<>();
+
+    public static void main(String[] args){
+        for(int i=0; i<3; i++){
+            Scanner in = new Scanner(System.in);
+            int serie = Integer.parseInt(in.nextLine());
+            int an = Integer.parseInt(in.nextLine());
+            int medie = Integer.parseInt(in.nextLine());
+            String absolvent = in.nextLine();
+            String facultate = in.nextLine();
+            String specializare = in.nextLine();
+            DiplomăLicență diplomăLicență = new DiplomăLicență(absolvent, facultate, specializare, an, serie, medie);
+            listă.add(diplomăLicență);
+        }
+
+        listă.stream().filter(p -> p.getAn() >= 2000 && p.getAn() <= 2010).sorted(Comparator.comparing(DiplomăLicență::getMedie)).forEach(System.out::println);
+        listă.stream().filter(p -> p.getAn() != 2018).map(DiplomăLicență::getSpecializare).distinct().forEach(System.out::println);
+        List<String> aux = listă.stream().filter(p -> p.getMedie() == 10).map(DiplomăLicență::getAbsolvent).collect(Collectors.toList());   //v1
+        List<String> aux2 = listă.stream().filter(p -> p.getMedie() == 10).map(DiplomăLicență::getAbsolvent).toList();  //v2
+        listă.stream().filter(p -> p.getSpecializare().equals("Informatica")).collect(Collectors.counting());   //v1
+        listă.stream().filter(p -> p.getSpecializare().equals("Informatica")).count();  //v2
+    }
+
+}

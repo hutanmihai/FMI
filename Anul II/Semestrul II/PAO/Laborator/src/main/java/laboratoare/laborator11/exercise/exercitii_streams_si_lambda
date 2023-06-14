@@ -1,0 +1,16 @@
+1. Creati o metoda care sa returneze un sir de caractere pe baza unei liste de valori intregi. Sirul de caractere va fi constituit din mai multe 'elemente' dupa
+ urmatoarele reguli:
+- daca valoarea curenta din lista este para, ea va fi precedata de litera 'p' si se va adauga in sirul de caractere elementul 'p[valoarea_para]'
+- daca valoarea curenta din lista este impara, ea va fi precedata de litera 'i' si se va adauga in sirul de caractere elementul 'i[valoarea_impara]'
+- elementele adaugate in sirul de caractere vor fi despartite de , (virgula)
+De exemplu, daca lista de valori intregi este [5, 10], sirul de caractere rezultat va fi i5,p10
+Testati metoda creata.
+
+2. Creati o clasa Persoana avand urmatoarele campuri: String nume, String prenume, int varsta.
+Pornind de la o lista initiala de obiecte de tip Persoana si folosind streams API si functii lambda/ interfete functionale, implementati solutii pentru urmatoarele cerinte:
+- afisati toate elementele listei
+- sortati lista de persoane dupa prenume
+- afisati toate persoanele al caror nume incep cu o litera anume (data ca parametru)
+- afisati toate persoanele ordonate crescator dupa varsta
+- afisati persoana cea mai tanara
+Nota: toate cerintele vor fi implementate in metode separate.

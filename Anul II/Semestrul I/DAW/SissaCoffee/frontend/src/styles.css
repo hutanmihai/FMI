@@ -1,0 +1,24 @@
+/* You can add global styles to this file, and also import other style files */
+
+html, body { height: 100%; }
+body { margin: 0; font-family: Roboto, "Helvetica Neue", sans-serif; }
+
+::-webkit-scrollbar {
+  width: 12px;
+  background-color: #212121;
+}
+
+::-webkit-scrollbar-thumb {
+  background-color: #69f0ae;
+  border-radius: 6px;
+}
+
+/* Change the color of the thumb on hover */
+::-webkit-scrollbar-thumb:hover {
+  background-color: #17e883;
+}
+
+/* Change the color of the thumb on active (drag) */
+::-webkit-scrollbar-thumb:active {
+  background-color: #12ba69
+}

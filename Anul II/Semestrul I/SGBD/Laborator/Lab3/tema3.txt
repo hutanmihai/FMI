@@ -1,0 +1,6 @@
+a) initial 1, apoi  2
+b) "text 2"
+c) initial "text 3", apoi "text 3 adaugat in sub-bloc"
+d) initial 100, apoi  101
+e) initial "text 1", apoi "text 1 adaugat un blocul principal"
+f) initial "text 2", apoi "text 1 adaugat in blocul principal"

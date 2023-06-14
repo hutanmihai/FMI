@@ -1,0 +1,17 @@
+##------------------------------------------------------------------
+## Specify the basic DB parameters
+##------------------------------------------------------------------
+
+## cannot be longer than 8 characters
+DB_SID=ORCL
+
+DB_PASSWD=mihaihutan
+
+DB_DOMAIN=proiect.sgbd.local
+
+## default : basic
+## valid : basic / high / extreme 
+## (high and extreme are only available for enterprise edition)
+DB_BUNDLE=basic
+
+## end

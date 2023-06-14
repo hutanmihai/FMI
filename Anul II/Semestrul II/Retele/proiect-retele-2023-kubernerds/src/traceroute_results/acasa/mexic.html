@@ -1,0 +1,168 @@
+<!DOCTYPE html>
+<html>
+<head>
+
+    <meta http-equiv="content-type" content="text/html; charset=UTF-8" />
+
+        <script>
+            L_NO_TOUCH = false;
+            L_DISABLE_3D = false;
+        </script>
+
+    <style>html, body {width: 100%;height: 100%;margin: 0;padding: 0;}</style>
+    <style>#map {position:absolute;top:0;bottom:0;right:0;left:0;}</style>
+    <script src="https://cdn.jsdelivr.net/npm/leaflet@1.9.3/dist/leaflet.js"></script>
+    <script src="https://code.jquery.com/jquery-1.12.4.min.js"></script>
+    <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.2.2/dist/js/bootstrap.bundle.min.js"></script>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/Leaflet.awesome-markers/2.0.2/leaflet.awesome-markers.js"></script>
+    <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/leaflet@1.9.3/dist/leaflet.css"/>
+    <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bootstrap@5.2.2/dist/css/bootstrap.min.css"/>
+    <link rel="stylesheet" href="https://netdna.bootstrapcdn.com/bootstrap/3.0.0/css/bootstrap.min.css"/>
+    <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/@fortawesome/fontawesome-free@6.2.0/css/all.min.css"/>
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/Leaflet.awesome-markers/2.0.2/leaflet.awesome-markers.css"/>
+    <link rel="stylesheet" href="https://cdn.jsdelivr.net/gh/python-visualization/folium/folium/templates/leaflet.awesome.rotate.min.css"/>
+
+            <meta name="viewport" content="width=device-width,
+                initial-scale=1.0, maximum-scale=1.0, user-scalable=no" />
+            <style>
+                #map_ed069ab9615e414bdb6a1b74a9ffc6ec {
+                    position: relative;
+                    width: 100.0%;
+                    height: 100.0%;
+                    left: 0.0%;
+                    top: 0.0%;
+                }
+                .leaflet-container { font-size: 1rem; }
+            </style>
+
+</head>
+<body>
+
+
+            <div class="folium-map" id="map_ed069ab9615e414bdb6a1b74a9ffc6ec" ></div>
+
+</body>
+<script>
+
+
+            var map_ed069ab9615e414bdb6a1b74a9ffc6ec = L.map(
+                "map_ed069ab9615e414bdb6a1b74a9ffc6ec",
+                {
+                    center: [52.3730796, 4.8924534],
+                    crs: L.CRS.EPSG3857,
+                    zoom: 3,
+                    zoomControl: true,
+                    preferCanvas: false,
+                }
+            );
+
+
+
+
+
+            var tile_layer_5af714ae0c16620ebfdb5830d395a96b = L.tileLayer(
+                "https://{s}.tile.openstreetmap.org/{z}/{x}/{y}.png",
+                {"attribution": "Data by \u0026copy; \u003ca target=\"_blank\" href=\"http://openstreetmap.org\"\u003eOpenStreetMap\u003c/a\u003e, under \u003ca target=\"_blank\" href=\"http://www.openstreetmap.org/copyright\"\u003eODbL\u003c/a\u003e.", "detectRetina": false, "maxNativeZoom": 18, "maxZoom": 18, "minZoom": 0, "noWrap": false, "opacity": 1, "subdomains": "abc", "tms": false}
+            ).addTo(map_ed069ab9615e414bdb6a1b74a9ffc6ec);
+
+
+            var marker_01d7d9748f1dfe543d21706b9874883a = L.marker(
+                [52.3730796, 4.8924534],
+                {}
+            ).addTo(map_ed069ab9615e414bdb6a1b74a9ffc6ec);
+
+
+            marker_01d7d9748f1dfe543d21706b9874883a.bindTooltip(
+                `<div>
+                     Amsterdam, North Holland, NL
+
+                 </div>`,
+                {"sticky": true}
+            );
+
+
+            var marker_df786e6a0b03b8ab92c93fe8c68caa65 = L.marker(
+                [38.953055899999995, -77.35021396591173],
+                {}
+            ).addTo(map_ed069ab9615e414bdb6a1b74a9ffc6ec);
+
+
+            marker_df786e6a0b03b8ab92c93fe8c68caa65.bindTooltip(
+                `<div>
+                     Reston, Virginia, US
+
+                 </div>`,
+                {"sticky": true}
+            );
+
+
+            var marker_7d2b922fc12d1d0a38ad6c7f4fb335a3 = L.marker(
+                [38.918018, -77.517342],
+                {}
+            ).addTo(map_ed069ab9615e414bdb6a1b74a9ffc6ec);
+
+
+            marker_7d2b922fc12d1d0a38ad6c7f4fb335a3.bindTooltip(
+                `<div>
+                     South Riding, Virginia, US
+
+                 </div>`,
+                {"sticky": true}
+            );
+
+
+            var marker_cd590cba0a8f003cf14c0925c7399775 = L.marker(
+                [38.9368216, -77.4126978],
+                {}
+            ).addTo(map_ed069ab9615e414bdb6a1b74a9ffc6ec);
+
+
+            marker_cd590cba0a8f003cf14c0925c7399775.bindTooltip(
+                `<div>
+                     Floris, Virginia, US
+
+                 </div>`,
+                {"sticky": true}
+            );
+
+
+            var marker_b8e0327b50c6969792025b076a7a33d0 = L.marker(
+                [39.030019100000004, -77.46964646557657],
+                {}
+            ).addTo(map_ed069ab9615e414bdb6a1b74a9ffc6ec);
+
+
+            marker_b8e0327b50c6969792025b076a7a33d0.bindTooltip(
+                `<div>
+                     Ashburn, Virginia, US
+
+                 </div>`,
+                {"sticky": true}
+            );
+
+
+            var poly_line_cbfb8faad9be8ec3f4927df1991a957e = L.polyline(
+                [[52.3730796, 4.8924534], [38.953055899999995, -77.35021396591173]],
+                {"bubblingMouseEvents": true, "color": "blue", "dashArray": [1, 2, 3, 4, 5, 6, 7, 8, 9, 10, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0], "dashOffset": null, "fill": false, "fillColor": "blue", "fillOpacity": 0.2, "fillRule": "evenodd", "lineCap": "round", "lineJoin": "round", "noClip": false, "opacity": 1.0, "smoothFactor": 1.0, "stroke": true, "weight": 3}
+            ).addTo(map_ed069ab9615e414bdb6a1b74a9ffc6ec);
+
+
+            var poly_line_425db6b87f59c8b5e64bbdd660963334 = L.polyline(
+                [[38.953055899999995, -77.35021396591173], [38.918018, -77.517342]],
+                {"bubblingMouseEvents": true, "color": "blue", "dashArray": [1, 2, 3, 4, 5, 6, 7, 8, 9, 10, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0], "dashOffset": null, "fill": false, "fillColor": "blue", "fillOpacity": 0.2, "fillRule": "evenodd", "lineCap": "round", "lineJoin": "round", "noClip": false, "opacity": 1.0, "smoothFactor": 1.0, "stroke": true, "weight": 3}
+            ).addTo(map_ed069ab9615e414bdb6a1b74a9ffc6ec);
+
+
+            var poly_line_67b6af83b1e9a4f9d66015f7fdddd88d = L.polyline(
+                [[38.918018, -77.517342], [38.9368216, -77.4126978]],
+                {"bubblingMouseEvents": true, "color": "blue", "dashArray": [1, 2, 3, 4, 5, 6, 7, 8, 9, 10, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0], "dashOffset": null, "fill": false, "fillColor": "blue", "fillOpacity": 0.2, "fillRule": "evenodd", "lineCap": "round", "lineJoin": "round", "noClip": false, "opacity": 1.0, "smoothFactor": 1.0, "stroke": true, "weight": 3}
+            ).addTo(map_ed069ab9615e414bdb6a1b74a9ffc6ec);
+
+
+            var poly_line_bb90b65ad66d8ad831a9cbc3b27278be = L.polyline(
+                [[38.9368216, -77.4126978], [39.030019100000004, -77.46964646557657]],
+                {"bubblingMouseEvents": true, "color": "blue", "dashArray": [1, 2, 3, 4, 5, 6, 7, 8, 9, 10, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0], "dashOffset": null, "fill": false, "fillColor": "blue", "fillOpacity": 0.2, "fillRule": "evenodd", "lineCap": "round", "lineJoin": "round", "noClip": false, "opacity": 1.0, "smoothFactor": 1.0, "stroke": true, "weight": 3}
+            ).addTo(map_ed069ab9615e414bdb6a1b74a9ffc6ec);
+
+</script>
+</html>

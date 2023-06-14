@@ -1,0 +1,12 @@
+version: '3.8'
+
+services:
+    dns-server:
+        image: snisioi/retele:2021
+        volumes:
+            - .:/elocal
+        tty: true
+        ports:
+         - "53:53"
+        command: bash -c "cd elocal && export PYTHONPATH=. && ipython dns_spoofer.py"
+        network_mode: "host"

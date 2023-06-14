@@ -1,0 +1,61 @@
+<h1>Add Product</h1>
+
+<form [formGroup]="formGroup">
+  <mat-card>
+    <mat-form-field appearance="fill" color="accent">
+      <mat-label>Name</mat-label>
+      <input matInput type="text" formControlName="name">
+    </mat-form-field>
+    <h3>Select ingredients:</h3>
+    <ng-container formArrayName="ingredients">
+      <ul>
+        <li *ngFor="let ingredient of ingredients; index as i">
+          <mat-card>
+            <p>
+              <mat-checkbox [formControlName]="i">
+                <mat-card-title>
+                  {{ ingredient.name}}
+                </mat-card-title>
+              </mat-checkbox>
+            </p>
+          </mat-card>
+        </li>
+      </ul>
+    </ng-container>
+    <h3>Select one tag:</h3>
+    <mat-radio-group formControlName="tag">
+      <ul>
+        <li *ngFor="let tag of tags">
+          <mat-card>
+            <mat-radio-button [value]="tag.id">
+              <mat-card-title>
+                {{tag.name}}
+              </mat-card-title>
+            </mat-radio-button>
+          </mat-card>
+        </li>
+      </ul>
+    </mat-radio-group>
+    <h3>Select one variant:</h3>
+    <mat-radio-group formControlName="variant">
+      <ul>
+        <li *ngFor="let variant of variants">
+          <mat-card>
+            <mat-radio-button [value]="variant.id">
+              <mat-card-title>
+                {{variant.name}}
+              </mat-card-title>
+            </mat-radio-button>
+          </mat-card>
+        </li>
+      </ul>
+    </mat-radio-group>
+    <button mat-raised-button color="accent" class="btn-add" [disabled]="formGroup.invalid" (click)="addProd()">
+      Add Product
+    </button>
+    <button mat-raised-button color="accent" class="btn-add" (click)="goToPage('/products/list')">
+      Go Back
+    </button>
+  </mat-card>
+</form>
+

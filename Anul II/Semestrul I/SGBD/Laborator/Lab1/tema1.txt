@@ -1,0 +1,67 @@
+-- CREATE TABLE COMMAND
+-- CREATE TABLE HUTAN_MIHAI_TEMA1 AS SELECT * FROM EMPLOYEES;
+
+---------------------------------------------------------------------------------------------------------------------------------
+
+--EX 17:
+
+SPOOL sterge_tabele.sql
+SELECT 'Drop table ' || table_name || ' CASCADE CONSTRAINTS PURGE;' from user_tables WHERE TABLE_NAME LIKE 'HUTAN_MIHAI_TEMA1';
+SPOOL OFF
+
+---------------------------------------------------------------------------------------------------------------------------------
+
+--EX 18:
+
+/*
+'DROPTABLE'||TABLE_NAME||'CASCADECONSTRAINTSPURGE;'                 
+--------------------------------------------------------------------
+Drop table HUTAN_MIHAI_TEMA1 CASCADE CONSTRAINTS PURGE;
+*/
+
+---------------------------------------------------------------------------------------------------------------------------------
+
+--EX 19:
+
+--?
+
+---------------------------------------------------------------------------------------------------------------------------------
+
+--EX 20:
+
+--NICIUN EFECT
+
+---------------------------------------------------------------------------------------------------------------------------------
+
+--EX 21:
+
+/*
+SET PAGESIZE 0
+SPOOL sterge_tabele.sql
+SELECT 'Drop table ' || table_name || ' CASCADE CONSTRAINTS PURGE;' from user_tables WHERE TABLE_NAME LIKE 'HUTAN_MIHAI_TEMA1';
+SPOOL OFF
+*/
+
+-- STERGE 
+--'DROPTABLE'||TABLE_NAME||'CASCADECONSTRAINTSPURGE;'                 
+--------------------------------------------------------------------
+
+---------------------------------------------------------------------------------------------------------------------------------
+
+--EX 22:
+
+/*
+EXECUTIA ACESTUI SCRIPT AR GENERA ERORI IN SITUATIA IN CARE AR FI RULAT DE MAI MULTE ORI, DEOARECE VOI INCERCA SA DAU
+DROP TABLE LA ACEEASI TABELA DE MAI MULTE ORI
+DOAR CA DUPA PRIMA EXECUTIA ACEASTA NU AR MAI EXISTA SI AR DA EROARE LA URMATOARELE RULARI
+*/
+--SOLUTIE: FOLOSIM IF EXISTS
+
+---------------------------------------------------------------------------------------------------------------------------------
+
+--EX 23:
+
+SET PAGESIZE 0
+SPOOL inserare_tabele.sql
+SELECT 'INSERT INTO departments VALUES('|| department_id ||','''|| department_name ||''','''|| replace(manager_id,'''','''''')||''','''|| replace(location_id,'''','''''')||''''||')'||';' FROM departments;
+SPOOL OFF;

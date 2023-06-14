@@ -1,0 +1,4 @@
+Username: grupa243
+Password: oracle
+Hostname: 193.226.51.37
+Service name: o11g

@@ -1,0 +1,168 @@
+<!DOCTYPE html>
+<html>
+<head>
+
+    <meta http-equiv="content-type" content="text/html; charset=UTF-8" />
+
+        <script>
+            L_NO_TOUCH = false;
+            L_DISABLE_3D = false;
+        </script>
+
+    <style>html, body {width: 100%;height: 100%;margin: 0;padding: 0;}</style>
+    <style>#map {position:absolute;top:0;bottom:0;right:0;left:0;}</style>
+    <script src="https://cdn.jsdelivr.net/npm/leaflet@1.9.3/dist/leaflet.js"></script>
+    <script src="https://code.jquery.com/jquery-1.12.4.min.js"></script>
+    <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.2.2/dist/js/bootstrap.bundle.min.js"></script>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/Leaflet.awesome-markers/2.0.2/leaflet.awesome-markers.js"></script>
+    <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/leaflet@1.9.3/dist/leaflet.css"/>
+    <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bootstrap@5.2.2/dist/css/bootstrap.min.css"/>
+    <link rel="stylesheet" href="https://netdna.bootstrapcdn.com/bootstrap/3.0.0/css/bootstrap.min.css"/>
+    <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/@fortawesome/fontawesome-free@6.2.0/css/all.min.css"/>
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/Leaflet.awesome-markers/2.0.2/leaflet.awesome-markers.css"/>
+    <link rel="stylesheet" href="https://cdn.jsdelivr.net/gh/python-visualization/folium/folium/templates/leaflet.awesome.rotate.min.css"/>
+
+            <meta name="viewport" content="width=device-width,
+                initial-scale=1.0, maximum-scale=1.0, user-scalable=no" />
+            <style>
+                #map_d3f3025111a80c92af71228caa1907c4 {
+                    position: relative;
+                    width: 100.0%;
+                    height: 100.0%;
+                    left: 0.0%;
+                    top: 0.0%;
+                }
+                .leaflet-container { font-size: 1rem; }
+            </style>
+
+</head>
+<body>
+
+
+            <div class="folium-map" id="map_d3f3025111a80c92af71228caa1907c4" ></div>
+
+</body>
+<script>
+
+
+            var map_d3f3025111a80c92af71228caa1907c4 = L.map(
+                "map_d3f3025111a80c92af71228caa1907c4",
+                {
+                    center: [51.5073359, -0.12765],
+                    crs: L.CRS.EPSG3857,
+                    zoom: 3,
+                    zoomControl: true,
+                    preferCanvas: false,
+                }
+            );
+
+
+
+
+
+            var tile_layer_0ebf63315cf5ba92f18916c18f8c6fcc = L.tileLayer(
+                "https://{s}.tile.openstreetmap.org/{z}/{x}/{y}.png",
+                {"attribution": "Data by \u0026copy; \u003ca target=\"_blank\" href=\"http://openstreetmap.org\"\u003eOpenStreetMap\u003c/a\u003e, under \u003ca target=\"_blank\" href=\"http://www.openstreetmap.org/copyright\"\u003eODbL\u003c/a\u003e.", "detectRetina": false, "maxNativeZoom": 18, "maxZoom": 18, "minZoom": 0, "noWrap": false, "opacity": 1, "subdomains": "abc", "tms": false}
+            ).addTo(map_d3f3025111a80c92af71228caa1907c4);
+
+
+            var marker_3ba330d6dd887a62eccd81471b275ff9 = L.marker(
+                [51.5073359, -0.12765],
+                {}
+            ).addTo(map_d3f3025111a80c92af71228caa1907c4);
+
+
+            marker_3ba330d6dd887a62eccd81471b275ff9.bindTooltip(
+                `<div>
+                     London, England, GB
+
+                 </div>`,
+                {"sticky": true}
+            );
+
+
+            var marker_a665d210cdcfeaa0df2de84dd54a1c66 = L.marker(
+                [50.1106444, 8.6820917],
+                {}
+            ).addTo(map_d3f3025111a80c92af71228caa1907c4);
+
+
+            marker_a665d210cdcfeaa0df2de84dd54a1c66.bindTooltip(
+                `<div>
+                     Frankfurt am Main, Hesse, DE
+
+                 </div>`,
+                {"sticky": true}
+            );
+
+
+            var marker_11b16aff5fa6f8669198099bfc4170bb = L.marker(
+                [23.6832984, 113.0505994],
+                {}
+            ).addTo(map_d3f3025111a80c92af71228caa1907c4);
+
+
+            marker_11b16aff5fa6f8669198099bfc4170bb.bindTooltip(
+                `<div>
+                     Qingyuan, Guangdong, CN
+
+                 </div>`,
+                {"sticky": true}
+            );
+
+
+            var marker_2b4f8ebc1fddb9e6f14b493b99425ba7 = L.marker(
+                [39.9057136, 116.3912972],
+                {}
+            ).addTo(map_d3f3025111a80c92af71228caa1907c4);
+
+
+            marker_2b4f8ebc1fddb9e6f14b493b99425ba7.bindTooltip(
+                `<div>
+                     Beijing, Beijing, CN
+
+                 </div>`,
+                {"sticky": true}
+            );
+
+
+            var marker_df5d86d83f2c505b858654439e5bc940 = L.marker(
+                [39.9119229, 116.3566423],
+                {}
+            ).addTo(map_d3f3025111a80c92af71228caa1907c4);
+
+
+            marker_df5d86d83f2c505b858654439e5bc940.bindTooltip(
+                `<div>
+                     Jinrongjie, Beijing, CN
+
+                 </div>`,
+                {"sticky": true}
+            );
+
+
+            var poly_line_1d07fc5ce6389d4156436784a77210a8 = L.polyline(
+                [[51.5073359, -0.12765], [50.1106444, 8.6820917]],
+                {"bubblingMouseEvents": true, "color": "blue", "dashArray": [1, 2, 3, 4, 5, 6, 7, 8, 9, 10, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0], "dashOffset": null, "fill": false, "fillColor": "blue", "fillOpacity": 0.2, "fillRule": "evenodd", "lineCap": "round", "lineJoin": "round", "noClip": false, "opacity": 1.0, "smoothFactor": 1.0, "stroke": true, "weight": 3}
+            ).addTo(map_d3f3025111a80c92af71228caa1907c4);
+
+
+            var poly_line_05cdc3abc945c49e147c189ebb112664 = L.polyline(
+                [[50.1106444, 8.6820917], [23.6832984, 113.0505994]],
+                {"bubblingMouseEvents": true, "color": "blue", "dashArray": [1, 2, 3, 4, 5, 6, 7, 8, 9, 10, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0], "dashOffset": null, "fill": false, "fillColor": "blue", "fillOpacity": 0.2, "fillRule": "evenodd", "lineCap": "round", "lineJoin": "round", "noClip": false, "opacity": 1.0, "smoothFactor": 1.0, "stroke": true, "weight": 3}
+            ).addTo(map_d3f3025111a80c92af71228caa1907c4);
+
+
+            var poly_line_0223dc77c475fd53a465dced8502bee6 = L.polyline(
+                [[23.6832984, 113.0505994], [39.9057136, 116.3912972]],
+                {"bubblingMouseEvents": true, "color": "blue", "dashArray": [1, 2, 3, 4, 5, 6, 7, 8, 9, 10, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0], "dashOffset": null, "fill": false, "fillColor": "blue", "fillOpacity": 0.2, "fillRule": "evenodd", "lineCap": "round", "lineJoin": "round", "noClip": false, "opacity": 1.0, "smoothFactor": 1.0, "stroke": true, "weight": 3}
+            ).addTo(map_d3f3025111a80c92af71228caa1907c4);
+
+
+            var poly_line_a39bc9d8d398d2e09c72b28dea892702 = L.polyline(
+                [[39.9057136, 116.3912972], [39.9119229, 116.3566423]],
+                {"bubblingMouseEvents": true, "color": "blue", "dashArray": [1, 2, 3, 4, 5, 6, 7, 8, 9, 10, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0], "dashOffset": null, "fill": false, "fillColor": "blue", "fillOpacity": 0.2, "fillRule": "evenodd", "lineCap": "round", "lineJoin": "round", "noClip": false, "opacity": 1.0, "smoothFactor": 1.0, "stroke": true, "weight": 3}
+            ).addTo(map_d3f3025111a80c92af71228caa1907c4);
+
+</script>
+</html>

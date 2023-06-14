@@ -1,0 +1,43 @@
+//Sub II PAO mai/iunie 2019
+
+import java.io.*;
+import java.util.*;
+
+public class Sub2_2019 {
+    public static class det_cuv extends Thread{
+        int n;
+        String file;
+
+        public det_cuv(int n, String file){
+            this.n = n;
+            this.file = file;
+        }
+
+        @Override
+        public void run(){
+            BufferedReader citire = new BufferedReader(new FileReader(file));
+            String linie;
+            List<String> cuvinte = new ArrayList<>();
+            while((linie = citire.readLine()) != null){
+                String[] cuv = linie.split("[ ,.?!:;]");
+                for(String c:cuv) {
+                    if (c.length() >= n) {
+                        cuvinte.add(c);
+                    }
+                }
+            }
+            for(String c:cuvinte){
+                System.out.println(c);
+            }
+        }
+    }
+    public static void main(String[] args){
+        Scanner in = new Scanner(System.in);
+        int n = Integer.parseInt(in.nextLine());
+        det_cuv txt1 = new det_cuv(n, "poezie_1.txt");
+        txt1.start();
+        det_cuv txt2 = new det_cuv(n, "poezie_2.txt");
+        txt2.start();
+
+    }
+}

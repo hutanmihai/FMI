@@ -1,0 +1,47 @@
+#logo {
+  color: #fff;
+  text-decoration: none;
+}
+
+#logo:visited {
+  color: #fff;
+}
+
+mat-toolbar {
+  flex: 1 1 auto;
+}
+
+mat-toolbar {
+  gap: 0.5rem;
+}
+
+main {
+  padding: 1rem;
+  max-width: 60rem;
+  margin: 0 auto;
+}
+
+mat-sidenav-container {
+  min-height: 100vh;
+}
+
+mat-sidenav ul {
+  list-style-type: none;
+  padding: 1rem;
+  display: flex;
+  flex-direction: column;
+  flex-wrap: wrap;
+  gap: 1rem;
+}
+
+mat-sidenav li {
+  width: 100%;
+}
+
+mat-sidenav a, mat-sidenav button {
+  width: 100%;
+}
+
+mat-sidenav li p {
+  text-align: center;
+}

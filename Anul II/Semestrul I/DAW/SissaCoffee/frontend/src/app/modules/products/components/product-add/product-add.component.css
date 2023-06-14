@@ -1,0 +1,31 @@
+h1, h3 {
+  text-align: center;
+}
+
+h3 {
+  margin-top: 20px;
+  font-size: large;
+}
+
+form {
+  margin-left: 10vw;
+  margin-right: 10vw;
+}
+
+mat-card {
+  margin-left: 10px;
+  margin-right: 10px;
+}
+
+.btn-add {
+  margin: 20px 20%;
+  width: 60%;
+}
+
+ul {
+  list-style-type: none;
+  padding: 0;
+  display: flex;
+  flex-direction: column;
+  gap: 5px;
+}
