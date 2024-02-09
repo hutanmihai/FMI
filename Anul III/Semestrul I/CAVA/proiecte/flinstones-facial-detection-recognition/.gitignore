@@ -1,0 +1,18 @@
+.idea/
+.vscode/
+.DS_Store
+out/
+
+### Python ###
+# Byte-compiled / optimized / DLL files
+__pycache__/
+*.py[cod]
+*$py.class
+
+# BIG DATA
+data/train/collapsed_annotations.txt
+data/train/collapsed/
+data/patches/
+solution/
+
+
