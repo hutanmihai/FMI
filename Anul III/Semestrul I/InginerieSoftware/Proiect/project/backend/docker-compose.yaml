@@ -1,0 +1,11 @@
+services:
+  app:
+    build:
+      context: .
+      dockerfile: Dockerfile
+      target: development
+    container_name: app_container
+    ports:
+      - ${APP_PORT}:${APP_PORT}
+    env_file:
+      - .env

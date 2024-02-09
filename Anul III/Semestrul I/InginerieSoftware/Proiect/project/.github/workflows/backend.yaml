@@ -1,0 +1,165 @@
+name: BACKEND
+
+on:
+  push:
+    branches:
+      - main
+  pull_request:
+    branches:
+      - main
+
+env:
+  PROJECT_ID: 'vision-canvas-2023'
+  REGION: 'europe-west1'
+  AR_NAME: 'backend'
+
+jobs:
+  linter:
+    runs-on: ubuntu-latest
+    steps:
+      - name: Checkout code
+        uses: actions/checkout@v3
+      - name: Black Check
+        uses: jpetrucciani/black-check@23.11.0
+        with:
+          path: ./backend/src/
+          black_flags: '--line-length=120'
+    if: ${{ github.event_name == 'pull_request' }}
+  test_pr:
+    needs: linter
+    runs-on: ubuntu-latest
+    steps:
+      - name: Checkout code
+        uses: actions/checkout@v3
+      - name: Set up Python 3.11.4
+        uses: actions/setup-python@v3
+        with:
+          python-version: 3.11.4
+      - name: Install dependencies
+        run: |
+          cd backend
+          python -m pip install --upgrade pip
+          pip install poetry
+          poetry export --without-hashes --format=requirements.txt --with "dev" --with "test" > requirements.txt
+          pip install -r requirements.txt
+      - name: Run tests
+        run: |
+          cd backend
+          pytest --junitxml=reports/report_func.xml ./src/test/
+      - name: Save junit report
+        if: always()
+        uses: actions/upload-artifact@v3
+        with:
+          name: test_report
+          path: backend/reports/report_func.xml
+    if: ${{ github.event_name == 'pull_request' }}
+  test_main:
+    runs-on: ubuntu-latest
+    steps:
+      - name: Checkout code
+        uses: actions/checkout@v3
+      - name: Set up Python 3.11.4
+        uses: actions/setup-python@v3
+        with:
+          python-version: 3.11.4
+      - name: Install dependencies
+        run: |
+          cd backend
+          python -m pip install --upgrade pip
+          pip install poetry
+          poetry export --without-hashes --format=requirements.txt --with "dev" --with "test" > requirements.txt
+          pip install -r requirements.txt
+      - name: Run tests
+        run: |
+          cd backend
+          pytest --junitxml=reports/report_func.xml ./src/test/
+      - name: Save junit report
+        if: always()
+        uses: actions/upload-artifact@v3
+        with:
+          name: test_report
+          path: backend/reports/report_func.xml
+    if: ${{ github.ref == 'refs/heads/main' }}
+  build_pr:
+    permissions:
+      contents: 'read'
+      id-token: 'write'
+    needs: test_pr
+    runs-on: ubuntu-latest
+    steps:
+      - name: Checkout code
+        uses: actions/checkout@v3
+      - id: auth
+        name: Authenticate with GCP
+        uses: google-github-actions/auth@v1
+        with:
+          project_id: ${{ env.PROJECT_ID }}
+          service_account: ${{ secrets.SA_EMAIL }}
+          workload_identity_provider: ${{ secrets.WIF_PROVIDER }}
+          token_format: 'access_token'
+      - name: Login to Artifact Registry
+        uses: docker/login-action@v1
+        with:
+          registry: ${{ env.REGION }}-docker.pkg.dev
+          username: oauth2accesstoken
+          password: ${{ steps.auth.outputs.access_token }}
+      - name: Publish to GCP Artifact Registry
+        uses: docker/build-push-action@v2
+        with:
+          context: backend
+          push: true
+          tags: ${{ env.REGION }}-docker.pkg.dev/${{ env.PROJECT_ID }}/${{ env.AR_NAME }}/${{ env.PROJECT_ID }}-${{ env.AR_NAME }}:${{ github.sha }}
+    if: ${{ github.event_name == 'pull_request' }}
+  build_main:
+    permissions:
+      contents: 'read'
+      id-token: 'write'
+    needs: test_main
+    runs-on: ubuntu-latest
+    steps:
+      - name: Checkout code
+        uses: actions/checkout@v3
+      - id: auth
+        name: Authenticate with GCP
+        uses: google-github-actions/auth@v1
+        with:
+          project_id: ${{ env.PROJECT_ID }}
+          service_account: ${{ secrets.SA_EMAIL }}
+          workload_identity_provider: ${{ secrets.WIF_PROVIDER }}
+          token_format: 'access_token'
+      - name: Login to Artifact Registry
+        uses: docker/login-action@v1
+        with:
+          registry: ${{ env.REGION }}-docker.pkg.dev
+          username: oauth2accesstoken
+          password: ${{ steps.auth.outputs.access_token }}
+      - name: Publish to GCP Artifact Registry
+        uses: docker/build-push-action@v2
+        with:
+          context: backend
+          push: true
+          tags: ${{ env.REGION }}-docker.pkg.dev/${{ env.PROJECT_ID }}/${{ env.AR_NAME }}/${{ env.PROJECT_ID }}-${{ env.AR_NAME }}:latest
+    if: ${{ github.ref == 'refs/heads/main' }}
+  deploy:
+    permissions:
+      contents: 'read'
+      id-token: 'write'
+    needs: build_main
+    runs-on: ubuntu-latest
+    steps:
+      - name: Checkout code
+        uses: actions/checkout@v3
+      - name: Authenticate with GCP
+        uses: google-github-actions/auth@v1
+        with:
+          project_id: ${{ env.PROJECT_ID }}
+          service_account: ${{ secrets.SA_EMAIL }}
+          workload_identity_provider: ${{ secrets.WIF_PROVIDER }}
+          token_format: 'access_token'
+      - name: Deploy to Cloud Run
+        uses: google-github-actions/deploy-cloudrun@v2
+        with:
+          region: ${{ env.REGION }}
+          service: ${{ env.PROJECT_ID }}-${{ env.AR_NAME }}
+          image: ${{ env.REGION }}-docker.pkg.dev/${{ env.PROJECT_ID }}/${{ env.AR_NAME }}/${{ env.PROJECT_ID }}-${{ env.AR_NAME }}:latest
+    if: ${{ github.ref == 'refs/heads/main' }}

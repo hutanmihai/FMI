@@ -1,0 +1,115 @@
+[tool.poetry]
+name = "backend"
+version = "0.1.0"
+description = ""
+authors = ["hutanmihai <hutanmihai29@gmail.com>"]
+readme = "README.md"
+packages = [{ include = "src" }]
+
+[tool.poetry.dependencies]
+python = "3.11.4"
+fastapi = "^0.104.1"
+uvicorn = { extras = ["standard"], version = "^0.24.0.post1" }
+numpy = "^1.26.2"
+opencv-python = "^4.8.1.78"
+pydantic-settings = "^2.1.0"
+pillow = "^10.1.0"
+rembg = "^2.0.53"
+
+
+[tool.poetry.group.dev.dependencies]
+poethepoet = "^0.24.4"
+pre-commit = "^3.5.0"
+
+
+[tool.poetry.group.test.dependencies]
+pytest = "^7.4.3"
+pytest-asyncio = "^0.23.2"
+pytest-cov = "^4.1.0"
+httpx = "^0.25.2"
+
+[build-system]
+requires = ["poetry-core"]
+build-backend = "poetry.core.masonry.api"
+
+[tool.poe.tasks.run_app]
+# This task will be called by poe run_app and it will run the app
+help = "Run the app"
+cmd = "poetry run python src/app.py"
+envfile = ".env"
+
+[tool.poe.tasks.pre_commit]
+# This task will be called by poe pre_commit and it will run all pre-commit hooks
+help = "Run pre-commit hooks"
+cmd = "pre-commit run --all-files"
+
+[tool.poe.tasks.clean]
+# This task will be called by poe clean and it cleans all artifacts from previous tests
+help = "Clean up the project"
+cmd = """
+    rm -rf .coverage && \
+    rm -rf coverage.xml && \
+    rm -rf htmlcov && \
+    rm -rf .pytest_cache && \
+    rm -rf ./**/__pycache__ && \
+    rm -rf dist && \
+    """
+
+[tool.poe.tasks.clean_pycache]
+# This task will be called by poe clean_pycache and it removes all __pycache__ folders
+help = "Clean up the project of all __pycache__ folders"
+cmd = """
+    rm -rf ./**/__pycache__
+    rm -rf .pytest_cache
+    """
+
+
+[tool.poe.tasks.build_image]
+# This task will be called by poe build_image and it will build a docker image
+help = "Build docker image"
+cmd = "docker build -t app_image:$image_tag ."
+
+[[tool.poe.tasks.build_image.args]]
+# This argument will be passed to the build_image task and it will be used as a tag for the docker image
+help = "Tag of the docker image"
+name = "image_tag"
+options = ["--tag"]
+default = "latest"
+
+[tool.poe.tasks.start_app]
+# This task composes up the app using primary database
+help = "Start the app"
+cmd = "docker-compose up -d app "
+envfile = ".env"
+
+[tool.poe.tasks.stop_app]
+# This task composes down the app
+help = "Stop the app"
+cmd = "docker-compose down"
+envfile = ".env"
+
+[tool.poe.tasks.pytest_api]
+# This task will be called by poe pytest_api and it will run all tests for the API
+help = "Run API tests"
+cmd = "pytest src/test --cov=src/test --cov-report=$cov_type"
+
+[[tool.poe.tasks.pytest_api.args]]
+# This argument will be passed to the pytest_api task and if it is provided it will generate a coverage report in the specified format (html, xml, term)
+help = "Generate coverage html or xml report"
+name = "cov_type"
+positional = true
+required = false
+default = "term"
+
+[tool.poe.tasks.test]
+# This task will be called by poe api_test and it will  run all tests for the API and then clean up __pycache__ folders.
+help = "Run API tests in a new environment"
+sequence = ["pytest_api $cov_type", "clean_pycache"]
+envfile = ".env"
+
+[[tool.poe.tasks.test.args]]
+# This argument will be passed to the test task and if it is provided it will generate a coverage report in the specified format (html, xml, term)
+help = "Generate coverage html or xml report"
+name = "cov_type"
+options = ["--cov-report"]
+required = false

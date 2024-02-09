@@ -1,0 +1,68 @@
+.dashboard-image {
+    width: 100px;
+    height: 100px;
+    object-fit: cover;
+    margin: 10px;
+    border-radius: 10px;
+    box-shadow: 0 4px 8px 0 rgba(0, 0, 0, 0.2), 0 6px 20px 0 rgba(0, 0, 0, 0.19);
+    cursor: pointer;
+    transition: transform 0.3s;
+}
+
+.dashboard-image:hover {
+    transform: scale(1.1);
+}
+
+.dashboard-image-container {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    margin: 10px;
+}
+
+.dashboard-images-wrapper {
+    display: flex;
+    flex-wrap: wrap;
+    justify-content: center;
+}
+
+.dashboard-image-delete {
+    margin-top: 5px;
+    padding: 5px 10px;
+    border-radius: 5px;
+    border: none;
+    color: white;
+    cursor: pointer;
+    transition: background-color 0.3s;
+}
+
+.dashboard-image-delete {
+    background-color: red;
+}
+
+.dashboard-image-delete:hover {
+    background-color: darkred;
+}
+
+.dashboard-image-share {
+    background-color: blue;
+}
+
+.dashboard-image-share:hover {
+    background-color: darkblue;
+}
+
+.dashboard-image-download {
+    margin-top: 5px;
+    padding: 5px 10px;
+    border-radius: 5px;
+    border: none;
+    color: white;
+    background-color: green;
+    cursor: pointer;
+    transition: background-color 0.3s;
+}
+
+.dashboard-image-download:hover {
+    background-color: darkgreen;
+}
