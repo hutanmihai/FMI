@@ -1,0 +1,53 @@
+{
+  "name": "portfolio",
+  "version": "0.1.0",
+  "private": true,
+  "scripts": {
+    "dev": "next dev",
+    "build": "next build",
+    "start": "next start",
+    "lint": "next lint",
+    "lint:fix": "next lint --fix",
+    "prettier": "prettier --write \"src/**/*.{js,jsx,ts,tsx}\"",
+    "rm:all": "rm -rf node_modules .next out dist build",
+    "re:start": "npm run rm:all && npm install && npm run dev",
+    "re:build": "npm run rm:all && npm install && npm run build",
+    "dev:ts": "npm run dev & npm run ts:watch",
+    "ts": "tsc --noEmit --incremental",
+    "ts:watch": "npm run ts --watch"
+  },
+  "dependencies": {
+    "@emotion/cache": "^11.11.0",
+    "@emotion/react": "^11.11.1",
+    "@emotion/styled": "^11.11.0",
+    "@hookform/resolvers": "^3.3.2",
+    "@mui/lab": "^5.0.0-alpha.157",
+    "@mui/material": "^5.15.0",
+    "@svgr/webpack": "^8.1.0",
+    "firebase": "^10.7.1",
+    "framer-motion": "^10.16.16",
+    "lodash": "^4.17.21",
+    "next": "14.0.4",
+    "nprogress": "^0.2.0",
+    "react": "^18",
+    "react-dom": "^18",
+    "react-hook-form": "^7.49.2",
+    "zod": "^3.22.4"
+  },
+  "devDependencies": {
+    "@iconify/react": "^4.1.1",
+    "@types/lodash": "^4.14.202",
+    "@types/node": "^20",
+    "@types/react": "^18",
+    "@types/react-dom": "^18",
+    "@typescript-eslint/eslint-plugin": "^6.14.0",
+    "eslint": "^8",
+    "eslint-config-next": "14.0.4",
+    "eslint-config-prettier": "^9.1.0",
+    "eslint-plugin-perfectionist": "^2.5.0",
+    "eslint-plugin-prettier": "^5.0.1",
+    "eslint-plugin-unused-imports": "^3.0.0",
+    "prettier": "^3.1.1",
+    "typescript": "^5"
+  }
+}
