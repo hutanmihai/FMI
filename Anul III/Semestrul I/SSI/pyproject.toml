@@ -1,0 +1,18 @@
+[tool.poetry]
+name = "ssi"
+version = "0.1.0"
+description = ""
+authors = ["hutanmihai <hutanmihai29@gmail.com>"]
+readme = "README.md"
+
+[tool.poetry.dependencies]
+python = "^3.11"
+pycryptodome = "^3.19.0"
+opencv-python = "^4.8.1.78"
+cryptography = "^41.0.5"
+requests = "^2.31.0"
+
+
+[build-system]
+requires = ["poetry-core"]
+build-backend = "poetry.core.masonry.api"
