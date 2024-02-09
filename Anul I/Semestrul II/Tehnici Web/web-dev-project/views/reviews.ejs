@@ -1,0 +1,136 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="utf-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta name="author" content="Hutan Mihai">
+    <link rel="stylesheet" type="text/css" href="../static/css/reviews.css">
+    <link rel="shortcut icon" href="../static/img/shortcut-icon.jpg">
+    <title>Cinemix</title>
+</head>
+<body>
+<header class="Header">
+    <%- include("./partials/navbar") %>
+</header>
+<main>
+    <section class="HowTo">
+        <h2 id="HowTo">9 Tips for Writing a Film Review</h2>
+        <div class="HowToContainer">
+            <ol class="ReviewTipsList">
+                <li class="ReviewTipsItem"><a class="ReviewTipsLink" href="#one">Watch the film atleast once.</a></li>
+                <li class="ReviewTipsItem"><a class="ReviewTipsLink" href="#two">Consider your audience.</a></li>
+                <li class="ReviewTipsItem"><a class="ReviewTipsLink" href="#three">Express your opinions and support
+                        your criticism.</a></li>
+                <li class="ReviewTipsItem"><a class="ReviewTipsLink" href="#four">Study the professionals.</a></li>
+                <li class="ReviewTipsItem"><a class="ReviewTipsLink" href="#five">Find your voice.</a></li>
+                <li class="ReviewTipsItem"><a class="ReviewTipsLink" href="#six">No spoilers!</a></li>
+                <li class="ReviewTipsItem"><a class="ReviewTipsLink" href="#seven">Know the Actor's portofolios.</a>
+                </li>
+                <li class="ReviewTipsItem"><a class="ReviewTipsLink" href="#eight">Call out directors, cinematographers,
+                        special effects.</a></li>
+                <li class="ReviewTipsItem"><a class="ReviewTipsLink" href="#nine">Reread, rewrite, edit.</a></li>
+
+            </ol>
+            <img src="https://www.transparentpng.com/thumb/popcorn/T3EwbO-popcorn-png.png"
+                 alt="Popcorn Png @transparentpng.com">
+        </div>
+    </section>
+    <section class="Text">
+        <h2 id="Text">Text</h2>
+        <div class="TextContainer">
+            <p id="one"></p>
+            <p id="two"></p>
+            <p id="three"></p>
+            <p id="five"></p>
+            <p id="four"></p>
+            <p id="six"></p>
+            <p id="seven"></p>
+            <p id="eight"></p>
+            <p id="nine"></p>
+
+        </div>
+    </section>
+    <section class="LatestRelease">
+        <h2 id="LatestRelease">Latest Release</h2>
+        <table class="LatestReleaseTable">
+            <tr>
+                <th>Name</th>
+                <th>Date</th>
+                <th>Stars</th>
+            </tr>
+            <tr>
+                <td>7 Days</td>
+                <td>25.03.2022</td>
+                <td>
+                    <form>
+                        <div><input type="checkbox" value="1star" checked><label>⭐</label></div>
+                        <div><input type="checkbox" value="2star" checked><label>⭐</label></div>
+                        <div><input type="checkbox" value="3star" checked><label>⭐</label></div>
+                        <div><input type="checkbox" value="4star" checked><label>⭐</label></div>
+                        <div><input type="checkbox" value="5star" checked><label>⭐</label></div>
+                    </form>
+                </td>
+            </tr>
+            <tr>
+                <td>Intregalde</td>
+                <td>18.03.2022</td>
+                <td>
+                    <form>
+                        <div><input type="checkbox" value="1star" checked><label>⭐</label></div>
+                        <div><input type="checkbox" value="2star" checked><label>⭐</label></div>
+                        <div><input type="checkbox" value="3star" checked><label>⭐</label></div>
+                        <div><input type="checkbox" value="4star" checked><label>⭐</label></div>
+                        <div><input type="checkbox" value="5star" checked><label>⭐</label></div>
+                    </form>
+                </td>
+            </tr>
+            <tr>
+                <td>The Outfit</td>
+                <td>18.03.2022</td>
+                <td>
+                    <form>
+                        <div><input type="checkbox" value="1star" checked><label>⭐</label></div>
+                        <div><input type="checkbox" value="2star" checked><label>⭐</label></div>
+                        <div><input type="checkbox" value="3star" checked><label>⭐</label></div>
+                        <div><input type="checkbox" value="4star" checked><label>⭐</label></div>
+                        <div><input type="checkbox" value="5star" checked><label>⭐</label></div>
+                    </form>
+                </td>
+            </tr>
+            <tr>
+                <td>Panama</td>
+                <td>18.03.2022</td>
+                <td>
+                    <form>
+                        <div><input type="checkbox" value="1star" checked><label>⭐</label></div>
+                        <div><input type="checkbox" value="2star" checked><label>⭐</label></div>
+                        <div><input type="checkbox" value="3star" checked><label>⭐</label></div>
+                        <div><input type="checkbox" value="4star" checked><label>⭐</label></div>
+                        <div><input type="checkbox" value="5star" checked><label>⭐</label></div>
+                    </form>
+                </td>
+            </tr>
+            <tr>
+                <td>The Batman</td>
+                <td>04.03.2022</td>
+                <td>
+                    <form>
+                        <div><input type="checkbox" value="1star" checked><label>⭐</label></div>
+                        <div><input type="checkbox" value="2star" checked><label>⭐</label></div>
+                        <div><input type="checkbox" value="3star" checked><label>⭐</label></div>
+                        <div><input type="checkbox" value="4star" checked><label>⭐</label></div>
+                        <div><input type="checkbox" value="5star" checked><label>⭐</label></div>
+                    </form>
+                </td>
+            </tr>
+
+
+        </table>
+    </section>
+
+</main>
+<%- include("./partials/footer") %>
+<script src="../static/js/reviews.js"></script>
+<script src="../static/js/shared.js"></script>
+</body>
+</html>    

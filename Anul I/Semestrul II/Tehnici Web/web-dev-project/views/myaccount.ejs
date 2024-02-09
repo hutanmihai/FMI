@@ -1,0 +1,47 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="utf-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta name="author" content="Hutan Mihai">
+    <link rel="stylesheet" type="text/css" href="../static/css/myaccount.css">
+    <link rel="shortcut icon" href="../static/img/shortcut-icon.jpg">
+    <title>Cinemix</title>
+</head>
+<body>
+<header class="Header">
+    <%- include("./partials/navbar") %>
+</header>
+<main>
+    <div class="Container">
+        <div class="ContainerUp">
+            <img class="Avatar" src="../static/img/avatar-icon.webp" alt="MyAvatar">
+            <div class="Details">
+                <div class="Email">
+                    <p>Your email adress:</p>
+                    <p id="email-conectat"></p>
+                </div>
+                <div class="change_password">
+                    <button id="changepassword" type="button">
+                        Generate another password
+                    </button>
+                    <p>Your password:</p>
+                    <p id="parola-curenta"></p>
+                </div>
+                <div class="delete_account">
+                    <button id="deleteaccount" type="button">
+                        Delete your account
+                    </button>
+                </div>
+            </div>
+        </div>
+    </div>
+</main>
+<div id="data-conectarii">
+
+</div>
+<%- include("./partials/footer") %>
+<script src="../static/js/myaccount.js"></script>
+<script src="../static/js/shared.js"></script>
+</body>
+</html>    

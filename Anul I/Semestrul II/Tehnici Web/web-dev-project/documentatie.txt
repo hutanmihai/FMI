@@ -1,0 +1,16 @@
+METODA GET:
+/ -> afiseaza pagina register
+/login -> afiseaza pagina login
+/index -> afiseaza pagina index
+/myaccount -> afiseaza pagina myaccount
+/reviews -> afiseaza pagina reviews
+/login-get -> se apeleaza cu fetch, parametrii email si pass sunt transmisi prin url, verifica daca user-ul exista
+
+METODA POST:
+/register-post -> se apeleaza direct din form, parametrii email si pass trimisi prin body, inregistreaza un nou user
+
+METODA PUT:
+/change-password -> se apeleaza cu fetch, parametrii email si pass sunt transmisi prin url, returneaza un obiect json ce contine noua parola generata, genereaza o parola noua automat
+
+METODA DELETE:
+/delete-account -> se apeleaza cu fetch, parametrii email si pass sunt transmisi prin url, sterge contul

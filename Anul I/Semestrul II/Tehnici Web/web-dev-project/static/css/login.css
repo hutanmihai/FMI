@@ -1,0 +1,141 @@
+*, *::after, *::before {
+    margin: 0;
+    padding: 0;
+    font-family: "Helvetica Neue", Helvetica, Arial, sans-serif;
+}
+
+:root {
+    --purple: #7f5af0;
+    --white: #fffffe;
+    --grey: #94a1b2;
+    --black: #16161a;
+    --black2: #010101;
+}
+
+html {
+    font-size: 16px;
+    background-color: var(--black);
+    color: var(--white);
+    overflow-x: hidden;
+}
+
+
+.Header {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    width: 100vw;
+    height: 10vh;
+    background-color: var(--grey);
+}
+
+.Logo {
+}
+
+.LogoPicture {
+    display: flex;
+    align-items: center;
+    height: 80%;
+    width: auto;
+}
+
+.RedirectButton {
+    width: 100px;
+    height: 30px;
+    border-radius: 10px;
+    margin-right: 12px;
+    background-color: var(--purple);
+    border: 1px solid var(--black2);
+    color: var(--white);
+    letter-spacing: 1px;
+    cursor: pointer;
+}
+
+main {
+    display: flex;
+    justify-content: center;
+}
+
+.Login {
+    display: flex;
+    flex-direction: column;
+    justify-content: space-evenly;
+    align-items: center;
+    margin-top: 5vh;
+    width: 75vw;
+    height: 70vh;
+}
+
+.LoginTitle {
+    display: none;
+}
+
+.LoginTitleMobile {
+    margin-left: 10%;
+    margin-right: 10%;
+}
+
+.LoginForm {
+    display: flex;
+    flex-direction: column;
+    justify-content: space-evenly;
+    align-items: center;
+    background-color: var(--black2);
+    height: 70%;
+    width: 40%;
+    border-radius: 10px;
+}
+
+.LoginInput {
+    height: 90%;
+    border-radius: 10px;
+    border-style: none;
+    background-color: var(--black);
+    height: 20%;
+    width: 85%;
+    text-indent: 10px;
+    letter-spacing: 1.5px;
+    outline-color: var(--purple);
+    color: var(--white);
+}
+
+.LoginButton {
+    width: 50%;
+    height: 15%;
+    border-radius: 10px;
+    background-color: transparent;
+    border: 1px solid var(--purple);
+    color: var(--white);
+    letter-spacing: 1px;
+    cursor: pointer;
+}
+
+::placeholder {
+    color: var(--white);
+    opacity: 0.7;
+}
+
+*::-webkit-scrollbar {
+    width: 14px;
+}
+
+*::-webkit-scrollbar-thumb {
+    background-color: var(--purple);
+}
+
+@media screen and (max-width: 1200px) {
+    .LoginForm {
+        width: 40vw;
+    }
+}
+
+
+@media screen and (max-width: 700px) {
+    .LoginForm {
+        width: 100%;
+    }
+}
+
+
+
+

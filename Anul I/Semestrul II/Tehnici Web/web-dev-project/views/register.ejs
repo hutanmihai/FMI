@@ -1,0 +1,36 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="utf-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta name="author" content="Hutan Mihai">
+    <link rel="stylesheet" type="text/css" href="../static/css/login.css">
+    <link rel="shortcut icon" href="../static/img/shortcut-icon.jpg">
+    <title>Cinemix</title>
+</head>
+<body>
+<header class="Header">
+    <a class="Logo" href="/">
+        <img class="LogoPicture" src="../static/img/logo.jpg" alt="Cinemix Logo"/>
+    </a>
+    <form action="login">
+        <button class="RedirectButton" type="submit">Log In</button>
+    </form>
+</header>
+<main>
+    <div class="Login">
+        <h1 class="LoginTitle">Connect to your Cinemix account</h1>
+        <h1 class="LoginTitleMobile">Sign Up</h1>
+        <form name="LoginForm" class="LoginForm" action="/register-post" onsubmit="return validateForm()" method="POST">
+            <input class="LoginInput" for="user" type="email" id="user" name="email" placeholder="email"/>
+            <input class="LoginInput" for="password" type="password" id="pass" name="pass" placeholder="password"/>
+            <button class="LoginButton" type="submit">Sign Up</button>
+        </form>
+    </div>
+</main>
+</body>
+<%- include("./partials/footer") %>
+<script src="../static/js/register.js"></script>
+<script src="../static/js/shared.js"></script>
+<script src="../static/js/form.js"></script>
+</html> 

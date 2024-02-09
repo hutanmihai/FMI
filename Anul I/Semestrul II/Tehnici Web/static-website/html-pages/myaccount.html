@@ -1,0 +1,85 @@
+<!DOCTYPE html>
+<html lang="en">
+    <head>
+        <meta charset="utf-8">
+        <meta name="viewport" content="width=device-width, initial-scale=1.0">
+        <meta name="author" content="Hutan Mihai">
+        <link rel="stylesheet" type="text/css" href="/css-files/myaccount.css">
+        <link rel="shortcut icon" href="/resources/shortcut-icon.jpg">
+        <title>Cinemix</title>
+    </head>
+    <body>
+        <header class="Header">
+            <a class="Logo" href="../index.html">
+                <img src="/resources/logo.jpg" alt="Logo">
+            </a>
+            <nav class="MainMenu">
+                <ul class="MainMenuList">
+                    <li class="MainMenuItem">
+                        <a href="../index.html" class="MainMenuLink">
+                            Home
+                        </a>
+                    </li>
+                    <li class="MainMenuItem">
+                        <a href="reviews.html" class="MainMenuLink">
+                            Reviews
+                        </a>
+                    </li>
+                    <li class="MainMenuItem MainMenuLink">
+                        <div class="DropDown">
+                            <button class="DropDownButton">Menu</button>
+                            <div class="DropDownContent">
+                                <a href="../index.html">Home</a>
+                                <a href="./reviews.html">Reviews</a>
+                                <a href="./login.html">SignOut</a>
+                            </div>
+                        </div>
+                    </li>
+                </ul>
+            </nav>
+            <div class="RightNav">
+                <div class="MyAccount">
+                    <a href="myaccount.html" class="MyAccountLink">
+                        <img class="MyAccountImg" src="/resources/portrait.png" alt="MyAccount">
+                    </a>
+                </div>
+                <div class="SignOut">
+                    <a href="login.html" class="SignOutLink">Sign Out</a>
+                </div>
+            </div>
+        </header>
+        <main>
+            <div class="Container">   
+                <div class="ContainerUp">
+                    <img class="Avatar" src="/resources/avatar-icon.webp" alt="MyAvatar">
+                    <div class="Details">    
+                        <div class="Username">
+                            <p>Username:</p>
+                            <p>interstellarfan241</p>
+                        </div>
+                        <div class="email">
+                            <p>Your email adress:</p>
+                            <p>robertmatache@gmail.com</p>
+                        </div>
+                    </div>
+                </div>
+                <div class="Description">
+                    <form class="DescriptionForm"> 
+                        <input class="DescriptionInput" type="text" placeholder="Add your description"/>
+                    </form>
+                </div>
+            </div>            
+        </main>
+        <footer>
+            <div class="ReviewApp">
+                <form class="ReviewAppForm">
+                    <p>Do you like our site?</p>
+                    <div class="flex">
+                        <input type="radio" name="LikeIT"><label>Yes</label>
+                        <input type="radio" name="LikeIT"><label>No</label>
+                    </div>
+                </form>
+            </div>
+        </footer>
+    </body>
+</html>    

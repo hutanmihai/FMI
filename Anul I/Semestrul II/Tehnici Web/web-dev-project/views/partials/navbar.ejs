@@ -1,0 +1,38 @@
+<a class="Logo" href="index">
+    <img src="../static/img/logo.jpg" alt="logo">
+</a>
+<nav class="MainMenu">
+    <ul class="MainMenuList">
+        <li class="MainMenuItem">
+            <a href="index" class="MainMenuLink">
+                Home
+            </a>
+        </li>
+        <li class="MainMenuItem">
+            <a href="reviews" class="MainMenuLink">
+                Reviews
+            </a>
+        </li>
+        <li class="MainMenuItem MainMenuLink">
+            <div class="DropDown">
+                <button class="DropDownButton">Menu</button>
+                <div class="DropDownContent">
+                    <a href="index">Home</a>
+                    <a href="reviews">Reviews</a>
+                    <a href="myaccount">MyAccount</a>
+                    <a href="login">SignOut</a>
+                </div>
+            </div>
+        </li>
+    </ul>
+</nav>
+<div class="RightNav">
+    <div class="MyAccount">
+        <a href="myaccount" class="MyAccountLink">
+            <img class="MyAccountImg" src="../static/img/portrait.png" alt="MyAccount">
+        </a>
+    </div>
+    <div class="SignOut">
+        <a href="login" class="SignOutLink" onclick="deleteLocal()">Sign Out</a>
+    </div>
+</div>
