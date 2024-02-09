@@ -1,0 +1,18 @@
+<!doctype html>
+<html lang="ro">
+<head>
+        <meta charset="UTF-8">
+        <link rel="stylesheet" type="text/css" href="{{ url_for('static', filename='styles.css') }}">
+        <title>OLX_Crawler</title>
+</head>
+<body>
+    {% for item in lista %}
+    <div>
+        <h2>{{ item[0] }}</h2>
+        {% for key in item[1] %}
+        <p>{{ key }}{{ item[1][key] }}</p>
+        {% endfor %}
+    </div>
+    {% endfor %}
+</body>
+</html>
