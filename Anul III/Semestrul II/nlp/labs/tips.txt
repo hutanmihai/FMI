@@ -1,0 +1,50 @@
+Rezumat Laborator 1 grupa 1 (Marius)
+
+
+Întrebări despre modul de notare
+Q: Dacă facem survey, cum ar trebui să arate, despre ce e vorba?
+A: Exemplu de survey: https://arxiv.org/pdf/2402.06196.pdf . Am ales acest articol și ca să vedeți starea actuală a domeniului în legătură cu LLMs. Ar trebui să arătați sistematic rezultatele dintr-o ramură a NLP.
+
+Q: Cât de mult ar trebui intrat în detaliu la un survey?
+A: Nu este nevoie să fie atât de riguros și de elaborat ca articolele din literatură.
+
+Q: Recomandări de cărți?
+A: Cea mai recentă ar fi SLP3 ( https://web.stanford.edu/~jurafsky/slp3/ ), apoi mai general AIMA (dar ultima ediție e "veche" pt NLP, din 2020; https://aima.cs.berkeley.edu/ ). Pentru introducere în lingvistică, recomand cartea Language Files (am pus ediția 12 pe Teams). Ping us dacă aveți nevoie de ajutor să faceți rost de cărți 😇️
+
+Q: Un plan de învățat ce e în acele cărți?
+A: Poate fi prea mult dacă ai începe cu începutul. O variantă e să începi cu cele mai recente lucruri care te interesează și de acolo să faci backtracking pe ce nu cunoști. De asemenea... ÎNTREBAȚI, ÎNTREBAȚI, ÎNTREBAȚI! De asta suntem aici :)
+
+
+Întrebări despre implementări
+Q: Dacă e să reproducem un articol din literatură, putem lua codul autorilor sau trebuie reimplementat de la 0? Dacă luăm codul existent, unde mai e originalitatea? Cu ce am putea contribui în domeniu? Ce ne facem dacă în articol ei au antrenat pe multe GPUs și noi nu avem astfel de resurse?
+A: Ca exemplu de reprodus experimente, vezi https://repronlp.github.io/ .
+Pentru ediția din 2023, vezi https://aclanthology.org/volumes/2023.humeval-1/ ( https://humeval.github.io/2023/ ).
+Pentru ediția din 2022, vezi https://aclanthology.org/volumes/2022.inlg-genchal/ ( https://reprogen.github.io/2022/accepted-papers/ ).
+
+Dacă ne uităm pe acele articole, vedem că apar probleme chiar și în condițiile în care avem toate datele și tot codul. Zona asta e "active research area", e mult loc de îmbunătățire.
+
+În legătură cu ultimele 2 întrebări, fac shameless plug (Marius): https://ceur-ws.org/Vol-3473/paper44.pdf
+Legat de resurse, am obținut rezultate bune antrenând/făcând inferență doar pe un laptop obișnuit. Puteți încerca modele mai mici și chiar și așa, ar trebui să obțineți rezultate acceptabile.
+Legat de originalitate, am venit cu o idee de implementat relation extraction folosind doar modele de NER și postprocesare pe ideea că era ineficient și/sau complicat de adaptat codul altcuiva. De ce? Spre deosebire de NER, pentru relation extraction nu (prea) există implementări în biblioteci deoarece sunt foarte multe particularități și depinde de fiecare caz în parte. Detalii despre NER mai jos/în alte laboratoare/cursuri.
+
+
+Q: Ce pretenții sunt de la shared tasks, ce ar trebui să facem să începem cercetarea în domeniu?
+A: Vedeți shared tasks cu deadlines mai permisive
+
+
+Alte întrebări
+Q: Dacă LLMs se descurcă așa bine, ce mai e de făcut în domeniu?
+A: Vezi shared tasks de anul acesta, survey-ul de la început și această prezentare de la Evalita: https://drive.google.com/file/d/1pe5jrYP_BPdpSSGPdvByNTZvRsJlRX86/view
+TL;DR încă sunt destule probleme și cu LLM-urile, nu s-a terminat (nici pe departe) domeniul. Chiar dacă s-au rezolvat multe probleme (în mare parte), au apărut altele.
+
+O problemă majoră de actualitate este contaminarea modelelor. Ideea ar fi să nu evaluezi pe seturi de date publice pt că modelele a la GPT-4 au făcut scrape la "tot internetul", deci probabil au văzut deja și exemplele pe care ai testa (dacă le-ai publicat). Multe modele de acum se evaluează pe benchmark-ul HF4 ( https://huggingface.co/spaces/HuggingFaceH4/open_llm_leaderboard ), aici e alt loc unde puteți găsi ce mai e nou în domeniu. Pe de altă parte, din unele discuții pare că și multe modele din acest benchmark suferă de data contamination. Așadar, mai e mult până se rezolvă această problemă.
+Un articol în glumă pe tema asta: https://arxiv.org/pdf/2309.08632.pdf
+
+Q: LLMs nu gândesc, se comportă ca niște hash tables imense. Corect?
+A: Dacă primeam această întrebare acum 1-2 săptămâni, eram "mai de acord". Între timp, am dat de acest articol acceptat ca poster la ICLR 2023 ( https://arxiv.org/abs/2210.13382 ) care arată că o rețea cu arhitectură GPT nu tocește, ci pare să formeze o reprezentare internă pentru ce are de făcut. Perturbând anumite straturi din rețea, ei arată că acea reprezentare este validă și "face ce trebuie", nu doar tocește.
+Pe de altă parte, acela este un exemplu "de jucărie" ca să fie mai ușor de analizat ce se întâmplă în straturile rețelei. În task-uri mai complicate, din ce am observat cu participarea la SemEval (task 7) de anul acesta, rețelele tot au tendința să formeze euristici pentru a ajunge "mai simplu" la un răspuns, ceea ce ar însemna că reprezentările pe care le învață nu sunt corecte în toate situațiile. Cu alte cuvinte, chiar dacă nu e "toceală", nu înseamnă că învață ce ne-am aștepta noi să învețe.
+
+
+
+
+
